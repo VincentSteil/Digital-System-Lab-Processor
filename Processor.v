@@ -130,9 +130,18 @@ module Processor(
 	Complete the above parameter list for In/Equality, Goto Address, Goto Idle, function start, Return from
 	function, and Dereference operations.
 	*/
-	………………..
-	FILL IN THIS AREA
-	……………….
+	IF_A_EQUALITY_B_GOTO = 8'h33;
+	IF_A_EQUALITY_B_GOTO_0 = 8'h34;
+	IF_A_EQUALITY_B_GOTO_1 = 8'h35;
+	IF_A_EQUALITY_B_GOTO_2 = 8'h36;
+	IF_A_EQUALITY_B_GOTO_3 = 8'h37;
+	GOTO = 8'h38;
+	FUNCTION_START = 8'h39;
+	RETURN = 8'h40;
+	RETURN_0 = 8'h41;
+	DE_REFERENCE_A = 8'h42;
+	DE_REFERENCE_B = 8'h43;
+	
 	//Sequential part of the State Machine.
 	reg [7:0] CurrState, NextState;
 	always@(posedge CLK) begin
@@ -332,9 +341,75 @@ module Processor(
 			Complete the above case statement for In/Equality, Goto Address, Goto Idle, function start, Return from
 			function, and Dereference operations.
 			*/
-			………………..
-			FILL IN THIS AREA
-			……………….
+			
+			//Preemptively increment PC in case of non-equality
+			IF_A_EQUALITY_B_GOTO: begin
+				NextState = IF_A_EQUALITY_B_GOTO_0;
+				NextProgCounter = CurrProgCounter + 2;
+			end
+			
+			//Fetch address from memory if equality holds
+			IF_A_EQUALITY_B_GOTO_0: begin
+				if (AluOut) begin
+					NextBusAddr  = ProgMemoryOut
+					NextState = IF_A_EQUALITY_B_GOTO_1;
+				end	
+				else begin
+					NextState = CHOOSE_OPP;
+				end	
+			end
+			
+			//Wait for address to be read from memory
+			IF_A_EQUALITY_B_GOTO_1: begin
+				NextState  = IF_A_EQUALITY_B_GOTO_2;
+			end
+			
+			//Assign the new program counter value
+			IF_A_EQUALITY_B_GOTO_2: begin
+				NextState  = IF_A_EQUALITY_B_GOTO_3;
+				NextProgCounter  = BusDataIn;
+			end
+			
+			//Wait for the new program counter value to settle
+			IF_A_EQUALITY_B_GOTO_3: begin
+				NextState  = CHOOSE_OPP;
+			end
+			
+			//Start get thread sequence
+			GOTO: begin
+				NextState  = GET_THREAD_START_ADDR_1;
+			end
+			
+			//Save PC then start get thread sequence
+			FUNCTION_START: begin
+				NextProgContext = CurrProgCounter + 2;
+				NextState  = GET_THREAD_START_ADDR_1;			
+			end
+			
+			//Set PC based on rog context
+			RETURN: begin
+				NextProgCounter  = CurrProgContext;
+				NextState  = RETURN_0;
+			end
+			
+			//Wait for the new program counter value to settle
+			RETURN_0: begin
+				NextState  = CHOOSE_OPP;
+			end
+			
+			//Set bus address to A, initialise load to A
+			DE_REFERENCE_A: begin
+				NextBusAddr = CurrRegA;
+				NextRegSelect = 1'b0;
+				NextState  = READ_FROM_MEM_1;
+			end
+			
+			//Set bus address to B, initialise load to B
+			DE_REFERENCE_B: begin
+				NextBusAddr = CurrRegB;
+				NextRegSelect = 1'b1;
+				NextState  = READ_FROM_MEM_1;
+			end
 			
 		endcase 
 	end
