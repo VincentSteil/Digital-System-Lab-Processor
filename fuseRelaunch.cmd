@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "D:/DSL4/Digital-System-Lab-Processor-PS2/SIM_Processor_Top_isim_beh.exe" -prj "D:/DSL4/Digital-System-Lab-Processor-PS2/SIM_Processor_Top_beh.prj" "work.SIM_Processor_Top" "work.glbl" 

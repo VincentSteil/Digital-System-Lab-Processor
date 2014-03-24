@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "D:/DSL4/Digital-System-Lab-Processor-PS2/SIM_Processor_Top.xst" -ofn "D:/DSL4/Digital-System-Lab-Processor-PS2/SIM_Processor_Top.syr" 

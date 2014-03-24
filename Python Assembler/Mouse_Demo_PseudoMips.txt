@@ -1,0 +1,14 @@
+Processor_Init
+idle
+
+Mouse_ISR
+lw A A1
+lw B A2
+sw A D0
+sw B D1
+lw A A3
+sw A C0
+idle
+
+Timer_ISR
+idle

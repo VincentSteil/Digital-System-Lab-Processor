@@ -1,0 +1,162 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Reading design: SIM_Processor_Top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "SIM_Processor_Top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "SIM_Processor_Top"
+Output Format                      : NGC
+Target Device                      : xc3s100e-5-cp132
+
+---- Source Options
+Top Module Name                    : SIM_Processor_Top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "Counter.v" in library work
+Compiling verilog file "PulseGen.v" in library work
+Module <Counter> compiled
+Compiling verilog file "Packet_Gen.v" in library work
+Module <PulseGen> compiled
+Compiling verilog file "MouseTransmitter.v" in library work
+Module <Packet_Gen> compiled
+Compiling verilog file "MouseReceiver.v" in library work
+Module <MouseTransmitter> compiled
+Compiling verilog file "MouseMasterSM.v" in library work
+Module <MouseReceiver> compiled
+Compiling verilog file "SevenSegmentDisplay.v" in library work
+Module <MouseMasterSM> compiled
+Compiling verilog file "MouseTransceiver.v" in library work
+Module <SevenSegmentDisplay> compiled
+Compiling verilog file "IR_Transmitter_SM.v" in library work
+Module <MouseTransceiver> compiled
+Compiling verilog file "ALU.v" in library work
+Module <IR_Transmitter_SM> compiled
+Compiling verilog file "Timer.v" in library work
+Module <ALU> compiled
+Compiling verilog file "ROM.v" in library work
+Module <Timer> compiled
+Compiling verilog file "RAM.v" in library work
+Module <ROM> compiled
+Compiling verilog file "Processor.v" in library work
+Module <RAM> compiled
+Compiling verilog file "IO_Bus_SevenSeg.v" in library work
+Module <Processor> compiled
+Compiling verilog file "IO_Bus_Mouse.v" in library work
+Module <IO_Bus_SevenSeg> compiled
+Compiling verilog file "IO_Bus_LEDs.v" in library work
+Module <IO_Bus_Mouse> compiled
+Compiling verilog file "CarSelect_MainFSM.v" in library work
+Module <IO_Bus_LEDs> compiled
+Compiling verilog file "Processor_Top.v" in library work
+Module <CarSelect_MainFSM> compiled
+Compiling verilog file "SIM_Processor_Top.v" in library work
+Module <Processor_Top> compiled
+Module <SIM_Processor_Top> compiled
+No errors in compilation
+Analysis of file <"SIM_Processor_Top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+ERROR:Xst - "SIM_Processor_Top.v" line 25: Module <SIM_Processor_Top> has no port.
+--> 
+
+Total memory usage is 248116 kilobytes
+
+Number of errors   :    1 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

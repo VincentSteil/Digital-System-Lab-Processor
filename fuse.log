@@ -1,0 +1,66 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o D:/DSL4/Digital-System-Lab-Processor-PS2/SIM_Processor_Top_isim_beh.exe -prj D:/DSL4/Digital-System-Lab-Processor-PS2/SIM_Processor_Top_beh.prj work.SIM_Processor_Top work.glbl 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/Counter.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/PulseGen.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/Packet_Gen.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/MouseTransmitter.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/MouseReceiver.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/MouseMasterSM.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/SevenSegmentDisplay.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/MouseTransceiver.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/IR_Transmitter_SM.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/ALU.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/Timer.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/ROM.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/RAM.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/Processor.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/IO_Bus_SevenSeg.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/IO_Bus_Mouse.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/IO_Bus_LEDs.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/CarSelect_MainFSM.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/Processor_Top.v" into library work
+Analyzing Verilog file "D:/DSL4/Digital-System-Lab-Processor-PS2/SIM_Processor_Top.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module ALU
+Compiling module Processor
+Compiling module RAM
+Compiling module ROM
+Compiling module SevenSegmentDisplay
+Compiling module IO_Bus_SevenSeg
+Compiling module IO_Bus_LEDs
+Compiling module Timer
+Compiling module MouseTransmitter
+Compiling module MouseReceiver
+Compiling module MouseMasterSM
+Compiling module MouseTransceiver
+Compiling module IO_Bus_Mouse
+Compiling module Counter(Counter_Width=23,Counter...
+Compiling module Counter(Counter_Width=10,Counter...
+Compiling module PulseGen(Counter_Width=10,Counte...
+Compiling module Packet_Gen(Pulse_Counter_Width=8...
+Compiling module IR_Transmitter_SM
+Compiling module Counter(Counter_Width=10,Counter...
+Compiling module PulseGen(Counter_Width=10,Counte...
+Compiling module Packet_Gen(Pulse_Counter_Width=8...
+Compiling module IR_Transmitter_SM(Counter_Max=66...
+Compiling module Packet_Gen(Pulse_Counter_Width=8...
+Compiling module IR_Transmitter_SM(StartBurstSize...
+Compiling module Counter(Counter_Width=10,Counter...
+Compiling module PulseGen(Counter_Width=10,Counte...
+Compiling module Packet_Gen(Pulse_Counter_Width=8...
+Compiling module IR_Transmitter_SM(Counter_Max=62...
+Compiling module CarSelect_MainFSM
+Compiling module Processor_Top
+Compiling module SIM_Processor_Top
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 24 sub-compilation(s) to finish...
+Compiled 32 Verilog Units
+Built simulation executable D:/DSL4/Digital-System-Lab-Processor-PS2/SIM_Processor_Top_isim_beh.exe
+Fuse Memory Usage: 29104 KB
+Fuse CPU Usage: 1122 ms
