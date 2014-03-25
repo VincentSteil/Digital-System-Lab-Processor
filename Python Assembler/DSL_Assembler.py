@@ -21,6 +21,9 @@ sw TR1 target_mem
 add SR1 SR2 TR1
 sub SR1 SR2 TR1
 mul SR1 SR2 TR1
+or  SR1 SR2 TR1
+xor SR1 SR2 TR1
+and SR1 SR2 TR1
 sll SR1 TR1
 srl SR1 TR1
 inc SR1 TR1
@@ -103,6 +106,15 @@ class Instruction:
 
         elif instruction == "sub":
             self.instruction_ROM = "1" + str(ord(target_register) - 61)
+
+        elif instruction == "or":
+            self.instruction_ROM = "C" + str(ord(target_register) - 61)
+
+        elif instruction == "and":
+            self.instruction_ROM = "D" + str(ord(target_register) - 61)
+
+        elif instruction == "xor":
+            self.instruction_ROM = "E" + str(ord(target_register) - 61)
 
         elif instruction == "mul":
             self.instruction_ROM = "2" + str(ord(target_register) - 61)
@@ -187,7 +199,7 @@ def read_data(infile):
             line = line.split()
             # skip empty lines
             if len(line) > 0:
-                if line[0] not in ["lw","sw","add","sub","mul","sll","srl","inc","dec","beq","bgt","blt","idle","return","deref","goto", "jr"]:
+                if line[0] not in ["lw","sw","add","sub","mul","or","xor","and","sll","srl","inc","dec","beq","bgt","blt","idle","return","deref","goto", "jr"]:
                     # assume we are starting a new function
                     Function.functions[line[0]] = Function(line[0])
                     Function.current_function = line[0]
@@ -196,7 +208,7 @@ def read_data(infile):
                     assert Function.current_function in Function.functions
                     Function.functions[Function.current_function].instructions.append(Instruction(instruction = line[0], target_register = line[1], memory_addr = line[2]))
 
-                elif line[0] in ["add","sub","mul"]:
+                elif line[0] in ["add","sub","mul","or","and","xor"]:
                     assert Function.current_function in Function.functions
                     Function.functions[Function.current_function].instructions.append(Instruction(instruction = line[0], source_register1 = line[1], source_register2 = line[2], target_register = line[3]))
 
