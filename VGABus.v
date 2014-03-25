@@ -49,6 +49,8 @@ initial BUFFER_ADDR = 15'b0;
 initial BUFFER_DATA = 1'b0;
 initial BUFFER_WE = 1'b0;
 initial ERASE = 1'b0;
+initial CONFIG_COLOURS[15:8] = 8'b00110011;
+initial CONFIG_COLOURS[7:0] = 8'b11001100;
 
 wire [7:0] test;
 assign test = 8'hB2;
@@ -60,6 +62,8 @@ wire DATA_IN;
 assign X_ADDR = (ADDR == 8'hB0) ? 1'b1 : 1'b0;
 assign Y_ADDR = (ADDR == 8'hB1) ? 1'b1 : 1'b0;
 assign DATA_IN = (ADDR == 8'hB2) ? 1'b1 : 1'b0;
+assign BACKGROUND = (ADDR == 8'hB3) ? 1'b1 : 1'b0;
+assign FOREGROUND = (ADDR == 8'hB4) ? 1'b1 : 1'b0;
 
 Frame_Buffer FrameBuffer (
     .A_CLK(CLK), 
@@ -87,23 +91,37 @@ Frame_Buffer FrameBuffer (
 	 always@ (posedge CLK) begin
 		 CURRENT_BUFFER_WE <= BUFFER_WE;
 		 CURRENT_BUFFER_DATA <= BUFFER_DATA;
-		 CONFIG_COLOURS[15:8] <= 8'b00110011;
-		 CONFIG_COLOURS[7:0] <= 8'b11001100;
+		 CONFIG_COLOURS <= CONFIG_COLOURS;
+		 //CONFIG_COLOURS[7:0] <= 8'b11001100;
+		 //CONFIG_COLOURS[15:8] <= 8'b00110011;
+		 
 		 //BUFFER_WE <= 1'b0;
 		 if (BUS_WE)begin
+				if (BACKGROUND)
+					begin
+						CONFIG_COLOURS[15:8] <= DATA;
+						CONFIG_COLOURS[7:0] <= CONFIG_COLOURS[7:0];
+						BUFFER_WE <= 1'b0; 
+					end
+				if (FOREGROUND)
+					begin
+						CONFIG_COLOURS[7:0] <= DATA;
+						CONFIG_COLOURS[15:8] <= CONFIG_COLOURS[15:8];
+						BUFFER_WE <= 1'b0; 
+					end
 				if (X_ADDR)
 					begin
 						CURR_ADDR[7:0] <= DATA;
 						BUFFER_ADDR[14:8] <= BUFFER_ADDR[14:8];
 						BUFFER_WE <= 1'b0; 
 					end
-				else if (Y_ADDR)
+				if (Y_ADDR)
 						begin
 						CURR_ADDR[14:8] <= DATA[6:0];
 						BUFFER_ADDR[7:0] <= BUFFER_ADDR[7:0];
 						BUFFER_WE <= 1'b0; 
 						end
-				else if (DATA_IN)
+				if (DATA_IN)
 						begin
 						LAST_ADDR <= CURR_ADDR;
 						BUFFER_ADDR <= CURR_ADDR;
