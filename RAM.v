@@ -43,7 +43,7 @@ module RAM(
 	reg [7:0] Mem [2**RAMAddrWidth-1:0];
 	
 	// Initialise the memory for data preloading, initialising variables, and declaring constants
-	initial  $readmemh("Complete_Demo_RAM3_LED.txt", Mem);
+	initial  $readmemh("RAM.txt", Mem);
 
 	
 	// chip select to determine which IO device is being targetted on the bus

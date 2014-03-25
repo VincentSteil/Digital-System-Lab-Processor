@@ -59,7 +59,6 @@ module MouseMasterSM(
 	//State Control
 	reg [3:0] 	Curr_State, Next_State;
 	reg [23:0] 	Curr_Counter, Next_Counter;
-	reg [25:0]	Curr_Timeout_Counter, Next_Timeout_Counter;
 
 	//Transmitter Control
 	reg 			Curr_SendByte, Next_SendByte;
@@ -88,7 +87,6 @@ module MouseMasterSM(
 					Curr_Dx 					<= 8'h00;
 					Curr_Dy 					<= 8'h00;
 					Curr_SendInterrupt 	<= 1'b0;
-					Curr_Timeout_Counter <= 0;
 				end
 			else 
 				begin
@@ -101,7 +99,6 @@ module MouseMasterSM(
 					Curr_Dx 					<= Next_Dx;
 					Curr_Dy 					<= Next_Dy;
 					Curr_SendInterrupt 	<= Next_SendInterrupt;
-					Curr_Timeout_Counter <= Next_Timeout_Counter;
 				end
 		end
 	
@@ -117,7 +114,7 @@ module MouseMasterSM(
 			Next_Dx 					= Curr_Dx;
 			Next_Dy 					= Curr_Dy;
 			Next_SendInterrupt 	= 1'b0;
-			Next_Timeout_Counter = Curr_Timeout_Counter;
+//			Next_Timeout_Counter = Curr_Timeout_Counter;
 			
 			case(Curr_State)
 				//Initialise State - Wait here for 10ms before trying to initialise the mouse.
@@ -259,22 +256,11 @@ module MouseMasterSM(
 									begin
 										Next_State 					= 10;
 										Next_Status 				= BYTE_READ;
-										Next_Timeout_Counter 	= 0;	
 									end
 								else
 									Next_State 						= 0;					// actually reinit on corrupted byte
-									Next_Timeout_Counter 		= 0;
 							end
-						else if(Curr_Timeout_Counter == 50000000)		// reset device every 1ms
-							begin
-								Next_Timeout_Counter 			= 0;			 
-								Next_State							= 0;
-							end
-						else
-							Next_Timeout_Counter = Curr_Timeout_Counter + 1;
 						
-						
-
 						Next_ReadEnable 					= 1'b1;
 					end
 						

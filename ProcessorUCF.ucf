@@ -4,7 +4,7 @@
 # - rename the used signals according to the project
 
 # clock pin for Basys2 Board
-NET "CLK" LOC = "B8"; # Bank = 0, Signal name = MCLK
+NET "CLK" LOC = "M6"; # Bank = 0, Signal name = MCLK
 #NET "uclk" LOC = "M6"; # Bank = 2, Signal name = UCLK
 #NET "mclk" CLOCK_DEDICATED_ROUTE = FALSE;
 #NET "uclk" CLOCK_DEDICATED_ROUTE = FALSE;

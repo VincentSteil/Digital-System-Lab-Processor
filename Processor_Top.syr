@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.31 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.32 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Reading design: Processor_Top.prj
 
@@ -473,12 +473,12 @@ Module <ALU> is correct for synthesis.
 Analyzing module <RAM> in library <work>.
 	RAMAddrWidth = 32'sb00000000000000000000000000000111
 	RAMBaseAddr = 32'sb00000000000000000000000000000000
-INFO:Xst:2546 - "RAM.v" line 46: reading initialization file "Complete_Demo_RAM3_LED.txt".
+INFO:Xst:2546 - "RAM.v" line 46: reading initialization file "RAM.txt".
 Module <RAM> is correct for synthesis.
  
 Analyzing module <ROM> in library <work>.
 	ROMAddrWidth = 32'sb00000000000000000000000000001000
-INFO:Xst:2546 - "ROM.v" line 35: reading initialization file "Complete_Demo_ROM3_LED.txt".
+INFO:Xst:2546 - "ROM.v" line 35: reading initialization file "VGA_Mouse_Test.txt".
 Module <ROM> is correct for synthesis.
  
 Analyzing module <IO_Bus_SevenSeg> in library <work>.
@@ -927,8 +927,8 @@ Synthesizing Unit <MouseMasterSM>.
     Found finite state machine <FSM_3> for signal <Curr_State>.
     -----------------------------------------------------------------------
     | States             | 13                                             |
-    | Transitions        | 35                                             |
-    | Inputs             | 8                                              |
+    | Transitions        | 34                                             |
+    | Inputs             | 7                                              |
     | Outputs            | 15                                             |
     | Clock              | CLK                       (rising_edge)        |
     | Reset              | RESET                     (positive)           |
@@ -945,13 +945,11 @@ Synthesizing Unit <MouseMasterSM>.
     Found 1-bit register for signal <Curr_SendByte>.
     Found 1-bit register for signal <Curr_SendInterrupt>.
     Found 8-bit register for signal <Curr_Status>.
-    Found 26-bit register for signal <Curr_Timeout_Counter>.
     Found 24-bit adder for signal <Next_Counter$addsub0000> created at line 132.
-    Found 26-bit adder for signal <Next_Timeout_Counter$addsub0000> created at line 274.
     Summary:
 	inferred   1 Finite State Machine(s).
-	inferred  85 D-type flip-flop(s).
-	inferred   2 Adder/Subtractor(s).
+	inferred  59 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
 Unit <MouseMasterSM> synthesized.
 
 
@@ -1349,27 +1347,18 @@ Unit <IO_Bus_Mouse> synthesized.
 
 Synthesizing Unit <VGABus>.
     Related source file is "VGABus.v".
-WARNING:Xst:647 - Input <ADDR> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:646 - Signal <DATA_IN> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-    Register <BUFFER_ADDR<10>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Register <BUFFER_ADDR<11>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Register <BUFFER_ADDR<12>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Register <BUFFER_ADDR<13>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Register <BUFFER_ADDR<14>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Register <BUFFER_ADDR<1>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Register <BUFFER_ADDR<2>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Register <BUFFER_ADDR<3>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Register <BUFFER_ADDR<4>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Register <BUFFER_ADDR<5>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Register <BUFFER_ADDR<6>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Register <BUFFER_ADDR<7>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Register <BUFFER_ADDR<8>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Register <BUFFER_ADDR<9>> equivalent to <BUFFER_ADDR<0>> has been removed
-    Found 1-bit register for signal <BUFFER_ADDR<0>>.
+WARNING:Xst:646 - Signal <test> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <CURRENT_BUFFER_WE> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <CURRENT_BUFFER_DATA> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 15-bit register for signal <BUFFER_ADDR>.
     Found 1-bit register for signal <BUFFER_DATA>.
     Found 1-bit register for signal <BUFFER_WE>.
+    Found 15-bit register for signal <CURR_ADDR>.
+    Found 1-bit register for signal <ERASE>.
+    Found 15-bit register for signal <ERASE_ADDR>.
+    Found 15-bit register for signal <LAST_ADDR>.
     Summary:
-	inferred   3 D-type flip-flop(s).
+	inferred  63 D-type flip-flop(s).
 Unit <VGABus> synthesized.
 
 
@@ -1530,14 +1519,13 @@ Macro Statistics
  256x8-bit ROM                                         : 1
 # Multipliers                                          : 1
  8x8-bit multiplier                                    : 1
-# Adders/Subtractors                                   : 24
+# Adders/Subtractors                                   : 23
  10-bit adder                                          : 4
  10-bit subtractor                                     : 2
  16-bit adder                                          : 2
  20-bit adder                                          : 1
  23-bit adder                                          : 1
  24-bit adder                                          : 1
- 26-bit adder                                          : 1
  32-bit adder                                          : 1
  4-bit adder                                           : 5
  8-bit adder                                           : 3
@@ -1547,15 +1535,15 @@ Macro Statistics
  10-bit up counter                                     : 2
  32-bit up counter                                     : 2
  8-bit up counter                                      : 4
-# Registers                                            : 163
- 1-bit register                                        : 97
+# Registers                                            : 194
+ 1-bit register                                        : 127
  10-bit register                                       : 6
+ 15-bit register                                       : 2
  16-bit register                                       : 3
  2-bit register                                        : 2
  20-bit register                                       : 1
  23-bit register                                       : 1
  24-bit register                                       : 1
- 26-bit register                                       : 1
  32-bit register                                       : 1
  4-bit register                                        : 13
  7-bit register                                        : 8
@@ -1741,8 +1729,6 @@ Optimizing FSM <SevenSegBus/SevenSegDisplay/digit/FSM> on signal <digit[1:2]> wi
  011   | 10
  100   | unreached
 -------------------
-WARNING:Xst:1426 - The value init of the FF/Latch BUFFER_WE hinder the constant cleaning in the block VGAIOBus.
-   You should achieve better results by setting this init to 1.
 WARNING:Xst:1710 - FF/Latch <CurrProgCounterOffset_1> (without init value) has a constant value of 0 in block <cpu>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cval_0> (without init value) has a constant value of 0 in block <SignalGenerator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cval_1> (without init value) has a constant value of 0 in block <SignalGenerator>. This FF/Latch will be trimmed during the optimization process.
@@ -1752,13 +1738,39 @@ WARNING:Xst:1710 - FF/Latch <cval_10> (without init value) has a constant value 
 WARNING:Xst:1710 - FF/Latch <cval_11> (without init value) has a constant value of 0 in block <SignalGenerator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cval_14> (without init value) has a constant value of 0 in block <SignalGenerator>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cval_15> (without init value) has a constant value of 0 in block <SignalGenerator>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <BUFFER_ADDR_0> has a constant value of 0 in block <VGAIOBus>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <HCounter_0> of sequential type is unconnected in block <SignalGenerator>.
 WARNING:Xst:2677 - Node <HCounter_1> of sequential type is unconnected in block <SignalGenerator>.
 WARNING:Xst:2677 - Node <VCounter_0> of sequential type is unconnected in block <SignalGenerator>.
 WARNING:Xst:2677 - Node <VCounter_1> of sequential type is unconnected in block <SignalGenerator>.
 WARNING:Xst:2677 - Node <VCounter_9> of sequential type is unconnected in block <SignalGenerator>.
 WARNING:Xst:2404 -  FFs/Latches <CurrProgCounterOffset<1:1>> (without init value) have a constant value of 0 in block <Processor>.
+
+Synthesizing (advanced) Unit <Frame_Buffer>.
+INFO:Xst:3226 - The RAM <Mram_Mem> will be implemented as a BLOCK RAM, absorbing the following register(s): <A_DATA_OUT> <B_DATA>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32768-word x 1-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <A_CLK>         | rise     |
+    |     weA            | connected to signal <A_WE>          | high     |
+    |     addrA          | connected to signal <A_ADDR>        |          |
+    |     diA            | connected to signal <A_DATA_IN>     |          |
+    |     doA            | connected to signal <A_DATA_OUT>    |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 32768-word x 1-bit                  |          |
+    |     mode           | write-first                         |          |
+    |     clkB           | connected to signal <B_CLK>         | rise     |
+    |     addrB          | connected to signal <B_ADDR>        |          |
+    |     doB            | connected to signal <B_DATA>        |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <Frame_Buffer> synthesized (advanced).
 
 Synthesizing (advanced) Unit <Processor>.
 	Found pipelined multiplier on signal <ALU0/Out_mult0001>:
@@ -1810,32 +1822,6 @@ Unit <ROM> synthesized (advanced).
 Synthesizing (advanced) Unit <SevenSegmentDisplay>.
 INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom__old_cathode_4> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
 Unit <SevenSegmentDisplay> synthesized (advanced).
-
-Synthesizing (advanced) Unit <VGABus>.
-INFO:Xst:3226 - The RAM <FrameBuffer/Mram_Mem> will be implemented as a BLOCK RAM, absorbing the following register(s): <FrameBuffer/B_DATA>
-    -----------------------------------------------------------------------
-    | ram_type           | Block                               |          |
-    -----------------------------------------------------------------------
-    | Port A                                                              |
-    |     aspect ratio   | 32768-word x 1-bit                  |          |
-    |     mode           | read-first                          |          |
-    |     clkA           | connected to signal <CLK>           | rise     |
-    |     weA            | connected to signal <BUFFER_WE>     | high     |
-    |     addrA          | connected to signal <BUFFER_ADDR>   |          |
-    |     diA            | connected to signal <BUFFER_DATA>   |          |
-    -----------------------------------------------------------------------
-    | optimization       | speed                               |          |
-    -----------------------------------------------------------------------
-    | Port B                                                              |
-    |     aspect ratio   | 32768-word x 1-bit                  |          |
-    |     mode           | write-first                         |          |
-    |     clkB           | connected to signal <DPR_CLK>       | rise     |
-    |     addrB          | connected to signal <B_ADDR>        |          |
-    |     doB            | connected to signal <B_DATA>        |          |
-    -----------------------------------------------------------------------
-    | optimization       | speed                               |          |
-    -----------------------------------------------------------------------
-Unit <VGABus> synthesized (advanced).
 WARNING:Xst:2677 - Node <HCounter_0> of sequential type is unconnected in block <VGA_Sig_Gen>.
 WARNING:Xst:2677 - Node <HCounter_1> of sequential type is unconnected in block <VGA_Sig_Gen>.
 WARNING:Xst:2677 - Node <VCounter_0> of sequential type is unconnected in block <VGA_Sig_Gen>.
@@ -1854,14 +1840,13 @@ Macro Statistics
  16x8-bit ROM                                          : 1
 # Multipliers                                          : 1
  8x8-bit registered multiplier                         : 1
-# Adders/Subtractors                                   : 24
+# Adders/Subtractors                                   : 23
  10-bit adder                                          : 4
  10-bit subtractor                                     : 2
  16-bit adder                                          : 2
  20-bit adder                                          : 1
  23-bit adder                                          : 1
  24-bit adder                                          : 1
- 26-bit adder                                          : 1
  32-bit adder                                          : 1
  4-bit adder                                           : 5
  8-bit adder                                           : 3
@@ -1871,8 +1856,8 @@ Macro Statistics
  10-bit up counter                                     : 2
  32-bit up counter                                     : 2
  8-bit up counter                                      : 4
-# Registers                                            : 739
- Flip-Flops                                            : 739
+# Registers                                            : 773
+ Flip-Flops                                            : 773
 # Comparators                                          : 32
  10-bit comparator greater                             : 4
  10-bit comparator less                                : 5
@@ -1897,9 +1882,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1426 - The value init of the FF/Latch BUFFER_WE hinder the constant cleaning in the block VGABus.
-   You should achieve better results by setting this init to 1.
-WARNING:Xst:1293 - FF/Latch <BUFFER_ADDR_0> has a constant value of 0 in block <VGABus>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <cval_2> in Unit <VGA_Sig_Gen> is equivalent to the following 7 FFs/Latches, which will be removed : <cval_3> <cval_6> <cval_7> <cval_8> <cval_9> <cval_12> <cval_13> 
 INFO:Xst:2261 - The FF/Latch <cval_0> in Unit <VGA_Sig_Gen> is equivalent to the following 7 FFs/Latches, which will be removed : <cval_1> <cval_4> <cval_5> <cval_10> <cval_11> <cval_14> <cval_15> 
 WARNING:Xst:1710 - FF/Latch <cval_0> (without init value) has a constant value of 0 in block <VGA_Sig_Gen>. This FF/Latch will be trimmed during the optimization process.
@@ -1940,6 +1922,8 @@ Optimizing unit <Packet_Gen_4> ...
 
 Optimizing unit <VGA_Sig_Gen> ...
 
+Optimizing unit <VGABus> ...
+
 Optimizing unit <IR_Transmitter_SM_1> ...
 
 Optimizing unit <IR_Transmitter_SM_2> ...
@@ -1953,8 +1937,7 @@ Optimizing unit <CarSelect_MainFSM> ...
 Mapping all equations...
 Building and optimizing final netlist ...
 INFO:Xst:2261 - The FF/Latch <MouseBus/mouse/T/ClkMouseInDly> in Unit <Processor_Top> is equivalent to the following FF/Latch, which will be removed : <MouseBus/mouse/R/ClkMouseInDly> 
-Found area constraint ratio of 100 (+ 5) on block Processor_Top, actual ratio is 96.
-FlipFlop cpu/CurrBusDataOutWE has been replicated 1 time(s)
+Found area constraint ratio of 100 (+ 5) on block Processor_Top, actual ratio is 94.
 
 Final Macro Processing ...
 
@@ -1962,8 +1945,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 832
- Flip-Flops                                            : 832
+# Registers                                            : 866
+ Flip-Flops                                            : 866
 
 =========================================================================
 
@@ -1992,38 +1975,37 @@ Design Statistics
 # IOs                              : 35
 
 Cell Usage :
-# BELS                             : 2476
-#      BUF                         : 1
+# BELS                             : 2380
 #      GND                         : 1
 #      INV                         : 32
-#      LUT1                        : 272
-#      LUT2                        : 163
+#      LUT1                        : 247
+#      LUT2                        : 168
 #      LUT2_D                      : 5
-#      LUT2_L                      : 10
-#      LUT3                        : 382
-#      LUT3_D                      : 8
-#      LUT3_L                      : 18
-#      LUT4                        : 646
-#      LUT4_D                      : 64
-#      LUT4_L                      : 53
-#      MUXCY                       : 391
-#      MUXF5                       : 74
+#      LUT2_L                      : 7
+#      LUT3                        : 394
+#      LUT3_D                      : 7
+#      LUT3_L                      : 19
+#      LUT4                        : 615
+#      LUT4_D                      : 65
+#      LUT4_L                      : 55
+#      MUXCY                       : 359
+#      MUXF5                       : 76
 #      MUXF6                       : 1
 #      VCC                         : 1
-#      XORCY                       : 354
-# FlipFlops/Latches                : 832
+#      XORCY                       : 328
+# FlipFlops/Latches                : 866
 #      FD                          : 90
 #      FDC                         : 64
 #      FDCE                        : 120
-#      FDE                         : 55
+#      FDE                         : 113
 #      FDP                         : 4
 #      FDPE                        : 12
-#      FDR                         : 283
-#      FDRE                        : 119
+#      FDR                         : 256
+#      FDRE                        : 121
 #      FDRS                        : 50
 #      FDRSE                       : 6
 #      FDS                         : 19
-#      FDSE                        : 10
+#      FDSE                        : 11
 # RAMS                             : 4
 #      RAMB16_S1_S1                : 2
 #      RAMB16_S9                   : 2
@@ -2043,8 +2025,8 @@ Device utilization summary:
 Selected Device : 3s100ecp132-5 
 
  Number of Slices:                      872  out of    960    90%  
- Number of Slice Flip Flops:            832  out of   1920    43%  
- Number of 4 input LUTs:               1653  out of   1920    86%  
+ Number of Slice Flip Flops:            866  out of   1920    45%  
+ Number of 4 input LUTs:               1614  out of   1920    84%  
  Number of IOs:                          35
  Number of bonded IOBs:                  35  out of     83    42%  
  Number of BRAMs:                         4  out of      4   100%  
@@ -2069,12 +2051,12 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------+------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)  | Load  |
------------------------------------+------------------------+-------+
-CLK                                | BUFGP                  | 836   |
-VGAIOBus/SignalGenerator/VGA_CLK   | NONE(inst_LPM_FF)      | 3     |
------------------------------------+------------------------+-------+
+-----------------------------------+----------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)      | Load  |
+-----------------------------------+----------------------------+-------+
+CLK                                | BUFGP                      | 870   |
+VGAIOBus/SignalGenerator/VGA_CLK   | NONE(VGAIOBus/inst_LPM_FF1)| 3     |
+-----------------------------------+----------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
@@ -2082,8 +2064,7 @@ Asynchronous Control Signals Information:
 ---------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------+-------+
 Control Signal                                                                                                 | Buffer(FF name)                                                            | Load  |
 ---------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------+-------+
-RESET                                                                                                          | IBUF                                                                       | 107   |
-RESET_IBUF_1(RESET_IBUF_1:O)                                                                                   | NONE(VGAIOBus/SignalGenerator/HCounterGen/Counter_0)                       | 21    |
+RESET                                                                                                          | IBUF                                                                       | 128   |
 CarSelect_MainFSM_0/BLUE_CAR/PulseGenerator/_or0000(CarSelect_MainFSM_0/BLUE_CAR/PulseGenerator/_or00001:O)    | NONE(CarSelect_MainFSM_0/BLUE_CAR/PulseGenerator/Clock_Counter/Counter_0)  | 10    |
 CarSelect_MainFSM_0/GREEN_CAR/PulseGenerator/_or0000(CarSelect_MainFSM_0/GREEN_CAR/PulseGenerator/_or00001:O)  | NONE(CarSelect_MainFSM_0/GREEN_CAR/PulseGenerator/Clock_Counter/Counter_0) | 10    |
 CarSelect_MainFSM_0/RED_CAR/PulseGenerator/_or0000(CarSelect_MainFSM_0/RED_CAR/PulseGenerator/_or00001:O)      | NONE(CarSelect_MainFSM_0/RED_CAR/PulseGenerator/Clock_Counter/Counter_0)   | 10    |
@@ -2099,7 +2080,7 @@ Timing Summary:
 Speed Grade: -5
 
    Minimum period: 8.868ns (Maximum Frequency: 112.761MHz)
-   Minimum input arrival time before clock: 6.498ns
+   Minimum input arrival time before clock: 4.814ns
    Maximum output required time after clock: 5.691ns
    Maximum combinational path delay: No path found
 
@@ -2110,7 +2091,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
   Clock period: 8.868ns (frequency: 112.761MHz)
-  Total number of paths / destination ports: 62574 / 1371
+  Total number of paths / destination ports: 61961 / 1498
 -------------------------------------------------------------------------
 Delay:               8.868ns (Levels of Logic = 10)
   Source:            rom/Mrom__varindex0000 (RAM)
@@ -2123,8 +2104,8 @@ Delay:               8.868ns (Levels of Logic = 10)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      RAMB16_S9:CLK->DO5   20   2.436   1.089  rom/Mrom__varindex0000 (ROM_DATA<5>)
-     LUT2_D:I0->O          6   0.612   0.572  cpu/ALU0/Out_or000031 (N511)
-     LUT4:I3->O            1   0.612   0.360  cpu/ALU0/Maddsub_Out_addsub0000_lut<2>_SW1 (N305)
+     LUT2_D:I0->O          6   0.612   0.572  cpu/ALU0/Out_or000031 (N50)
+     LUT4:I3->O            1   0.612   0.360  cpu/ALU0/Maddsub_Out_addsub0000_lut<2>_SW1 (N306)
      LUT4:I3->O            1   0.612   0.000  cpu/ALU0/Maddsub_Out_addsub0000_lut<2> (cpu/ALU0/Maddsub_Out_addsub0000_lut<2>)
      MUXCY:S->O            1   0.404   0.000  cpu/ALU0/Maddsub_Out_addsub0000_cy<2> (cpu/ALU0/Maddsub_Out_addsub0000_cy<2>)
      MUXCY:CI->O           1   0.052   0.000  cpu/ALU0/Maddsub_Out_addsub0000_cy<3> (cpu/ALU0/Maddsub_Out_addsub0000_cy<3>)
@@ -2140,9 +2121,9 @@ Delay:               8.868ns (Levels of Logic = 10)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
-  Total number of paths / destination ports: 685 / 541
+  Total number of paths / destination ports: 658 / 514
 -------------------------------------------------------------------------
-Offset:              6.498ns (Levels of Logic = 3)
+Offset:              4.814ns (Levels of Logic = 2)
   Source:            RESET (PAD)
   Destination:       timer1/DownCounter_0 (FF)
   Destination Clock: CLK rising
@@ -2151,13 +2132,12 @@ Offset:              6.498ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           264   1.106   1.135  RESET_IBUF (RESET_IBUF)
-     BUF:I->O            264   0.612   1.165  RESET_IBUF_1 (RESET_IBUF_1)
+     IBUF:I->O           500   1.106   1.228  RESET_IBUF (RESET_IBUF)
      LUT3:I2->O           32   0.612   1.073  timer1/DownCounter_or0000167 (timer1/DownCounter_or0000)
      FDR:R                     0.795          timer1/DownCounter_0
     ----------------------------------------
-    Total                      6.498ns (3.125ns logic, 3.373ns route)
-                                       (48.1% logic, 51.9% route)
+    Total                      4.814ns (2.513ns logic, 2.301ns route)
+                                       (52.2% logic, 47.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
@@ -2182,14 +2162,14 @@ Offset:              5.691ns (Levels of Logic = 2)
 =========================================================================
 
 
-Total REAL time to Xst completion: 58.00 secs
-Total CPU time to Xst completion: 57.17 secs
+Total REAL time to Xst completion: 35.00 secs
+Total CPU time to Xst completion: 34.96 secs
  
 --> 
 
-Total memory usage is 351520 kilobytes
+Total memory usage is 351528 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   39 (   0 filtered)
+Number of warnings :   36 (   0 filtered)
 Number of infos    :   45 (   0 filtered)
 

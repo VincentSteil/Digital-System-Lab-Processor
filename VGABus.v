@@ -36,11 +36,19 @@ wire DPR_CLK;
 reg BUFFER_WE;
 reg BUFFER_DATA;
 reg [14:0] BUFFER_ADDR;
+reg [14:0] LAST_ADDR;
+reg [14:0] CURR_ADDR;
+reg [14:0] ERASE_ADDR;
 reg [15:0] CONFIG_COLOURS;
+reg ERASE;
+
+reg CURRENT_BUFFER_WE;
+reg CURRENT_BUFFER_DATA;
 
 initial BUFFER_ADDR = 15'b0;
 initial BUFFER_DATA = 1'b0;
 initial BUFFER_WE = 1'b0;
+initial ERASE = 1'b0;
 
 wire [7:0] test;
 assign test = 8'hB2;
@@ -49,9 +57,9 @@ wire X_ADDR;
 wire Y_ADDR;
 wire DATA_IN;
 
-assign X_ADDR = (test == 8'hB0) ? 1'b1 : 1'b0;
-assign Y_ADDR = (test == 8'hB1) ? 1'b1 : 1'b0;
-assign DATA_IN = (test == 8'hB2) ? 1'b1 : 1'b0;
+assign X_ADDR = (ADDR == 8'hB0) ? 1'b1 : 1'b0;
+assign Y_ADDR = (ADDR == 8'hB1) ? 1'b1 : 1'b0;
+assign DATA_IN = (ADDR == 8'hB2) ? 1'b1 : 1'b0;
 
 Frame_Buffer FrameBuffer (
     .A_CLK(CLK), 
@@ -75,29 +83,45 @@ Frame_Buffer FrameBuffer (
     .VGA_COLOUR(VGA_COLOUR)
     );
 	 
+
 	 always@ (posedge CLK) begin
+		 CURRENT_BUFFER_WE <= BUFFER_WE;
+		 CURRENT_BUFFER_DATA <= BUFFER_DATA;
 		 CONFIG_COLOURS[15:8] <= 8'b00110011;
 		 CONFIG_COLOURS[7:0] <= 8'b11001100;
+		 //BUFFER_WE <= 1'b0;
 		 if (BUS_WE)begin
 				if (X_ADDR)
 					begin
-						BUFFER_ADDR[7:0] <= DATA;
-						//BUFFER_ADDR[7:0] <= 8'b01000000;
+						CURR_ADDR[7:0] <= DATA;
+						BUFFER_ADDR[14:8] <= BUFFER_ADDR[14:8];
 						BUFFER_WE <= 1'b0; 
 					end
-				if (Y_ADDR)
+				else if (Y_ADDR)
 						begin
-						BUFFER_ADDR[14:8] <= DATA[6:0];
-						//BUFFER_ADDR[14:8] <= 7'b1000000;
+						CURR_ADDR[14:8] <= DATA[6:0];
+						BUFFER_ADDR[7:0] <= BUFFER_ADDR[7:0];
 						BUFFER_WE <= 1'b0; 
 						end
-				if (DATA)
+				else if (DATA_IN)
 						begin
+						LAST_ADDR <= CURR_ADDR;
+						BUFFER_ADDR <= CURR_ADDR;
 						BUFFER_DATA <= DATA[0];
 						//BUFFER_DATA <= 1'b1;
 						BUFFER_WE <= 1'b1;
+						ERASE <= 1'b1;
 						end
-			end		
+					
+			end
+			if (ERASE) begin
+				BUFFER_ADDR <= ERASE_ADDR;
+				BUFFER_WE <= 1'b1;
+				BUFFER_DATA <= 1'b0;
+				ERASE <= 1'b0;
+			end
+			else
+				ERASE_ADDR <= LAST_ADDR;
 		
 	  end	
 
