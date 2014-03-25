@@ -136,6 +136,10 @@ output [7:0] ALU_O*/
 	READ_FROM_MEM_0  							= 8'h12, //Set BUS_ADDR to designated address.
 	READ_FROM_MEM_1  							= 8'h13, //wait - Increments program counter by 2. Reset offset.
 	READ_FROM_MEM_2  							= 8'h14, //Writes memory output to chosen register, end op.
+	LOAD_IMMEDIATE_TO_A						= 8'h15,
+	LOAD_IMMEDIATE_TO_A_0					= 8'h16,
+	LOAD_IMMEDIATE_TO_B						= 8'h17,
+	LOAD_IMMEDIATE_TO_B_0					= 8'h18,
 	WRITE_TO_MEM_FROM_A  					= 8'h20, //Reads Op+1 to find what address to Write to.
 	WRITE_TO_MEM_FROM_B  					= 8'h21, //Reads Op+1 to find what address to Write to.
 	WRITE_TO_MEM_0  							= 8'h22, //wait - Increments program counter by 2. Reset offset.
@@ -203,24 +207,24 @@ output [7:0] ALU_O*/
 		if(RESET) begin
 			CurrState  					= 8'h00;
 			CurrProgCounter  			= 8'h00;
-			CurrProgCounterOffset 	    = 2'h0;
+			CurrProgCounterOffset 	= 2'h0;
 			CurrBusAddr  				= 8'hFF; //Initial instruction after reset.
-			CurrBusDataOut 			    = 8'h00;
-			CurrBusDataOutWE  		    = 1'b0;
+			CurrBusDataOut 			= 8'h00;
+			CurrBusDataOutWE  		= 1'b0;
 			CurrRegA  					= 8'h00;
 			CurrRegB  					= 8'h00;
 			CurrRegSelect 				= 1'b0;
 			CurrProgContext  			= 8'h00;
-			CurrMouseInterruptAck  	    = 0;
-			CurrTimerInterruptAck  	    = 0;
+			CurrMouseInterruptAck  	= 0;
+			CurrTimerInterruptAck  	= 0;
 		
 		end else begin
 			CurrState  					= NextState;
 			CurrProgCounter  			= NextProgCounter;
-			CurrProgCounterOffset 	    = NextProgCounterOffset;
+			CurrProgCounterOffset 	= NextProgCounterOffset;
 			CurrBusAddr  				= NextBusAddr;
-			CurrBusDataOut 			    = NextBusDataOut;
-			CurrBusDataOutWE  		    = NextBusDataOutWE;
+			CurrBusDataOut 			= NextBusDataOut;
+			CurrBusDataOutWE  		= NextBusDataOutWE;
 			CurrRegA  					= NextRegA;
 			CurrRegB  					= NextRegB; 
 			CurrRegSelect 				= NextRegSelect;
@@ -237,16 +241,16 @@ output [7:0] ALU_O*/
 		//Generic assignment to reduce the complexity of the rest of the S/M
 		NextState  						= CurrState;
 		NextProgCounter  				= CurrProgCounter;
-		NextProgCounterOffset 		    = 2'h0;
+		NextProgCounterOffset 		= 2'h0;
 		NextBusAddr  					= 8'hFF;//changed from CurrBusAddr
-		NextBusDataOut 				    = CurrBusDataOut;
-		NextBusDataOutWE  			    = 1'b0;
+		NextBusDataOut 				= CurrBusDataOut;
+		NextBusDataOutWE  			= 1'b0;
 		NextRegA  						= CurrRegA;
 		NextRegB  						= CurrRegB;
 		NextRegSelect 					= CurrRegSelect;
 		NextProgContext  				= CurrProgContext;
-		NextMouseInterruptAck  		    = 0;
-		NextTimerInterruptAck  		    = 0;
+		NextMouseInterruptAck  		= 0;
+		NextTimerInterruptAck  		= 0;
 		
 		//Case statement to describe each state
 		case (CurrState)
@@ -257,20 +261,20 @@ output [7:0] ALU_O*/
 						begin // Interrupt Request A.
 							NextState 					= GET_THREAD_START_ADDR_0;
 							NextProgCounter  			= 8'hFF;
-							NextMouseInterruptAck  	    = 1;
+							NextMouseInterruptAck  	= 1;
 						end 
 					else if(TIMER_INTERRUPT_RAISE) 
 						begin //Interrupt Request B.
 							NextState  					= GET_THREAD_START_ADDR_0;
 							NextProgCounter  			= 8'hFE;
-							NextTimerInterruptAck  	    = 1;
+							NextTimerInterruptAck  	= 1;
 						end 
 					else 
 						begin
 							NextState  					= IDLE;
 							NextProgCounter  			= 8'hFF; //Nothing has happened.
-							NextMouseInterruptAck  	    = 0;
-							NextTimerInterruptAck  	    = 0;
+							NextMouseInterruptAck  	= 0;
+							NextTimerInterruptAck  	= 0;
 						end
 				end
 			
@@ -296,24 +300,26 @@ output [7:0] ALU_O*/
 			CHOOSE_OPP: 
 				begin
 					case (ProgMemoryOut[3:0])
-						4'h0: NextState  = READ_FROM_MEM_TO_A;
-						4'h1: NextState  = READ_FROM_MEM_TO_B;
-						4'h2: NextState  = WRITE_TO_MEM_FROM_A;
-						4'h3: NextState  = WRITE_TO_MEM_FROM_B;
-						4'h4: NextState  = DO_MATHS_OPP_SAVE_IN_A;
+						4'h0: NextState = READ_FROM_MEM_TO_A;
+						4'h1: NextState = READ_FROM_MEM_TO_B;
+						4'h2: NextState = WRITE_TO_MEM_FROM_A;
+						4'h3: NextState = WRITE_TO_MEM_FROM_B;
+						4'h4: NextState = DO_MATHS_OPP_SAVE_IN_A;
 						4'h5: NextState  = DO_MATHS_OPP_SAVE_IN_B;
 						4'h6: NextState  = IF_A_EQUALITY_B_GOTO;
-						4'h7: NextState  = GOTO;
+						4'h7: NextState = GOTO;
 						4'h8: NextState  = IDLE;
 						4'h9: NextState  = FUNCTION_CALL;
 						4'hA: NextState  = RETURN;
 						4'hB: NextState  = DE_REFERENCE_A;
 						4'hC: NextState  = DE_REFERENCE_B;
-                        4'hD:NextState   = NO_OP;
+                  4'hD:NextState  = NO_OP;
+						4'hE:NextState  = LOAD_IMMEDIATE_TO_A;
+						4'hF:NextState  = LOAD_IMMEDIATE_TO_B;
 						default:
 						NextState 				= CurrState;
 					endcase
-					NextProgCounterOffset 	    = 2'h1;
+					NextProgCounterOffset 	= 2'h1;
 				end
          ///////////////////////////////////////////////////////////////////////////////////////
     //READ_FROM_MEM_TO_A : here starts the memory read operational pipeline.
@@ -348,6 +354,31 @@ output [7:0] ALU_O*/
         else
             NextRegB = BusDataIn;
     end
+	 
+	//Wait for program data
+	 LOAD_IMMEDIATE_TO_A:begin
+        NextState = LOAD_IMMEDIATE_TO_A_0;
+		  NextProgCounter = CurrProgCounter + 2;
+    end
+	 
+	 //set Reg A to program data out
+	  LOAD_IMMEDIATE_TO_A_0: begin
+        NextState = CHOOSE_OPP;
+        NextRegA = ProgMemoryOut;
+    end
+	 
+	 //Wait for program data
+	 LOAD_IMMEDIATE_TO_B:begin
+        NextState = LOAD_IMMEDIATE_TO_B_0;
+		  NextProgCounter = CurrProgCounter + 2;
+    end
+	 
+	 //set Reg B to program data out
+	  LOAD_IMMEDIATE_TO_B_0: begin
+        NextState = CHOOSE_OPP;
+        NextRegB = ProgMemoryOut;
+    end
+	 
     ///////////////////////////////////////////////////////////////////////////////////////
     //WRITE_TO_MEM_FROM_A : here starts the memory write operational pipeline.
     //Wait state - to find the address of where we are writing
