@@ -101,7 +101,7 @@ class Instruction:
             self.instruction_ROM = format(ord(target_register) - 65, '02X')
 
         elif instruction == "sw":
-            self.instruction_ROM = "0" + str(ord(target_register) - 63)
+            self.instruction_ROM = format(ord(target_register) - 63, '02X')
 
         elif instruction == "add":
             self.instruction_ROM = "0" + str(ord(target_register) - 61)
@@ -204,7 +204,7 @@ def read_data(infile):
             line = line.split()
             # skip empty lines
             if len(line) > 0:
-                if line[0] not in ["lw","sw","add","sub","mul","or","xor","and","sll","srl","inc","dec","beq","bgt","blt","idle","return","deref","goto", "jr"]:
+                if line[0] not in ["lw","sw","add","sub","mul","or","xor","and","sll","srl","inc","dec","beq","bgt","blt","idle","return","deref","goto", "jr","li"]:
                     # assume we are starting a new function
                     Function.functions[line[0]] = Function(line[0])
                     Function.current_function = line[0]
@@ -319,6 +319,15 @@ def link():
 
                 ROM[fn.ROM_location + PC_offset] = instr.instruction_ROM
                 ROM[fn.ROM_location + PC_offset + 1] =  format(fns[instr.function_target].ROM_location, '02X')
+
+                PC_offset += 2
+
+            elif instr.instruction in ["li"]:
+
+                ROM[fn.ROM_location + PC_offset] = instr.instruction_ROM
+                if len(instr.immediate) < 2:
+                    instr.immediate = "0" + instr.immediate
+                ROM[fn.ROM_location + PC_offset + 1] =  instr.immediate
 
                 PC_offset += 2
 

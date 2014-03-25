@@ -24,8 +24,6 @@ lw B 08 // load 1000
 and A B A // bit mask bit 3 -> left mouse button
 beq A B Mouse_Clicked_Timer
 idle
-li A 01
-li B FF
 
 Mouse_Clicked_Timer
 idle
