@@ -14,9 +14,16 @@ sub A B B // 120 - Mouse_Y to invert position / movement
 sw B B1 // Save Mouse_Y to VGA reg Y
 lw A 01 
 sw A B2 // Set VGA data current
-lw A A3 // Load Mouse_Status into A
+lw A A0 // Load Mouse_Status into A
 sw A C0 // Update LED's
 idle
 
 Timer_ISR
+lw A A0 // load Mouse_Status
+lw B 08 // load 1000
+and A B A // bit mask bit 3 -> left mouse button
+beq A B Mouse_Clicked_Timer
+idle
+
+Mouse_Clicked_Timer
 idle
