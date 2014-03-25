@@ -36,6 +36,7 @@ return
 deref SR1
 goto function
 jr  function
+li TR1 Imm
 
 
 Peripheral ISR names:
@@ -84,19 +85,20 @@ class Instruction:
     docstring for Instruction
     Instruction datastructure
     """
-    def __init__(self, instruction, source_register1 = None, source_register2 = None, memory_addr = None, function_target = None, target_register = None):
+    def __init__(self, instruction, source_register1 = None, source_register2 = None, memory_addr = None, function_target = None, target_register = None, immediate = None):
         self.source_register1   = source_register1
         self.source_register2   = source_register2
         self.memory_addr        = memory_addr
         self.function_target    = function_target
         self.target_register    = target_register
+        self.immediate          = immediate
         self.instruction        = instruction
         self.instruction_ROM    = ""
         # automatic instruction decode on creation
         # function calls are resolved later once all data is read in
         if instruction == "lw":
             # A = 0, B = 1
-            self.instruction_ROM = "0" + str(ord(target_register) - 65)
+            self.instruction_ROM = format(ord(target_register) - 65, '02X')
 
         elif instruction == "sw":
             self.instruction_ROM = "0" + str(ord(target_register) - 63)
@@ -155,9 +157,12 @@ class Instruction:
         elif instruction == "goto":
             self.instruction_ROM = "07"
 
+        elif instruction == "li":
+            self.instruction_ROM = format(ord(target_register) - 51, '02X')
+
 
     def __len__(self):
-        if self.instruction in ["lw","sw","beq","bgt","blt","goto","jr"]:
+        if self.instruction in ["lw","sw","beq","bgt","blt","goto","jr","li"]:
             return 2
         else:
             return 1
@@ -231,6 +236,10 @@ def read_data(infile):
                 elif line[0] in ["goto","jr"]:
                     assert Function.current_function in Function.functions
                     Function.functions[Function.current_function].instructions.append(Instruction(instruction = line[0], function_target = line[1]))
+
+                elif line[0] in ["li"]:
+                    assert Function.current_function in Function.functions
+                    Function.functions[Function.current_function].instructions.append(Instruction(instruction = line[0], target_register = line[1], immediate = line[2]))
 
     print("Finished reading in data")
 
