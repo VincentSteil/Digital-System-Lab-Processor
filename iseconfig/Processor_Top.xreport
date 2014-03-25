@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2014-03-24T19:52:43</DateModified>
+  <DateModified>2014-03-25T00:20:37</DateModified>
   <ModuleName>Processor_Top</ModuleName>
   <SummaryTimeStamp>2014-03-24T19:52:12</SummaryTimeStamp>
-  <SavedFilePath>D:/DSL4/Digital-System-Lab-Processor-PS2/iseconfig/Processor_Top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>D:/DSL4/Digital-System-Lab-Processor-PS2\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/iseconfig/Processor_Top.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo\</ImplementationReportsDirectory>
   <DateInitialized>2014-03-22T17:30:47</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

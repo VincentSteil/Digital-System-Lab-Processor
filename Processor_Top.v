@@ -31,7 +31,8 @@ module Processor_Top(
 	inout		 				CLK_MOUSE,
 	inout						DATA_MOUSE,
    //IR LED
-   output               IR_LED/*,
+   output               IR_LED, 
+	/*,
    //SIM ONLY
    output S_TIMER_INTERRUPT_RAISE,
 	output S_TIMER_INTERRUPT_ACK,
@@ -50,6 +51,11 @@ module Processor_Top(
     output [7:0]Curr_RegA,
     output [7:0]Curr_RegB,
     output [7:0]ALU_O*/
+	 
+	 //VGA signals
+	output [7:0] VGA_COLOUR,
+	output VGA_HS,
+	output VGA_VS
 
 );
 
@@ -256,5 +262,18 @@ assign R_DATA = ROM_DATA;
 assign R_ADDRESS = ROM_ADDRESS;
 assign B_DATA = BUS_DATA;
 assign B_ADDRESS = BUS_ADDR;
-*/
+*/ 
+
+//VGA on bus adress B0 - B2
+	VGABus VGAIOBus (
+    .CLK(CLK), 
+    .RESET(RESET), 
+    .ADDR(BUS_ADDR), 
+    .DATA(BUS_DATA),
+	 .BUS_WE(BUS_WE),	 
+    .VGA_COLOUR(VGA_COLOUR), 
+    .VGA_HS(VGA_HS), 
+    .VGA_VS(VGA_VS)
+    );
+	 
 endmodule

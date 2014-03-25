@@ -107,4 +107,16 @@ NET "DATA_MOUSE"    LOC = "C3"   | DRIVE = 2  | PULLUP ; # Bank = 3, Signal name
 #NET "PIO<85>" LOC = "A13"  | DRIVE = 2  | PULLUP ; # Bank = 2, Signal name = JD2
 #NET "PIO<86>" LOC = "C13"  | DRIVE = 2  | PULLUP ; # Bank = 1, Signal name = JD3
 #NET "PIO<87>" LOC = "D12"  | DRIVE = 2  | PULLUP ; # Bank = 2, Signal name = JD4 
-
+
+
+#VGA signals
+NET "VGA_HS" LOC = J14;
+NET "VGA_VS" LOC = K13;
+NET "VGA_COLOUR[0]" LOC = C14;
+NET "VGA_COLOUR[1]" LOC = D13;
+NET "VGA_COLOUR[2]" LOC = F13;
+NET "VGA_COLOUR[3]" LOC = F14;
+NET "VGA_COLOUR[4]" LOC = G13;
+NET "VGA_COLOUR[5]" LOC = G14;
+NET "VGA_COLOUR[6]" LOC = H13;
+NET "VGA_COLOUR[7]" LOC = J13;
