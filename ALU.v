@@ -65,6 +65,12 @@ module ALU(
 				4'hA:  Out <= (IN_A > IN_B) ? 8'h01 : 8'h00;
 				//A < B
 				4'hB:  Out <= (IN_A < IN_B) ? 8'h01 : 8'h00;
+            //bitwise AND
+            4'hC: Out <= IN_A | IN_B;
+            //bitwise OR
+            4'hD: Out <= IN_A & IN_B;
+				//bitwise XOR
+            4'hE: Out <= IN_A ^ IN_B;
 				//Default A
 				default: Out <= IN_A;
 			endcase
