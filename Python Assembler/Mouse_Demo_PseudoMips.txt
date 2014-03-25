@@ -2,12 +2,20 @@ Processor_Init
 idle
 
 Mouse_ISR
-lw A A1
-lw B A2
-sw A D0
-sw B D1
-lw A A3
-sw A C0
+lw A 00 // Clear VGA data current
+sw A B2
+lw A A1 // Load Mouse_X into A
+sw A B0 // Save Mouse_X to VGA reg X
+sw A D0 // Update SevenSeg registers X
+lw B A2 // Load Mouse_Y into B
+lw A 10 // Load 120 into A
+sw B D1 // Update SevenSeg Y
+sub A B B // 120 - Mouse_Y to invert position / movement
+sw B B1 // Save Mouse_Y to VGA reg Y
+lw A 01 
+sw A B2 // Set VGA data current
+lw A A3 // Load Mouse_Status into A
+sw A C0 // Update LED's
 idle
 
 Timer_ISR
