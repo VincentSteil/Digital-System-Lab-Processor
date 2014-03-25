@@ -6,9 +6,8 @@ Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
 Processor_Top.ngc Processor_Top.ngd
 
 Reading NGO file
-"C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_
-demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Processor_Top.n
-gc" ...
+"C:/Users/eskimu/Documents/GitHub/Digital-System-Lab-Processor/Processor_Top.ngc
+" ...
 Gathering constraint information from source properties...
 Done.
 
@@ -30,10 +29,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 161536 kilobytes
+Total memory usage is 161904 kilobytes
 
 Writing NGD file "Processor_Top.ngd" ...
-Total REAL time to NGDBUILD completion:  6 sec
-Total CPU time to NGDBUILD completion:   6 sec
+Total REAL time to NGDBUILD completion:  5 sec
+Total CPU time to NGDBUILD completion:   5 sec
 
 Writing NGDBUILD log file "Processor_Top.bld"...
