@@ -7,7 +7,9 @@ It contains a single cycle modified Harvardprocessor that interfaces with multip
 
 Peripherals include a PS2 mouse port, a VGA port, and an IR controller.
 
-Besides the skeleton code that was provided to us, the collaborators on this are:
+I also wrote also a basic python assembler+linker for a modified version of the ISA that the processor had to use. That way we didn't need to write machine code and could use a pseudo-MIPS like assembly language.   
+
+Besides the professor that provided us with skeleton code, the collaborators on this are:
 
 Vincent Steil
 
