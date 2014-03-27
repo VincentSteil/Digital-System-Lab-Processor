@@ -160,12 +160,12 @@ class Instruction:
         elif instruction == "li":
             self.instruction_ROM = format(ord(target_register) - 51, '02X')
 
-
     def __len__(self):
         if self.instruction in ["lw","sw","beq","bgt","blt","goto","jr","li"]:
             return 2
         else:
             return 1
+
 
 
 
@@ -296,9 +296,11 @@ def link():
     # now with the three mandatory functions taken care of, we can add any other functions we might want
     # this loop takes care of slotting in all the functions
     for fn in fns.values():
+
         if fn.name not in ["Processor_Init","Mouse_ISR","Timer_ISR"]:
 
-            prog_size = len(fn.instructions)
+            prog_size = len(fn)
+            print(fn.name, prog_size)
             assert prog_size + PC < 0xFE
 
             fn.ROM_location = PC
@@ -308,7 +310,11 @@ def link():
     # this loop actually itterates through all instructions and places them correctly and resolves function_target values to hex values
     for fn in fns.values():
         PC_offset = 0
+        print(fn.name)
+        print(fn.ROM_location)
         for instr in fn.instructions:
+            print(instr.instruction)
+            print(fn.ROM_location + PC_offset)
             if instr.instruction in ["lw","sw"]:
                 ROM[fn.ROM_location + PC_offset] = instr.instruction_ROM
                 ROM[fn.ROM_location + PC_offset + 1] = instr.memory_addr
@@ -332,6 +338,7 @@ def link():
                 PC_offset += 2
 
             else:
+                print(instr.instruction_ROM)
                 ROM[fn.ROM_location + PC_offset] = instr.instruction_ROM
                 PC_offset += 1
 
