@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=C:\Users\Finn\Downloads\Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo\Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo\Processor_Top.ncd
-OUTFILE=C:\Users\Finn\Downloads\Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo\Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo\Processor_Top.bit
+INFILE=C:\Users\eskimu\Documents\GitHub\Digital-System-Lab-Processor\Processor_Top.ncd
+OUTFILE=C:\Users\eskimu\Documents\GitHub\Digital-System-Lab-Processor\Processor_Top.bit
 FAMILY=Spartan3E
 PART=xc3s100e-5cp132
-WORKINGDIR=C:\Users\Finn\Downloads\Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo\Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo
+WORKINGDIR=C:\Users\eskimu\Documents\GitHub\Digital-System-Lab-Processor
 LICENSE=WebPack
-USER_INFO=210683967_0_0_014
+USER_INFO=210675024_0_0_732

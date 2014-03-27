@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: Processor_Top.prj
 
@@ -233,6 +233,7 @@ Analyzing hierarchy for module <SevenSegmentDisplay> in library <work>.
 Analyzing hierarchy for module <MouseTransceiver> in library <work> with parameters.
 	MouseLimitX = "10100000"
 	MouseLimitY = "01111000"
+	MouseLimitZ = "11111111"
 
 Analyzing hierarchy for module <Counter> in library <work> with parameters.
 	Counter_Max = "00000000010011000100101101000000"
@@ -486,7 +487,7 @@ Module <RAM> is correct for synthesis.
  
 Analyzing module <ROM> in library <work>.
 	ROMAddrWidth = 32'sb00000000000000000000000000001000
-INFO:Xst:2546 - "ROM.v" line 35: reading initialization file "VGA_Mouse_Test.txt".
+INFO:Xst:2546 - "ROM.v" line 35: reading initialization file "Mouse_IR_Assembled.txt".
 Module <ROM> is correct for synthesis.
  
 Analyzing module <IO_Bus_SevenSeg> in library <work>.
@@ -513,12 +514,13 @@ Module <Timer> is correct for synthesis.
 Analyzing module <IO_Bus_Mouse> in library <work>.
 	AddrWidth = 32'sb00000000000000000000000000000010
 	BaseAddr = 8'b10100000
-INFO:Xst:2546 - "IO_Bus_Mouse.v" line 91: reading initialization file "Mouse.txt".
+INFO:Xst:2546 - "IO_Bus_Mouse.v" line 93: reading initialization file "Mouse.txt".
 Module <IO_Bus_Mouse> is correct for synthesis.
  
 Analyzing module <MouseTransceiver> in library <work>.
 	MouseLimitX = 8'b10100000
 	MouseLimitY = 8'b01111000
+	MouseLimitZ = 8'b11111111
 Module <MouseTransceiver> is correct for synthesis.
  
 Analyzing module <MouseTransmitter> in library <work>.
@@ -939,14 +941,14 @@ Synthesizing Unit <MouseMasterSM>.
     Related source file is "MouseMasterSM.v".
     Found finite state machine <FSM_3> for signal <Curr_State>.
     -----------------------------------------------------------------------
-    | States             | 13                                             |
-    | Transitions        | 34                                             |
-    | Inputs             | 7                                              |
-    | Outputs            | 15                                             |
+    | States             | 36                                             |
+    | Transitions        | 92                                             |
+    | Inputs             | 9                                              |
+    | Outputs            | 38                                             |
     | Clock              | CLK                       (rising_edge)        |
     | Reset              | RESET                     (positive)           |
     | Reset type         | synchronous                                    |
-    | Reset State        | 0000                                           |
+    | Reset State        | 000000                                         |
     | Encoding           | automatic                                      |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
@@ -954,14 +956,16 @@ Synthesizing Unit <MouseMasterSM>.
     Found 24-bit register for signal <Curr_Counter>.
     Found 8-bit register for signal <Curr_Dx>.
     Found 8-bit register for signal <Curr_Dy>.
+    Found 8-bit register for signal <Curr_Dz>.
+    Found 1-bit register for signal <Curr_Intellimouse_Mode>.
     Found 1-bit register for signal <Curr_ReadEnable>.
     Found 1-bit register for signal <Curr_SendByte>.
     Found 1-bit register for signal <Curr_SendInterrupt>.
     Found 8-bit register for signal <Curr_Status>.
-    Found 24-bit adder for signal <Next_Counter$addsub0000> created at line 129.
+    Found 24-bit adder for signal <Next_Counter$addsub0000> created at line 138.
     Summary:
 	inferred   1 Finite State Machine(s).
-	inferred  59 D-type flip-flop(s).
+	inferred  68 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
 Unit <MouseMasterSM> synthesized.
 
@@ -1221,7 +1225,7 @@ INFO:Xst:1799 - State 01010100 is never reached in FSM <CurrState>.
     | Clock              | CLK                       (rising_edge)        |
     | Reset              | RESET                     (positive)           |
     | Reset type         | synchronous                                    |
-    | Reset State        | 00000000                                       |
+    | Reset State        | 11110011                                       |
     | Encoding           | automatic                                      |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
@@ -1270,19 +1274,23 @@ Synthesizing Unit <MouseTransceiver>.
     Found 1-bit tristate buffer for signal <DATA_MOUSE>.
     Found 8-bit register for signal <MouseX>.
     Found 8-bit register for signal <MouseY>.
+    Found 8-bit register for signal <MouseZ>.
     Found 1-bit tristate buffer for signal <CLK_MOUSE>.
     Found 1-bit register for signal <ClkMouseIn>.
     Found 8-bit register for signal <MouseClkFilter>.
     Found 9-bit adder for signal <MouseNewX>.
     Found 9-bit adder for signal <MouseNewY>.
-    Found 10-bit comparator greater for signal <MouseX$cmp_gt0000> created at line 240.
-    Found 10-bit comparator less for signal <MouseX$cmp_lt0000> created at line 238.
-    Found 10-bit comparator greater for signal <MouseY$cmp_gt0000> created at line 252.
-    Found 10-bit comparator less for signal <MouseY$cmp_lt0000> created at line 250.
+    Found 9-bit adder for signal <MouseNewZ>.
+    Found 10-bit comparator greater for signal <MouseX$cmp_gt0000> created at line 251.
+    Found 10-bit comparator less for signal <MouseX$cmp_lt0000> created at line 249.
+    Found 10-bit comparator greater for signal <MouseY$cmp_gt0000> created at line 263.
+    Found 10-bit comparator less for signal <MouseY$cmp_lt0000> created at line 270.
+    Found 10-bit comparator less for signal <MouseY$cmp_lt0001> created at line 261.
+    Found 10-bit comparator greater for signal <MouseZ$cmp_gt0000> created at line 272.
     Summary:
-	inferred  29 D-type flip-flop(s).
-	inferred   2 Adder/Subtractor(s).
-	inferred   4 Comparator(s).
+	inferred  37 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred   6 Comparator(s).
 	inferred   2 Tristate(s).
 Unit <MouseTransceiver> synthesized.
 
@@ -1344,8 +1352,8 @@ Unit <VGA_Sig_Gen> synthesized.
 Synthesizing Unit <IO_Bus_Mouse>.
     Related source file is "IO_Bus_Mouse.v".
     Found 8-bit tristate buffer for signal <BUS_DATA>.
-    Found 8-bit comparator greatequal for signal <CS$cmp_ge0000> created at line 95.
-    Found 8-bit comparator less for signal <CS$cmp_lt0000> created at line 95.
+    Found 8-bit comparator greatequal for signal <CS$cmp_ge0000> created at line 97.
+    Found 8-bit comparator less for signal <CS$cmp_lt0000> created at line 97.
     Found 1-bit register for signal <Interrupt>.
     Found 1-bit register for signal <IOBusWE>.
     Found 32-bit register for signal <Mem>.
@@ -1378,8 +1386,20 @@ Unit <VGABus> synthesized.
 
 Synthesizing Unit <IR_Transmitter_SM_1>.
     Related source file is "IR_Transmitter_SM.v".
-    Found 16x4-bit ROM for signal <command_reg_next_state$mux0000> created at line 87.
-    Found 4-bit register for signal <command_reg_next_state>.
+    Found finite state machine <FSM_5> for signal <command_reg_next_state>.
+    -----------------------------------------------------------------------
+    | States             | 9                                              |
+    | Transitions        | 90                                             |
+    | Inputs             | 9                                              |
+    | Outputs            | 8                                              |
+    | Clock              | CLK                       (rising_edge)        |
+    | Reset              | command_reg_next_state$or0000 (positive)       |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Power Up State     | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
     Found 4-bit register for signal <command_reg_state>.
     Found 4-bit register for signal <i>.
     Found 4-bit adder for signal <i$addsub0000> created at line 57.
@@ -1387,8 +1407,8 @@ Synthesizing Unit <IR_Transmitter_SM_1>.
     Found 4-bit comparator less for signal <i$cmp_lt0001> created at line 55.
     Found 1-bit register for signal <Packet_Sequence_Finished_Flag>.
     Summary:
-	inferred   1 ROM(s).
-	inferred  13 D-type flip-flop(s).
+	inferred   1 Finite State Machine(s).
+	inferred   9 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred   2 Comparator(s).
 Unit <IR_Transmitter_SM_1> synthesized.
@@ -1396,8 +1416,20 @@ Unit <IR_Transmitter_SM_1> synthesized.
 
 Synthesizing Unit <IR_Transmitter_SM_2>.
     Related source file is "IR_Transmitter_SM.v".
-    Found 16x4-bit ROM for signal <command_reg_next_state$mux0000> created at line 87.
-    Found 4-bit register for signal <command_reg_next_state>.
+    Found finite state machine <FSM_6> for signal <command_reg_next_state>.
+    -----------------------------------------------------------------------
+    | States             | 9                                              |
+    | Transitions        | 90                                             |
+    | Inputs             | 9                                              |
+    | Outputs            | 8                                              |
+    | Clock              | CLK                       (rising_edge)        |
+    | Reset              | command_reg_next_state$or0000 (positive)       |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Power Up State     | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
     Found 4-bit register for signal <command_reg_state>.
     Found 4-bit register for signal <i>.
     Found 4-bit adder for signal <i$addsub0000> created at line 57.
@@ -1405,8 +1437,8 @@ Synthesizing Unit <IR_Transmitter_SM_2>.
     Found 4-bit comparator less for signal <i$cmp_lt0001> created at line 55.
     Found 1-bit register for signal <Packet_Sequence_Finished_Flag>.
     Summary:
-	inferred   1 ROM(s).
-	inferred  13 D-type flip-flop(s).
+	inferred   1 Finite State Machine(s).
+	inferred   9 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred   2 Comparator(s).
 Unit <IR_Transmitter_SM_2> synthesized.
@@ -1414,8 +1446,20 @@ Unit <IR_Transmitter_SM_2> synthesized.
 
 Synthesizing Unit <IR_Transmitter_SM_3>.
     Related source file is "IR_Transmitter_SM.v".
-    Found 16x4-bit ROM for signal <command_reg_next_state$mux0000> created at line 87.
-    Found 4-bit register for signal <command_reg_next_state>.
+    Found finite state machine <FSM_7> for signal <command_reg_next_state>.
+    -----------------------------------------------------------------------
+    | States             | 9                                              |
+    | Transitions        | 90                                             |
+    | Inputs             | 9                                              |
+    | Outputs            | 8                                              |
+    | Clock              | CLK                       (rising_edge)        |
+    | Reset              | command_reg_next_state$or0000 (positive)       |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Power Up State     | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
     Found 4-bit register for signal <command_reg_state>.
     Found 4-bit register for signal <i>.
     Found 4-bit adder for signal <i$addsub0000> created at line 57.
@@ -1423,8 +1467,8 @@ Synthesizing Unit <IR_Transmitter_SM_3>.
     Found 4-bit comparator less for signal <i$cmp_lt0001> created at line 55.
     Found 1-bit register for signal <Packet_Sequence_Finished_Flag>.
     Summary:
-	inferred   1 ROM(s).
-	inferred  13 D-type flip-flop(s).
+	inferred   1 Finite State Machine(s).
+	inferred   9 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred   2 Comparator(s).
 Unit <IR_Transmitter_SM_3> synthesized.
@@ -1432,8 +1476,20 @@ Unit <IR_Transmitter_SM_3> synthesized.
 
 Synthesizing Unit <IR_Transmitter_SM_4>.
     Related source file is "IR_Transmitter_SM.v".
-    Found 16x4-bit ROM for signal <command_reg_next_state$mux0000> created at line 87.
-    Found 4-bit register for signal <command_reg_next_state>.
+    Found finite state machine <FSM_8> for signal <command_reg_next_state>.
+    -----------------------------------------------------------------------
+    | States             | 9                                              |
+    | Transitions        | 90                                             |
+    | Inputs             | 9                                              |
+    | Outputs            | 8                                              |
+    | Clock              | CLK                       (rising_edge)        |
+    | Reset              | command_reg_next_state$or0000 (positive)       |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Power Up State     | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
     Found 4-bit register for signal <command_reg_state>.
     Found 4-bit register for signal <i>.
     Found 4-bit adder for signal <i$addsub0000> created at line 57.
@@ -1441,8 +1497,8 @@ Synthesizing Unit <IR_Transmitter_SM_4>.
     Found 4-bit comparator less for signal <i$cmp_lt0001> created at line 55.
     Found 1-bit register for signal <Packet_Sequence_Finished_Flag>.
     Summary:
-	inferred   1 ROM(s).
-	inferred  13 D-type flip-flop(s).
+	inferred   1 Finite State Machine(s).
+	inferred   9 D-type flip-flop(s).
 	inferred   1 Adder/Subtractor(s).
 	inferred   2 Comparator(s).
 Unit <IR_Transmitter_SM_4> synthesized.
@@ -1480,13 +1536,12 @@ Macro Statistics
 # RAMs                                                 : 2
  128x8-bit single-port RAM                             : 1
  32768x1-bit dual-port RAM                             : 1
-# ROMs                                                 : 6
- 16x4-bit ROM                                          : 4
+# ROMs                                                 : 2
  16x8-bit ROM                                          : 1
  256x8-bit ROM                                         : 1
 # Multipliers                                          : 1
  8x8-bit multiplier                                    : 1
-# Adders/Subtractors                                   : 23
+# Adders/Subtractors                                   : 24
  10-bit adder                                          : 4
  10-bit subtractor                                     : 2
  16-bit adder                                          : 2
@@ -1497,13 +1552,13 @@ Macro Statistics
  4-bit adder                                           : 5
  8-bit adder                                           : 3
  8-bit addsub                                          : 1
- 9-bit adder                                           : 2
+ 9-bit adder                                           : 3
 # Counters                                             : 8
  10-bit up counter                                     : 2
  32-bit up counter                                     : 2
  8-bit up counter                                      : 4
-# Registers                                            : 214
- 1-bit register                                        : 143
+# Registers                                            : 213
+ 1-bit register                                        : 144
  10-bit register                                       : 6
  15-bit register                                       : 2
  16-bit register                                       : 3
@@ -1512,12 +1567,12 @@ Macro Statistics
  23-bit register                                       : 1
  24-bit register                                       : 1
  32-bit register                                       : 1
- 4-bit register                                        : 17
+ 4-bit register                                        : 13
  7-bit register                                        : 8
- 8-bit register                                        : 29
-# Comparators                                          : 32
- 10-bit comparator greater                             : 4
- 10-bit comparator less                                : 5
+ 8-bit register                                        : 31
+# Comparators                                          : 34
+ 10-bit comparator greater                             : 5
+ 10-bit comparator less                                : 6
  11-bit comparator less                                : 1
  32-bit comparator equal                               : 1
  32-bit comparator not equal                           : 1
@@ -1545,12 +1600,72 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+Analyzing FSM <FSM_8> for best encoding.
+Optimizing FSM <CarSelect_MainFSM_0/YELLOW_CAR/command_reg_next_state/FSM> on signal <command_reg_next_state[1:9]> with one-hot encoding.
+--------------------
+ State | Encoding
+--------------------
+ 0000  | 000000001
+ 1000  | 000000010
+ 0100  | 000000100
+ 0010  | 000001000
+ 0001  | 000010000
+ 1010  | 000100000
+ 1001  | 001000000
+ 0110  | 010000000
+ 0101  | 100000000
+--------------------
+Analyzing FSM <FSM_7> for best encoding.
+Optimizing FSM <CarSelect_MainFSM_0/BLUE_CAR/command_reg_next_state/FSM> on signal <command_reg_next_state[1:9]> with one-hot encoding.
+--------------------
+ State | Encoding
+--------------------
+ 0000  | 000000001
+ 1000  | 000000010
+ 0100  | 000000100
+ 0010  | 000001000
+ 0001  | 000010000
+ 1010  | 000100000
+ 1001  | 001000000
+ 0110  | 010000000
+ 0101  | 100000000
+--------------------
+Analyzing FSM <FSM_6> for best encoding.
+Optimizing FSM <CarSelect_MainFSM_0/GREEN_CAR/command_reg_next_state/FSM> on signal <command_reg_next_state[1:9]> with one-hot encoding.
+--------------------
+ State | Encoding
+--------------------
+ 0000  | 000000001
+ 1000  | 000000010
+ 0100  | 000000100
+ 0010  | 000001000
+ 0001  | 000010000
+ 1010  | 000100000
+ 1001  | 001000000
+ 0110  | 010000000
+ 0101  | 100000000
+--------------------
+Analyzing FSM <FSM_5> for best encoding.
+Optimizing FSM <CarSelect_MainFSM_0/RED_CAR/command_reg_next_state/FSM> on signal <command_reg_next_state[1:9]> with one-hot encoding.
+--------------------
+ State | Encoding
+--------------------
+ 0000  | 000000001
+ 1000  | 000000010
+ 0100  | 000000100
+ 0010  | 000001000
+ 0001  | 000010000
+ 1010  | 000100000
+ 1001  | 001000000
+ 0110  | 010000000
+ 0101  | 100000000
+--------------------
 Analyzing FSM <FSM_4> for best encoding.
 Optimizing FSM <cpu/CurrState/FSM> on signal <CurrState[1:32]> with one-hot encoding.
 ----------------------------------------------
  State    | Encoding
 ----------------------------------------------
- 00000000 | 00000000000000000000000000000001
+ 00000000 | 00000000000000000000000000010000
  00010000 | 00000000000000000000000000100000
  00010001 | 00000000000000000000000001000000
  00010010 | 00000000000100000000000000000000
@@ -1582,27 +1697,50 @@ Optimizing FSM <cpu/CurrState/FSM> on signal <CurrState[1:32]> with one-hot enco
  11110000 | 00000000000000000000000000000100
  11110001 | 00000000000000000000000000000010
  11110010 | 00000000000000000000000000001000
- 11110011 | 00000000000000000000000000010000
+ 11110011 | 00000000000000000000000000000001
 ----------------------------------------------
 Analyzing FSM <FSM_3> for best encoding.
-Optimizing FSM <MouseBus/mouse/MSM/Curr_State/FSM> on signal <Curr_State[1:13]> with one-hot encoding.
-------------------------
- State | Encoding
-------------------------
- 0000  | 0000000000001
- 0001  | 0000000000010
- 0010  | 0000000000100
- 0011  | 0000000001000
- 0100  | 0000000010000
- 0101  | 0000000100000
- 0110  | 0000001000000
- 0111  | 0000010000000
- 1000  | 0000100000000
- 1001  | 0001000000000
- 1010  | 0010000000000
- 1011  | 0100000000000
- 1100  | 1000000000000
-------------------------
+Optimizing FSM <MouseBus/mouse/MSM/Curr_State/FSM> on signal <Curr_State[1:36]> with one-hot encoding.
+------------------------------------------------
+ State  | Encoding
+------------------------------------------------
+ 000000 | 000000000000000000000000000000000001
+ 000001 | 000000000000000000000000000000000010
+ 000010 | 000000000000000000000000000000000100
+ 000011 | 000000000000000000000000000000001000
+ 000100 | 000000000000000000000000000000010000
+ 000101 | 000000000000000000000000000000100000
+ 000110 | 000000000000000000000000000001000000
+ 000111 | 000000000000000000000000000010000000
+ 001000 | 000000000000000000000000000100000000
+ 001001 | 000000000000000000000000001000000000
+ 001010 | 000000000000000000000000010000000000
+ 001011 | 000000000000000000000000100000000000
+ 001100 | 000000000000000000000001000000000000
+ 001101 | 000000000000000000000010000000000000
+ 001110 | 000000000000000000000100000000000000
+ 001111 | 000000000000000000001000000000000000
+ 010000 | 000000000000000000010000000000000000
+ 010001 | 000000000000000000100000000000000000
+ 010010 | 000000000000000001000000000000000000
+ 010011 | 000000000000000010000000000000000000
+ 010100 | 000000000000000100000000000000000000
+ 010101 | 000000000000001000000000000000000000
+ 010110 | 000000000000010000000000000000000000
+ 010111 | 000000000000100000000000000000000000
+ 011000 | 000000000001000000000000000000000000
+ 011001 | 000000000010000000000000000000000000
+ 011010 | 000000000100000000000000000000000000
+ 011011 | 000000001000000000000000000000000000
+ 011100 | 000000010000000000000000000000000000
+ 011101 | 000000100000000000000000000000000000
+ 011110 | 000001000000000000000000000000000000
+ 011111 | 000010000000000000000000000000000000
+ 100000 | 000100000000000000000000000000000000
+ 100001 | 001000000000000000000000000000000000
+ 100010 | 010000000000000000000000000000000000
+ 100011 | 100000000000000000000000000000000000
+------------------------------------------------
 Analyzing FSM <FSM_2> for best encoding.
 Optimizing FSM <MouseBus/mouse/R/Curr_State/FSM> on signal <Curr_State[1:3]> with gray encoding.
 -------------------
@@ -1677,22 +1815,6 @@ INFO:Xst:3226 - The RAM <Mram_Mem> will be implemented as a BLOCK RAM, absorbing
     -----------------------------------------------------------------------
 Unit <Frame_Buffer> synthesized (advanced).
 
-Synthesizing (advanced) Unit <IR_Transmitter_SM_1>.
-INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_command_reg_next_state_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
-Unit <IR_Transmitter_SM_1> synthesized (advanced).
-
-Synthesizing (advanced) Unit <IR_Transmitter_SM_2>.
-INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_command_reg_next_state_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
-Unit <IR_Transmitter_SM_2> synthesized (advanced).
-
-Synthesizing (advanced) Unit <IR_Transmitter_SM_3>.
-INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_command_reg_next_state_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
-Unit <IR_Transmitter_SM_3> synthesized (advanced).
-
-Synthesizing (advanced) Unit <IR_Transmitter_SM_4>.
-INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_command_reg_next_state_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
-Unit <IR_Transmitter_SM_4> synthesized (advanced).
-
 Synthesizing (advanced) Unit <Processor>.
 	Found pipelined multiplier on signal <ALU0/Out_mult0001>:
 		- 1 pipeline level(s) found in a register on signal <CurrRegA>.
@@ -1757,12 +1879,11 @@ Macro Statistics
  128x8-bit single-port block RAM                       : 1
  256x8-bit single-port block RAM                       : 1
  32768x1-bit dual-port block RAM                       : 1
-# ROMs                                                 : 5
- 16x4-bit ROM                                          : 4
+# ROMs                                                 : 1
  16x8-bit ROM                                          : 1
 # Multipliers                                          : 1
  8x8-bit registered multiplier                         : 1
-# Adders/Subtractors                                   : 23
+# Adders/Subtractors                                   : 24
  10-bit adder                                          : 4
  10-bit subtractor                                     : 2
  16-bit adder                                          : 2
@@ -1773,16 +1894,16 @@ Macro Statistics
  4-bit adder                                           : 5
  8-bit adder                                           : 3
  8-bit addsub                                          : 1
- 9-bit adder                                           : 2
+ 9-bit adder                                           : 3
 # Counters                                             : 8
  10-bit up counter                                     : 2
  32-bit up counter                                     : 2
  8-bit up counter                                      : 4
-# Registers                                            : 777
- Flip-Flops                                            : 777
-# Comparators                                          : 32
- 10-bit comparator greater                             : 4
- 10-bit comparator less                                : 5
+# Registers                                            : 833
+ Flip-Flops                                            : 833
+# Comparators                                          : 34
+ 10-bit comparator greater                             : 5
+ 10-bit comparator less                                : 6
  11-bit comparator less                                : 1
  32-bit comparator equal                               : 1
  32-bit comparator not equal                           : 1
@@ -1812,8 +1933,6 @@ WARNING:Xst:2042 - Unit IO_Bus_LEDs: 8 internal tristates are replaced by logic 
 WARNING:Xst:2042 - Unit Processor: 8 internal tristates are replaced by logic (pull-up yes): BUS_DATA<0>, BUS_DATA<1>, BUS_DATA<2>, BUS_DATA<3>, BUS_DATA<4>, BUS_DATA<5>, BUS_DATA<6>, BUS_DATA<7>.
 
 Optimizing unit <Processor_Top> ...
-WARNING:Xst:1710 - FF/Latch <MouseBus/mouse/MouseY_7> (without init value) has a constant value of 0 in block <Processor_Top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <MouseBus/mouse/MouseY_7> (without init value) has a constant value of 0 in block <Processor_Top>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <SevenSegmentDisplay> ...
 
@@ -1856,7 +1975,9 @@ Optimizing unit <CarSelect_MainFSM> ...
 Mapping all equations...
 Building and optimizing final netlist ...
 INFO:Xst:2261 - The FF/Latch <MouseBus/mouse/T/ClkMouseInDly> in Unit <Processor_Top> is equivalent to the following FF/Latch, which will be removed : <MouseBus/mouse/R/ClkMouseInDly> 
-Found area constraint ratio of 100 (+ 5) on block Processor_Top, actual ratio is 95.
+Found area constraint ratio of 100 (+ 5) on block Processor_Top, actual ratio is 103.
+Optimizing block <Processor_Top> to meet ratio 100 (+ 5) of 960 slices :
+Area constraint is met for block <Processor_Top>, final ratio is 97.
 
 Final Macro Processing ...
 
@@ -1864,8 +1985,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 891
- Flip-Flops                                            : 891
+# Registers                                            : 948
+ Flip-Flops                                            : 948
 
 =========================================================================
 
@@ -1894,38 +2015,38 @@ Design Statistics
 # IOs                              : 35
 
 Cell Usage :
-# BELS                             : 2335
+# BELS                             : 2492
 #      BUF                         : 1
 #      GND                         : 1
 #      INV                         : 33
-#      LUT1                        : 247
-#      LUT2                        : 161
+#      LUT1                        : 248
+#      LUT2                        : 194
 #      LUT2_D                      : 1
 #      LUT2_L                      : 8
-#      LUT3                        : 398
-#      LUT3_D                      : 9
-#      LUT3_L                      : 9
-#      LUT4                        : 606
-#      LUT4_D                      : 50
-#      LUT4_L                      : 49
-#      MUXCY                       : 359
-#      MUXF5                       : 73
+#      LUT3                        : 410
+#      LUT3_D                      : 10
+#      LUT3_L                      : 6
+#      LUT4                        : 697
+#      LUT4_D                      : 53
+#      LUT4_L                      : 37
+#      MUXCY                       : 372
+#      MUXF5                       : 82
 #      MUXF6                       : 1
 #      VCC                         : 1
-#      XORCY                       : 328
-# FlipFlops/Latches                : 891
-#      FD                          : 97
+#      XORCY                       : 337
+# FlipFlops/Latches                : 948
+#      FD                          : 106
 #      FDC                         : 64
 #      FDCE                        : 120
-#      FDE                         : 129
+#      FDE                         : 121
 #      FDP                         : 4
 #      FDPE                        : 12
-#      FDR                         : 266
-#      FDRE                        : 121
-#      FDRS                        : 42
-#      FDRSE                       : 6
+#      FDR                         : 304
+#      FDRE                        : 123
+#      FDRS                        : 44
+#      FDRSE                       : 13
 #      FDS                         : 19
-#      FDSE                        : 11
+#      FDSE                        : 18
 # RAMS                             : 4
 #      RAMB16_S1_S1                : 2
 #      RAMB16_S9                   : 2
@@ -1944,9 +2065,9 @@ Device utilization summary:
 
 Selected Device : 3s100ecp132-5 
 
- Number of Slices:                      881  out of    960    91%  
- Number of Slice Flip Flops:            891  out of   1920    46%  
- Number of 4 input LUTs:               1571  out of   1920    81%  
+ Number of Slices:                      927  out of    960    96%  
+ Number of Slice Flip Flops:            948  out of   1920    49%  
+ Number of 4 input LUTs:               1697  out of   1920    88%  
  Number of IOs:                          35
  Number of bonded IOBs:                  35  out of     83    42%  
  Number of BRAMs:                         4  out of      4   100%  
@@ -1974,7 +2095,7 @@ Clock Information:
 -----------------------------------+----------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)      | Load  |
 -----------------------------------+----------------------------+-------+
-CLK                                | BUFGP                      | 895   |
+CLK                                | BUFGP                      | 952   |
 VGAIOBus/SignalGenerator/VGA_CLK   | NONE(VGAIOBus/inst_LPM_FF1)| 3     |
 -----------------------------------+----------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -2000,9 +2121,9 @@ Timing Summary:
 ---------------
 Speed Grade: -5
 
-   Minimum period: 10.353ns (Maximum Frequency: 96.588MHz)
-   Minimum input arrival time before clock: 6.492ns
-   Maximum output required time after clock: 5.640ns
+   Minimum period: 10.404ns (Maximum Frequency: 96.116MHz)
+   Minimum input arrival time before clock: 6.503ns
+   Maximum output required time after clock: 5.654ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -2011,21 +2132,21 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
-  Clock period: 10.353ns (frequency: 96.588MHz)
-  Total number of paths / destination ports: 64728 / 1531
+  Clock period: 10.404ns (frequency: 96.116MHz)
+  Total number of paths / destination ports: 67454 / 1613
 -------------------------------------------------------------------------
-Delay:               10.353ns (Levels of Logic = 12)
+Delay:               10.404ns (Levels of Logic = 13)
   Source:            rom/Mrom__varindex0000 (RAM)
-  Destination:       cpu/ALU0/Out_6 (FF)
+  Destination:       cpu/ALU0/Out_7 (FF)
   Source Clock:      CLK rising
   Destination Clock: CLK rising
 
-  Data Path: rom/Mrom__varindex0000 to cpu/ALU0/Out_6
+  Data Path: rom/Mrom__varindex0000 to cpu/ALU0/Out_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     RAMB16_S9:CLK->DO6   33   2.436   1.142  rom/Mrom__varindex0000 (ROM_DATA<6>)
-     LUT4_D:I1->O          7   0.612   0.632  cpu/ALU0/Out_or00011 (cpu/ALU0/Out_or0001)
+     RAMB16_S9:CLK->DO7   22   2.436   1.141  rom/Mrom__varindex0000 (ROM_DATA<7>)
+     LUT4_D:I0->O          7   0.612   0.632  cpu/ALU0/Out_or00011 (cpu/ALU0/Out_or0001)
      LUT3:I2->O            1   0.612   0.387  cpu/ALU0/Out_mux0001<1>1 (cpu/ALU0/Out_mux0001<1>)
      LUT3:I2->O            1   0.612   0.000  cpu/ALU0/Maddsub_Out_addsub0000_lut<1> (cpu/ALU0/Maddsub_Out_addsub0000_lut<1>)
      MUXCY:S->O            1   0.404   0.000  cpu/ALU0/Maddsub_Out_addsub0000_cy<1> (cpu/ALU0/Maddsub_Out_addsub0000_cy<1>)
@@ -2033,20 +2154,21 @@ Delay:               10.353ns (Levels of Logic = 12)
      MUXCY:CI->O           1   0.052   0.000  cpu/ALU0/Maddsub_Out_addsub0000_cy<3> (cpu/ALU0/Maddsub_Out_addsub0000_cy<3>)
      MUXCY:CI->O           1   0.052   0.000  cpu/ALU0/Maddsub_Out_addsub0000_cy<4> (cpu/ALU0/Maddsub_Out_addsub0000_cy<4>)
      MUXCY:CI->O           1   0.052   0.000  cpu/ALU0/Maddsub_Out_addsub0000_cy<5> (cpu/ALU0/Maddsub_Out_addsub0000_cy<5>)
-     XORCY:CI->O           3   0.699   0.481  cpu/ALU0/Maddsub_Out_addsub0000_xor<6> (cpu/ALU0/Out_addsub0000<6>)
-     LUT3:I2->O            1   0.612   0.000  cpu/ALU0/Mmux_Out_mux0000_76 (cpu/ALU0/Mmux_Out_mux0000_76)
-     MUXF5:I0->O           1   0.278   0.360  cpu/ALU0/Mmux_Out_mux0000_5_f5_5 (cpu/ALU0/Mmux_Out_mux0000_5_f56)
-     LUT4:I3->O            1   0.612   0.000  cpu/ROM_DATA<7>637 (cpu/ALU0/Out_mux0000<6>)
-     FDR:D                     0.268          cpu/ALU0/Out_6
+     MUXCY:CI->O           0   0.052   0.000  cpu/ALU0/Maddsub_Out_addsub0000_cy<6> (cpu/ALU0/Maddsub_Out_addsub0000_cy<6>)
+     XORCY:CI->O           3   0.699   0.481  cpu/ALU0/Maddsub_Out_addsub0000_xor<7> (cpu/ALU0/Out_addsub0000<7>)
+     LUT3:I2->O            1   0.612   0.000  cpu/ALU0/Mmux_Out_mux0000_67 (cpu/ALU0/Mmux_Out_mux0000_67)
+     MUXF5:I1->O           1   0.278   0.360  cpu/ALU0/Mmux_Out_mux0000_5_f5_6 (cpu/ALU0/Mmux_Out_mux0000_5_f57)
+     LUT4:I3->O            1   0.612   0.000  cpu/ROM_DATA<7>737 (cpu/ALU0/Out_mux0000<7>)
+     FDR:D                     0.268          cpu/ALU0/Out_7
     ----------------------------------------
-    Total                     10.353ns (7.351ns logic, 3.002ns route)
-                                       (71.0% logic, 29.0% route)
+    Total                     10.404ns (7.402ns logic, 3.002ns route)
+                                       (71.2% logic, 28.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
-  Total number of paths / destination ports: 646 / 502
+  Total number of paths / destination ports: 703 / 559
 -------------------------------------------------------------------------
-Offset:              6.492ns (Levels of Logic = 3)
+Offset:              6.503ns (Levels of Logic = 3)
   Source:            RESET (PAD)
   Destination:       timer1/DownCounter_0 (FF)
   Destination Clock: CLK rising
@@ -2055,45 +2177,45 @@ Offset:              6.492ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           252   1.106   1.132  RESET_IBUF (RESET_IBUF)
-     BUF:I->O            253   0.612   1.162  RESET_IBUF_1 (RESET_IBUF_1)
+     IBUF:I->O           273   1.106   1.138  RESET_IBUF (RESET_IBUF)
+     BUF:I->O            273   0.612   1.168  RESET_IBUF_1 (RESET_IBUF_1)
      LUT3:I2->O           32   0.612   1.073  timer1/DownCounter_or0000167 (timer1/DownCounter_or0000)
      FDR:R                     0.795          timer1/DownCounter_0
     ----------------------------------------
-    Total                      6.492ns (3.125ns logic, 3.367ns route)
+    Total                      6.503ns (3.125ns logic, 3.378ns route)
                                        (48.1% logic, 51.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
   Total number of paths / destination ports: 58 / 32
 -------------------------------------------------------------------------
-Offset:              5.640ns (Levels of Logic = 2)
-  Source:            SevenSegBus/SevenSegDisplay/digit_FSM_FFd2 (FF)
-  Destination:       AN0 (PAD)
+Offset:              5.654ns (Levels of Logic = 2)
+  Source:            SevenSegBus/SevenSegDisplay/digit_FSM_FFd1 (FF)
+  Destination:       AN1 (PAD)
   Source Clock:      CLK rising
 
-  Data Path: SevenSegBus/SevenSegDisplay/digit_FSM_FFd2 to AN0
+  Data Path: SevenSegBus/SevenSegDisplay/digit_FSM_FFd1 to AN1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q              13   0.514   0.988  SevenSegBus/SevenSegDisplay/digit_FSM_FFd2 (SevenSegBus/SevenSegDisplay/digit_FSM_FFd2)
-     LUT2:I0->O            1   0.612   0.357  SevenSegBus/SevenSegDisplay/anode<0>1 (AN0_OBUF)
-     OBUF:I->O                 3.169          AN0_OBUF (AN0)
+     FD:C->Q              14   0.514   1.002  SevenSegBus/SevenSegDisplay/digit_FSM_FFd1 (SevenSegBus/SevenSegDisplay/digit_FSM_FFd1)
+     LUT2:I0->O            1   0.612   0.357  SevenSegBus/SevenSegDisplay/anode<1>1 (AN1_OBUF)
+     OBUF:I->O                 3.169          AN1_OBUF (AN1)
     ----------------------------------------
-    Total                      5.640ns (4.295ns logic, 1.345ns route)
-                                       (76.2% logic, 23.8% route)
+    Total                      5.654ns (4.295ns logic, 1.359ns route)
+                                       (76.0% logic, 24.0% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 26.00 secs
-Total CPU time to Xst completion: 26.41 secs
+Total REAL time to Xst completion: 28.00 secs
+Total CPU time to Xst completion: 28.17 secs
  
 --> 
 
-Total memory usage is 317364 kilobytes
+Total memory usage is 325556 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   29 (   0 filtered)
-Number of infos    :   45 (   0 filtered)
+Number of warnings :   27 (   0 filtered)
+Number of infos    :   41 (   0 filtered)
 

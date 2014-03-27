@@ -105,7 +105,7 @@ module IO_Bus_Mouse(
 			Mem[0]	<= {4'b0,MouseStatus};
 			Mem[1]	<= MouseX;
 			Mem[2]	<= MouseY;
-			Mem[2]	<= MouseZ;
+			Mem[3]	<= MouseZ;
 			
 			if (CS)
 				begin
