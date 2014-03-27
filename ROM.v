@@ -32,7 +32,7 @@ module ROM(
 	reg [7:0] ROM [(2**ROMAddrWidth)-1:0];
 
 	// Load program
-	initial  $readmemh("VGA_Mouse_Test.txt", ROM); 
+	initial  $readmemh("Mouse_IR_Assembled.txt", ROM); 
 
 	//single port ram
 	always@(posedge CLK)

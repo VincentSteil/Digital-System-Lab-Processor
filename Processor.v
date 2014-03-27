@@ -205,7 +205,7 @@ output [7:0] ALU_O*/
 
 	always@(posedge CLK) begin
 		if(RESET) begin
-			CurrState  					= 8'h00;
+			CurrState  					= GET_THREAD_START_ADDR_2;//8'h00;
 			CurrProgCounter  			= 8'h00;
 			CurrProgCounterOffset 	= 2'h0;
 			CurrBusAddr  				= 8'hFF; //Initial instruction after reset.

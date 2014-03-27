@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Tue Mar 25 19:32:37 2014
+// Written by: Map P.20131013 on Thu Mar 27 19:57:55 2014
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -15,9 +15,10 @@ COMP "AN1" LOCATE = SITE "J12" LEVEL 1;
 COMP "AN2" LOCATE = SITE "M13" LEVEL 1;
 COMP "AN3" LOCATE = SITE "K14" LEVEL 1;
 COMP "CDP" LOCATE = SITE "N13" LEVEL 1;
-COMP "CLK" LOCATE = SITE "M6" LEVEL 1;
+COMP "CLK" LOCATE = SITE "B8" LEVEL 1;
 COMP "DATA_MOUSE" LOCATE = SITE "C3" LEVEL 1;
 COMP "RESET" LOCATE = SITE "A7" LEVEL 1;
+COMP "IR_LED" LOCATE = SITE "C9" LEVEL 1;
 COMP "VGA_HS" LOCATE = SITE "J14" LEVEL 1;
 COMP "VGA_VS" LOCATE = SITE "K13" LEVEL 1;
 COMP "CLK_MOUSE" LOCATE = SITE "B1" LEVEL 1;

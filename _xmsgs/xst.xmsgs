@@ -8,7 +8,7 @@
 <msg type="info" file="Xst" num="2546" delta="old" >&quot;<arg fmt="%s" index="1">RAM.v</arg>&quot; line <arg fmt="%d" index="2">46</arg>: reading initialization file &quot;<arg fmt="%s" index="3">RAM.txt</arg>&quot;.
 </msg>
 
-<msg type="info" file="Xst" num="2546" delta="old" >&quot;<arg fmt="%s" index="1">ROM.v</arg>&quot; line <arg fmt="%d" index="2">35</arg>: reading initialization file &quot;<arg fmt="%s" index="3">VGA_Mouse_Test.txt</arg>&quot;.
+<msg type="info" file="Xst" num="2546" delta="old" >&quot;<arg fmt="%s" index="1">ROM.v</arg>&quot; line <arg fmt="%d" index="2">35</arg>: reading initialization file &quot;<arg fmt="%s" index="3">Mouse_IR_Assembled.txt</arg>&quot;.
 </msg>
 
 <msg type="info" file="Xst" num="2546" delta="old" >&quot;<arg fmt="%s" index="1">IO_Bus_SevenSeg.v</arg>&quot; line <arg fmt="%d" index="2">75</arg>: reading initialization file &quot;<arg fmt="%s" index="3">SevenSeg.txt</arg>&quot;.
@@ -20,13 +20,13 @@
 <msg type="info" file="Xst" num="1433" delta="old" >Contents of array &lt;<arg fmt="%s" index="1">Mem</arg>&gt; may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
 </msg>
 
-<msg type="info" file="Xst" num="2546" delta="old" >&quot;<arg fmt="%s" index="1">IO_Bus_Mouse.v</arg>&quot; line <arg fmt="%d" index="2">91</arg>: reading initialization file &quot;<arg fmt="%s" index="3">Mouse.txt</arg>&quot;.
+<msg type="info" file="Xst" num="2546" delta="old" >&quot;<arg fmt="%s" index="1">IO_Bus_Mouse.v</arg>&quot; line <arg fmt="%d" index="2">93</arg>: reading initialization file &quot;<arg fmt="%s" index="3">Mouse.txt</arg>&quot;.
 </msg>
 
-<msg type="warning" file="Xst" num="2319" delta="new" >&quot;<arg fmt="%s" index="1">VGABus.v</arg>&quot; line <arg fmt="%d" index="2">0</arg>: Signal <arg fmt="%s" index="3">CONFIG_COLOURS</arg> in initial block is partially initialized. The initialization will be ignored.
+<msg type="warning" file="Xst" num="2319" delta="old" >&quot;<arg fmt="%s" index="1">VGABus.v</arg>&quot; line <arg fmt="%d" index="2">0</arg>: Signal <arg fmt="%s" index="3">CONFIG_COLOURS</arg> in initial block is partially initialized. The initialization will be ignored.
 </msg>
 
-<msg type="warning" file="Xst" num="2319" delta="new" >&quot;<arg fmt="%s" index="1">VGABus.v</arg>&quot; line <arg fmt="%d" index="2">0</arg>: Signal <arg fmt="%s" index="3">CONFIG_COLOURS</arg> in initial block is partially initialized. The initialization will be ignored.
+<msg type="warning" file="Xst" num="2319" delta="old" >&quot;<arg fmt="%s" index="1">VGABus.v</arg>&quot; line <arg fmt="%d" index="2">0</arg>: Signal <arg fmt="%s" index="3">CONFIG_COLOURS</arg> in initial block is partially initialized. The initialization will be ignored.
 </msg>
 
 <msg type="warning" file="Xst" num="1781" delta="old" >Signal &lt;<arg fmt="%s" index="1">ROM</arg>&gt; is used but never assigned. Tied to default value.
@@ -232,18 +232,6 @@
 
 <msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">Mram_Mem</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
 
-<msg type="info" file="Xst" num="3034" delta="new" >In order to maximize performance and save block RAM resources, the small ROM &lt;<arg fmt="%s" index="1">Mrom_command_reg_next_state_mux0000</arg>&gt; will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
-</msg>
-
-<msg type="info" file="Xst" num="3034" delta="new" >In order to maximize performance and save block RAM resources, the small ROM &lt;<arg fmt="%s" index="1">Mrom_command_reg_next_state_mux0000</arg>&gt; will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
-</msg>
-
-<msg type="info" file="Xst" num="3034" delta="new" >In order to maximize performance and save block RAM resources, the small ROM &lt;<arg fmt="%s" index="1">Mrom_command_reg_next_state_mux0000</arg>&gt; will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
-</msg>
-
-<msg type="info" file="Xst" num="3034" delta="new" >In order to maximize performance and save block RAM resources, the small ROM &lt;<arg fmt="%s" index="1">Mrom_command_reg_next_state_mux0000</arg>&gt; will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
-</msg>
-
 <msg type="info" file="Xst" num="2385" delta="old" >HDL ADVISOR - You can improve the performance of the multiplier <arg fmt="%s" index="1">ALU0/Mmult_Out_mult0001</arg> by adding <arg fmt="%d" index="2">1</arg> register level(s).
 </msg>
 
@@ -281,12 +269,6 @@
 <msg type="warning" file="Xst" num="2042" delta="old" >Unit <arg fmt="%s" index="1">IO_Bus_LEDs</arg>: <arg fmt="%d" index="2">8</arg> internal tristates are replaced by logic (pull-up <arg fmt="%s" index="3">yes</arg>): </msg>
 
 <msg type="warning" file="Xst" num="2042" delta="old" >Unit <arg fmt="%s" index="1">Processor</arg>: <arg fmt="%d" index="2">8</arg> internal tristates are replaced by logic (pull-up <arg fmt="%s" index="3">yes</arg>): </msg>
-
-<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MouseBus/mouse/MouseY_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">Processor_Top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="1710" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">MouseBus/mouse/MouseY_7</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">Processor_Top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
-</msg>
 
 <msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">MouseBus/mouse/T/ClkMouseInDly</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">Processor_Top</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;MouseBus/mouse/R/ClkMouseInDly&gt; </arg>
 </msg>

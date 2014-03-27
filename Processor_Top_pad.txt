@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Tue Mar 25 19:33:19 2014
+Thu Mar 27 19:58:42 2014
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -41,7 +41,7 @@ Pinout by Pin Number:
 |B5        |             |DIFFM    |IO_L09P_0                |UNUSED   |           |0             |          |         |           |         |       |          |           |                |
 |B6        |             |DIFFM    |IO_L08P_0                |UNUSED   |           |0             |          |         |           |         |       |          |           |                |
 |B7        |             |DIFFS    |IO_L07N_0/GCLK11         |UNUSED   |           |0             |          |         |           |         |       |          |           |                |
-|B8        |             |DIFFMI   |IP_L06P_0/GCLK8          |UNUSED   |           |0             |          |         |           |         |       |          |           |                |
+|B8        |CLK          |IBUF     |IP_L06P_0/GCLK8          |INPUT    |LVCMOS25*  |0             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
 |B9        |             |DIFFM    |IO_L05P_0/GCLK6          |UNUSED   |           |0             |          |         |           |         |       |          |           |                |
 |B10       |             |         |VCCO_0                   |         |           |0             |          |         |           |         |2.50   |          |           |                |
 |B11       |             |         |NC                       |         |           |              |          |         |           |         |       |          |           |                |
@@ -56,7 +56,7 @@ Pinout by Pin Number:
 |C6        |             |DIFFS    |IO_L08N_0/VREF_0         |UNUSED   |           |0             |          |         |           |         |       |          |           |                |
 |C7        |             |         |GND                      |         |           |              |          |         |           |         |       |          |           |                |
 |C8        |             |DIFFSI   |IP_L06N_0/GCLK9          |UNUSED   |           |0             |          |         |           |         |       |          |           |                |
-|C9        |             |DIFFS    |IO_L04N_0/GCLK5          |UNUSED   |           |0             |          |         |           |         |       |          |           |                |
+|C9        |IR_LED       |IOB      |IO_L04N_0/GCLK5          |OUTPUT   |LVCMOS25*  |0             |12        |SLOW     |NONE**     |         |       |LOCATED   |NO         |NONE            |
 |C10       |             |         |GND                      |         |           |              |          |         |           |         |       |          |           |                |
 |C11       |             |IBUF     |IP                       |UNUSED   |           |0             |          |         |           |         |       |          |           |                |
 |C12       |             |DIFFS    |IO_L01N_0                |UNUSED   |           |0             |          |         |           |         |       |          |           |                |
@@ -65,7 +65,7 @@ Pinout by Pin Number:
 |D1        |             |         |NC                       |         |           |              |          |         |           |         |       |          |           |                |
 |D2        |             |IOB      |IO                       |UNUSED   |           |3             |          |         |           |         |       |          |           |                |
 |D3        |             |         |VCCINT                   |         |           |              |          |         |           |         |1.2    |          |           |                |
-|D12       |IR_LED       |IOB      |IO_L09N_1/LDC0           |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |       |UNLOCATED |NO         |NONE            |
+|D12       |             |DIFFS    |IO_L09N_1/LDC0           |UNUSED   |           |1             |          |         |           |         |       |          |           |                |
 |D13       |VGA_COLOUR<1>|IOB      |IO_L09P_1/HDC            |OUTPUT   |LVCMOS25*  |1             |12        |SLOW     |NONE**     |         |       |LOCATED   |NO         |NONE            |
 |D14       |             |         |NC                       |         |           |              |          |         |           |         |       |          |           |                |
 |E1        |             |         |VCCO_3                   |         |           |3             |          |         |           |         |2.50   |          |           |                |
@@ -115,7 +115,7 @@ Pinout by Pin Number:
 |M3        |             |         |GND                      |         |           |              |          |         |           |         |       |          |           |                |
 |M4        |             |DIFFM    |IO_L03P_2/D7/GCLK12      |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
 |M5        |LEDs<0>      |IOB      |IO_L04P_2/D4/GCLK14      |OUTPUT   |LVCMOS25*  |2             |12        |SLOW     |NONE**     |         |       |LOCATED   |NO         |NONE            |
-|M6        |CLK          |IBUF     |IP_L05P_2/RDWR_B/GCLK0   |INPUT    |LVCMOS25*  |2             |          |         |           |NONE     |       |LOCATED   |NO         |NONE            |
+|M6        |             |DIFFMI   |IP_L05P_2/RDWR_B/GCLK0   |UNUSED   |           |2             |          |         |           |         |       |          |           |                |
 |M7        |             |         |GND                      |         |           |              |          |         |           |         |       |          |           |                |
 |M8        |             |         |VCCO_2                   |         |           |2             |          |         |           |         |2.50   |          |           |                |
 |M9        |             |         |NC                       |         |           |              |          |         |           |         |       |          |           |                |

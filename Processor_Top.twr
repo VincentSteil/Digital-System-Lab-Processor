@@ -45,9 +45,9 @@ Setup/Hold to clock CLK
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-CLK_MOUSE   |   -0.020(R)|    1.110(R)|CLK_BUFGP         |   0.000|
-DATA_MOUSE  |    2.543(R)|    0.992(R)|CLK_BUFGP         |   0.000|
-RESET       |    7.483(R)|    0.317(R)|CLK_BUFGP         |   0.000|
+CLK_MOUSE   |    0.118(R)|    0.999(R)|CLK_BUFGP         |   0.000|
+DATA_MOUSE  |    2.659(R)|    0.482(R)|CLK_BUFGP         |   0.000|
+RESET       |    5.204(R)|    0.271(R)|CLK_BUFGP         |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock CLK to Pad
@@ -55,38 +55,38 @@ Clock CLK to Pad
              | clk (edge) |                  | Clock  |
 Destination  |   to PAD   |Internal Clock(s) | Phase  |
 -------------+------------+------------------+--------+
-AN0          |    9.498(R)|CLK_BUFGP         |   0.000|
-AN1          |   10.356(R)|CLK_BUFGP         |   0.000|
-AN2          |    8.607(R)|CLK_BUFGP         |   0.000|
-AN3          |   10.588(R)|CLK_BUFGP         |   0.000|
-CA           |    8.200(R)|CLK_BUFGP         |   0.000|
-CB           |    9.137(R)|CLK_BUFGP         |   0.000|
-CC           |    9.085(R)|CLK_BUFGP         |   0.000|
-CD           |    8.520(R)|CLK_BUFGP         |   0.000|
-CE           |    8.895(R)|CLK_BUFGP         |   0.000|
-CF           |    8.436(R)|CLK_BUFGP         |   0.000|
-CG           |    8.999(R)|CLK_BUFGP         |   0.000|
-CLK_MOUSE    |   10.650(R)|CLK_BUFGP         |   0.000|
-DATA_MOUSE   |   10.718(R)|CLK_BUFGP         |   0.000|
-IR_LED       |    7.314(R)|CLK_BUFGP         |   0.000|
-LEDs<0>      |    7.387(R)|CLK_BUFGP         |   0.000|
-LEDs<1>      |    7.426(R)|CLK_BUFGP         |   0.000|
-LEDs<2>      |    7.227(R)|CLK_BUFGP         |   0.000|
-LEDs<3>      |    6.949(R)|CLK_BUFGP         |   0.000|
-LEDs<4>      |    7.161(R)|CLK_BUFGP         |   0.000|
-LEDs<5>      |    7.539(R)|CLK_BUFGP         |   0.000|
-LEDs<6>      |    7.531(R)|CLK_BUFGP         |   0.000|
-LEDs<7>      |    8.036(R)|CLK_BUFGP         |   0.000|
-VGA_COLOUR<0>|    8.160(R)|CLK_BUFGP         |   0.000|
-VGA_COLOUR<1>|    7.493(R)|CLK_BUFGP         |   0.000|
-VGA_COLOUR<2>|    8.002(R)|CLK_BUFGP         |   0.000|
-VGA_COLOUR<3>|    7.723(R)|CLK_BUFGP         |   0.000|
-VGA_COLOUR<4>|    7.645(R)|CLK_BUFGP         |   0.000|
-VGA_COLOUR<5>|    7.217(R)|CLK_BUFGP         |   0.000|
-VGA_COLOUR<6>|    7.229(R)|CLK_BUFGP         |   0.000|
-VGA_COLOUR<7>|    7.667(R)|CLK_BUFGP         |   0.000|
-VGA_HS       |    7.084(R)|CLK_BUFGP         |   0.000|
-VGA_VS       |    7.449(R)|CLK_BUFGP         |   0.000|
+AN0          |   10.429(R)|CLK_BUFGP         |   0.000|
+AN1          |   10.724(R)|CLK_BUFGP         |   0.000|
+AN2          |   10.082(R)|CLK_BUFGP         |   0.000|
+AN3          |   10.430(R)|CLK_BUFGP         |   0.000|
+CA           |    8.630(R)|CLK_BUFGP         |   0.000|
+CB           |   11.197(R)|CLK_BUFGP         |   0.000|
+CC           |    9.838(R)|CLK_BUFGP         |   0.000|
+CD           |   10.877(R)|CLK_BUFGP         |   0.000|
+CE           |   10.177(R)|CLK_BUFGP         |   0.000|
+CF           |   10.654(R)|CLK_BUFGP         |   0.000|
+CG           |   10.615(R)|CLK_BUFGP         |   0.000|
+CLK_MOUSE    |   10.919(R)|CLK_BUFGP         |   0.000|
+DATA_MOUSE   |   10.489(R)|CLK_BUFGP         |   0.000|
+IR_LED       |    7.415(R)|CLK_BUFGP         |   0.000|
+LEDs<0>      |    7.756(R)|CLK_BUFGP         |   0.000|
+LEDs<1>      |    7.182(R)|CLK_BUFGP         |   0.000|
+LEDs<2>      |    7.905(R)|CLK_BUFGP         |   0.000|
+LEDs<3>      |    8.882(R)|CLK_BUFGP         |   0.000|
+LEDs<4>      |    7.483(R)|CLK_BUFGP         |   0.000|
+LEDs<5>      |    7.933(R)|CLK_BUFGP         |   0.000|
+LEDs<6>      |    7.435(R)|CLK_BUFGP         |   0.000|
+LEDs<7>      |    7.588(R)|CLK_BUFGP         |   0.000|
+VGA_COLOUR<0>|    7.990(R)|CLK_BUFGP         |   0.000|
+VGA_COLOUR<1>|    7.783(R)|CLK_BUFGP         |   0.000|
+VGA_COLOUR<2>|    8.279(R)|CLK_BUFGP         |   0.000|
+VGA_COLOUR<3>|    8.329(R)|CLK_BUFGP         |   0.000|
+VGA_COLOUR<4>|    8.350(R)|CLK_BUFGP         |   0.000|
+VGA_COLOUR<5>|    8.398(R)|CLK_BUFGP         |   0.000|
+VGA_COLOUR<6>|    7.942(R)|CLK_BUFGP         |   0.000|
+VGA_COLOUR<7>|    7.755(R)|CLK_BUFGP         |   0.000|
+VGA_HS       |    7.409(R)|CLK_BUFGP         |   0.000|
+VGA_VS       |    7.164(R)|CLK_BUFGP         |   0.000|
 -------------+------------+------------------+--------+
 
 Clock to Setup on destination clock CLK
@@ -94,18 +94,18 @@ Clock to Setup on destination clock CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |    8.984|         |         |         |
+CLK            |    9.321|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Tue Mar 25 19:33:25 2014 
+Analysis completed Thu Mar 27 19:58:48 2014 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 177 MB
+Peak Memory Usage: 179 MB
 
 
 

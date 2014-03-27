@@ -93,7 +93,7 @@ always@(posedge CLK)begin
          ForwardRight:   command_reg_next_state = ForwardRight;
          BackwardLeft:   command_reg_next_state = BackwardLeft;
          BackwardRight:  command_reg_next_state = BackwardRight;
-         IDLE: if(command_reg_next_state != IDLE)begin command_reg_next_state = IDLE; end//= command_reg_next_state; end
+         IDLE: if(command_reg_next_state != IDLE)begin command_reg_next_state = command_reg_next_state; end
                else begin command_reg_next_state = IDLE; end
          default: command_reg_next_state = IDLE; 
       endcase
