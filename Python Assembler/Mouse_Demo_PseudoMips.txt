@@ -1,0 +1,121 @@
+Processor_Init
+idle
+
+Mouse_ISR
+li A 00 // Clear VGA data current
+sw A B2
+lw A A1 // Load Mouse_X into A
+sw A B0 // Save Mouse_X to VGA reg X
+sw A D0 // Update SevenSeg registers X
+lw B A2 // Load Mouse_Y into B
+li A 77 // Load 120 into A
+sw B D1 // Update SevenSeg Y
+sub A B B // 120 - Mouse_Y to invert position / movement
+sw B B1 // Save Mouse_Y to VGA reg Y
+li A 01 
+sw A B2 // Set VGA data current
+lw A A0 // Load Mouse_Status into A
+sw A C0 // Update LED's
+idle
+
+Timer_ISR
+lw A A0 // load Mouse_Status
+li B 08 // load 1000
+and A B A // bit mask bit 3 -> left mouse button
+beq A B Mouse_Clicked_Timer
+idle
+
+Mouse_Clicked_Timer
+//first check if car needs changed
+Car_Select
+
+//get x direction
+lw A A1 				//load mouse_X in regA
+li B 35 				//load regB with 53(dec value)
+blt A B X_L_53			//is mouse_x less than 53?
+li B 6A 				//load B with 106(dec value)
+blt A B 53_X_106		//is mouse_x less than 106?
+
+106_X_160 				//mouse_x is between 106 and 160
+//check y for 106_X_160
+lw A A2 				//load mouse_Y in regA
+li B 28 				//load B with 40(dec value)
+blt A B BackwardRight 	//goto BackwardRight
+li B 50					//load B with 80(dec value)
+blt A B Right 			//goto Right
+goto FirwardRight		//else goto ForwardRight
+
+X_L_53					//mouse_x is less than 53
+//check y for X_L_53
+lw A A2 				//load mouse_Y in regA
+li B 28 				//load B with 40(dec value)
+blt A B BackwardLeft 	//goto BackwardLeft
+li B 50					//load B with 80(dec value)
+blt A B Left 			//goto Left
+goto ForwardLeft		//else goto ForwardLeft
+
+53_X_106				//mouse_x is between 53 and 160
+//check y for 53_X_106
+lw A A2 				//load mouse_Y in regA
+li B 28 				//load B with 40(dec value)
+blt A B Backward 		//goto Backward
+li B 50					//load B with 80(dec value)
+blt A B BRAKE 			//goto BRAKE
+goto Forward			//else goto Forward
+
+//Directions
+BRAKE 
+lw A 1C 				//load pointer to Forward Direction for car, specified in Car_Select function
+li B 6
+add A B A
+deref A
+sw A 90 				//write new direction
+idle
+
+Forward
+lw A 1C 				//load pointer to Forward Direction for car, specified in Car_Select function
+deref A
+sw A 90 				//write new direction
+idle
+
+Backward
+lw A 1C 				//load pointer to Forward Direction for car, specified in Car_Select function
+li B 1
+add A B A
+deref A
+sw A 90 				//write new direction
+idle
+
+ForwardLeft
+lw A 1C 				//load pointer to Forward Direction for car, specified in Car_Select function
+li B 2
+add A B A
+deref A
+sw A 90 				//write new direction
+idle
+
+ForwardRight
+lw A 1C 				//load pointer to Forward Direction for car, specified in Car_Select function
+li B 3
+add A B A
+deref A
+sw A 90 				//write new direction
+idle
+
+BackwardLeft
+lw A 1C 				//load pointer to Forward Direction for car, specified in Car_Select function
+li B 4
+add A B A
+deref A
+sw A 90 				//write new direction
+idle
+
+BackwardRight
+lw A 1C 				//load pointer to Forward Direction for car, specified in Car_Select function
+li B 5
+add A B A
+deref A
+sw A 90 				//write new direction
+idle
+
+idle

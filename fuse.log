@@ -1,0 +1,75 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Processor_Top_isim_beh.exe -prj C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Processor_Top_beh.prj work.Processor_Top work.glbl 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 2
+Turning on mult-threading, number of parallel sub-compilation jobs: 4 
+Determining compilation order of HDL files
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Counter.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/PulseGen.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Packet_Gen.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/MouseTransmitter.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/MouseReceiver.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/MouseMasterSM.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Generic_Counter.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/VGA_Sig_Gen.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/SevenSegmentDisplay.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/MouseTransceiver.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/IR_Transmitter_SM.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Frame_Buffer.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/ALU.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/VGABus.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Timer.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/ROM.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/RAM.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Processor.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/IO_Bus_SevenSeg.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/IO_Bus_Mouse.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/IO_Bus_LEDs.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/CarSelect_MainFSM.v" into library work
+Analyzing Verilog file "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Processor_Top.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/VGABus.v" Line 56: Port A_DATA_OUT is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/VGA_Sig_Gen.v" Line 99: Port TRIG_OUT is not connected to this instance
+Completed static elaboration
+Compiling module ALU
+Compiling module Processor
+Compiling module RAM
+Compiling module ROM
+Compiling module SevenSegmentDisplay
+Compiling module IO_Bus_SevenSeg
+Compiling module IO_Bus_LEDs
+Compiling module Timer
+Compiling module MouseTransmitter
+Compiling module MouseReceiver
+Compiling module MouseMasterSM
+Compiling module MouseTransceiver
+Compiling module IO_Bus_Mouse
+Compiling module Counter(Counter_Width=23,Counter...
+Compiling module Counter(Counter_Width=10,Counter...
+Compiling module PulseGen(Counter_Width=10,Counte...
+Compiling module Packet_Gen(Pulse_Counter_Width=8...
+Compiling module IR_Transmitter_SM
+Compiling module Counter(Counter_Width=10,Counter...
+Compiling module PulseGen(Counter_Width=10,Counte...
+Compiling module Packet_Gen(Pulse_Counter_Width=8...
+Compiling module IR_Transmitter_SM(Counter_Max=66...
+Compiling module Packet_Gen(Pulse_Counter_Width=8...
+Compiling module IR_Transmitter_SM(StartBurstSize...
+Compiling module Counter(Counter_Width=10,Counter...
+Compiling module PulseGen(Counter_Width=10,Counte...
+Compiling module Packet_Gen(Pulse_Counter_Width=8...
+Compiling module IR_Transmitter_SM(Counter_Max=62...
+Compiling module CarSelect_MainFSM
+Compiling module Frame_Buffer
+Compiling module Generic_Counter(COUNTER_MAX=799)
+Compiling module Generic_Counter(COUNTER_MAX=520)
+Compiling module VGA_Sig_Gen_default
+Compiling module VGABus
+Compiling module Processor_Top
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 25 sub-compilation(s) to finish...
+Compiled 36 Verilog Units
+Built simulation executable C:/Users/Finn/Downloads/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Digital-System-Lab-Processor-beta-mouse-IR-instruction_demo/Processor_Top_isim_beh.exe
+Fuse Memory Usage: 28784 KB
+Fuse CPU Usage: 2183 ms

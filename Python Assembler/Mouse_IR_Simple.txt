@@ -1,0 +1,43 @@
+Processor_Init
+idle
+
+Mouse_ISR
+li A 00 // Clear VGA data current
+sw A B2
+lw A A1 // Load Mouse_X into A
+sw A B0 // Save Mouse_X to VGA reg X
+sw A D0 // Update SevenSeg registers X
+lw B A2 // Load Mouse_Y into B
+li A 77 // Load 120 into A
+sw B D1 // Update SevenSeg Y
+sub A B B // 120 - Mouse_Y to invert position / movement
+sw B B1 // Save Mouse_Y to VGA reg Y
+li A 01 
+sw A B2 // Set VGA data current
+lw A A0 // Load Mouse_Status into A
+sw A C0 // Update LED's
+idle
+
+Timer_ISR
+lw A A0 // load Mouse_Status
+li B 01 // load 0001
+and A B A // bit mask bit 0 -> left mouse button
+beq A B Mouse_Clicked_Timer
+idle
+
+Forward
+lw A 1C                 //load pointer to Forward Direction for car, specified in Car_Select function
+deref A
+sw A 90                 //write new direction idle
+idle
+idle
+
+Mouse_Clicked_Timer
+li A 01
+li B 02
+blt A B Forward
+idle
+idle
+idle
+
+

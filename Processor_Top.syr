@@ -1,0 +1,2099 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Reading design: Processor_Top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "Processor_Top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "Processor_Top"
+Output Format                      : NGC
+Target Device                      : xc3s100e-5-cp132
+
+---- Source Options
+Top Module Name                    : Processor_Top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "Counter.v" in library work
+Compiling verilog file "PulseGen.v" in library work
+Module <Counter> compiled
+Compiling verilog file "Packet_Gen.v" in library work
+Module <PulseGen> compiled
+Compiling verilog file "MouseTransmitter.v" in library work
+Module <Packet_Gen> compiled
+Compiling verilog file "MouseReceiver.v" in library work
+Module <MouseTransmitter> compiled
+Compiling verilog file "MouseMasterSM.v" in library work
+Module <MouseReceiver> compiled
+Compiling verilog file "Generic_Counter.v" in library work
+Module <MouseMasterSM> compiled
+Compiling verilog file "VGA_Sig_Gen.v" in library work
+Module <Generic_Counter> compiled
+Compiling verilog file "SevenSegmentDisplay.v" in library work
+Module <VGA_Sig_Gen> compiled
+Compiling verilog file "MouseTransceiver.v" in library work
+Module <SevenSegmentDisplay> compiled
+Compiling verilog file "IR_Transmitter_SM.v" in library work
+Module <MouseTransceiver> compiled
+Compiling verilog file "Frame_Buffer.v" in library work
+Module <IR_Transmitter_SM> compiled
+Compiling verilog file "ALU.v" in library work
+Module <Frame_Buffer> compiled
+Compiling verilog file "VGABus.v" in library work
+Module <ALU> compiled
+Compiling verilog file "Timer.v" in library work
+Module <VGABus> compiled
+Compiling verilog file "ROM.v" in library work
+Module <Timer> compiled
+Compiling verilog file "RAM.v" in library work
+Module <ROM> compiled
+Compiling verilog file "Processor.v" in library work
+Module <RAM> compiled
+Compiling verilog file "IO_Bus_SevenSeg.v" in library work
+Module <Processor> compiled
+Compiling verilog file "IO_Bus_Mouse.v" in library work
+Module <IO_Bus_SevenSeg> compiled
+Compiling verilog file "IO_Bus_LEDs.v" in library work
+Module <IO_Bus_Mouse> compiled
+Compiling verilog file "CarSelect_MainFSM.v" in library work
+Module <IO_Bus_LEDs> compiled
+Compiling verilog file "Processor_Top.v" in library work
+Module <CarSelect_MainFSM> compiled
+Module <Processor_Top> compiled
+No errors in compilation
+Analysis of file <"Processor_Top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <Processor_Top> in library <work>.
+
+Analyzing hierarchy for module <Processor> in library <work> with parameters.
+	CHOOSE_OPP = "00000000"
+	DE_REFERENCE_0 = "01110010"
+	DE_REFERENCE_A = "01110000"
+	DE_REFERENCE_B = "01110001"
+	DO_MATHS_OPP_0 = "00110010"
+	DO_MATHS_OPP_SAVE_IN_A = "00110000"
+	DO_MATHS_OPP_SAVE_IN_B = "00110001"
+	FUNCTION_CALL = "01100000"
+	GET_THREAD_START_ADDR_0 = "11110001"
+	GET_THREAD_START_ADDR_1 = "11110010"
+	GET_THREAD_START_ADDR_2 = "11110011"
+	GOTO = "01010000"
+	GOTO_0 = "01010001"
+	GOTO_1 = "01010010"
+	GOTO_IDLE = "01010100"
+	IDLE = "11110000"
+	IF_A_EQUALITY_B_GOTO = "01000000"
+	IF_A_EQUALITY_B_GOTO_0 = "01000001"
+	IF_A_EQUALITY_B_GOTO_1 = "01000010"
+	LOAD_IMMEDIATE_TO_A = "00010101"
+	LOAD_IMMEDIATE_TO_A_0 = "00010110"
+	LOAD_IMMEDIATE_TO_B = "00010111"
+	LOAD_IMMEDIATE_TO_B_0 = "00011000"
+	NO_OP = "10000100"
+	READ_FROM_MEM_0 = "00010010"
+	READ_FROM_MEM_1 = "00010011"
+	READ_FROM_MEM_2 = "00010100"
+	READ_FROM_MEM_TO_A = "00010000"
+	READ_FROM_MEM_TO_B = "00010001"
+	RETURN = "01100001"
+	WRITE_TO_MEM_0 = "00100010"
+	WRITE_TO_MEM_FROM_A = "00100000"
+	WRITE_TO_MEM_FROM_B = "00100001"
+
+Analyzing hierarchy for module <RAM> in library <work> with parameters.
+	RAMAddrWidth = "00000000000000000000000000000111"
+	RAMBaseAddr = "00000000000000000000000000000000"
+
+Analyzing hierarchy for module <ROM> in library <work> with parameters.
+	ROMAddrWidth = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <IO_Bus_SevenSeg> in library <work> with parameters.
+	AddrWidth = "00000000000000000000000000000001"
+	BaseAddr = "11010000"
+
+Analyzing hierarchy for module <IO_Bus_LEDs> in library <work> with parameters.
+	BaseAddr = "11000000"
+
+Analyzing hierarchy for module <Timer> in library <work> with parameters.
+	InitialInterruptEnable = "1"
+	InitialInterruptRate = "00000000000000000000000001100100"
+	TimerBaseAddr = "11110000"
+
+Analyzing hierarchy for module <IO_Bus_Mouse> in library <work> with parameters.
+	AddrWidth = "00000000000000000000000000000010"
+	BaseAddr = "10100000"
+
+Analyzing hierarchy for module <CarSelect_MainFSM> in library <work> with parameters.
+	BLUE = "0010"
+	BaseAddr = "10010000"
+	GREEN = "0100"
+	RED = "1000"
+	YELLOW = "0001"
+
+Analyzing hierarchy for module <VGABus> in library <work>.
+
+Analyzing hierarchy for module <ALU> in library <work>.
+
+Analyzing hierarchy for module <SevenSegmentDisplay> in library <work>.
+
+Analyzing hierarchy for module <MouseTransceiver> in library <work> with parameters.
+	MouseLimitX = "10100000"
+	MouseLimitY = "01111000"
+
+Analyzing hierarchy for module <Counter> in library <work> with parameters.
+	Counter_Max = "00000000010011000100101101000000"
+	Counter_Width = "00000000000000000000000000010111"
+
+Analyzing hierarchy for module <IR_Transmitter_SM> in library <work> with parameters.
+	AssertBurstSize = "00000000000000000000000000110000"
+	BackwardLeft = "0110"
+	BackwardRight = "0101"
+	Backwards = "0100"
+	CarSelectBurstSize = "00000000000000000000000000011000"
+	Counter_Max = "00000000000000000000001010110110"
+	Counter_Width = "00000000000000000000000000001010"
+	DeAssertBurstSize = "00000000000000000000000000011000"
+	ForwardLeft = "1010"
+	ForwardRight = "1001"
+	Forwards = "1000"
+	Gap = "00000000000000000000000000011000"
+	IDLE = "0000"
+	Left = "0010"
+	Pulse_Counter_Width = "00000000000000000000000000001000"
+	Right = "0001"
+	StartBurstSize = "00000000000000000000000011000000"
+
+Analyzing hierarchy for module <IR_Transmitter_SM> in library <work> with parameters.
+	AssertBurstSize = "00000000000000000000000000101100"
+	BackwardLeft = "0110"
+	BackwardRight = "0101"
+	Backwards = "0100"
+	CarSelectBurstSize = "00000000000000000000000000101100"
+	Counter_Max = "00000000000000000000001010011011"
+	Counter_Width = "00000000000000000000000000001010"
+	DeAssertBurstSize = "00000000000000000000000000010110"
+	ForwardLeft = "1010"
+	ForwardRight = "1001"
+	Forwards = "1000"
+	Gap = "00000000000000000000000000101000"
+	IDLE = "0000"
+	Left = "0010"
+	Pulse_Counter_Width = "00000000000000000000000000001000"
+	Right = "0001"
+	StartBurstSize = "00000000000000000000000001011000"
+
+Analyzing hierarchy for module <IR_Transmitter_SM> in library <work> with parameters.
+	AssertBurstSize = "00000000000000000000000000101111"
+	BackwardLeft = "0110"
+	BackwardRight = "0101"
+	Backwards = "0100"
+	CarSelectBurstSize = "00000000000000000000000000101111"
+	Counter_Max = "00000000000000000000001010110110"
+	Counter_Width = "00000000000000000000000000001010"
+	DeAssertBurstSize = "00000000000000000000000000010110"
+	ForwardLeft = "1010"
+	ForwardRight = "1001"
+	Forwards = "1000"
+	Gap = "00000000000000000000000000011001"
+	IDLE = "0000"
+	Left = "0010"
+	Pulse_Counter_Width = "00000000000000000000000000001000"
+	Right = "0001"
+	StartBurstSize = "00000000000000000000000010111111"
+
+Analyzing hierarchy for module <IR_Transmitter_SM> in library <work> with parameters.
+	AssertBurstSize = "00000000000000000000000000101100"
+	BackwardLeft = "0110"
+	BackwardRight = "0101"
+	Backwards = "0100"
+	CarSelectBurstSize = "00000000000000000000000000010110"
+	Counter_Max = "00000000000000000000001001110001"
+	Counter_Width = "00000000000000000000000000001010"
+	DeAssertBurstSize = "00000000000000000000000000010110"
+	ForwardLeft = "1010"
+	ForwardRight = "1001"
+	Forwards = "1000"
+	Gap = "00000000000000000000000000101000"
+	IDLE = "0000"
+	Left = "0010"
+	Pulse_Counter_Width = "00000000000000000000000000001000"
+	Right = "0001"
+	StartBurstSize = "00000000000000000000000001011000"
+
+Analyzing hierarchy for module <Frame_Buffer> in library <work>.
+
+Analyzing hierarchy for module <VGA_Sig_Gen> in library <work> with parameters.
+	HTDisp = "00000000000000000000001010000000"
+	HTpw = "00000000000000000000000001100000"
+	HTs = "00000000000000000000001100100000"
+	Hbp = "00000000000000000000000000110000"
+	Hfp = "00000000000000000000000000010000"
+	HorzTimeToBackPorchEnd = "00000000000000000000000010010000"
+	HorzTimeToDisplayTimeEnd = "00000000000000000000001100010000"
+	HorzTimeToFrontPorchEnd = "00000000000000000000001100100000"
+	VTDisp = "00000000000000000000000111100000"
+	VTpw = "00000000000000000000000000000010"
+	VTs = "00000000000000000000001000001001"
+	Vbp = "00000000000000000000000000011101"
+	VertTimeToBackPorchEnd = "00000000000000000000000000011111"
+	VertTimeToDisplayTimeEnd = "00000000000000000000000111111111"
+	VertTimeToFrontPorchEnd = "00000000000000000000001000001001"
+	Vfp = "00000000000000000000000000001010"
+
+Analyzing hierarchy for module <MouseTransmitter> in library <work>.
+
+Analyzing hierarchy for module <MouseReceiver> in library <work>.
+
+Analyzing hierarchy for module <MouseMasterSM> in library <work>.
+
+Analyzing hierarchy for module <PulseGen> in library <work> with parameters.
+	Counter_Max = "00000000000000000000001010110110"
+	Counter_Width = "00000000000000000000000000001010"
+
+Analyzing hierarchy for module <Packet_Gen> in library <work> with parameters.
+	AssertBurstSize = "00000000000000000000000000110000"
+	BackwardBurst = "101"
+	CarSelectBurst = "010"
+	CarSelectBurstSize = "00000000000000000000000000011000"
+	DeAssertBurstSize = "00000000000000000000000000011000"
+	ForwardBurst = "110"
+	GapBurstSize = "00000000000000000000000000011000"
+	GapInterval = "000"
+	LeftBurst = "100"
+	Pulse_Counter_Width = "00000000000000000000000000001000"
+	RightBurst = "011"
+	StartBurst = "001"
+	StartBurstSize = "00000000000000000000000011000000"
+
+Analyzing hierarchy for module <PulseGen> in library <work> with parameters.
+	Counter_Max = "00000000000000000000001010011011"
+	Counter_Width = "00000000000000000000000000001010"
+
+Analyzing hierarchy for module <Packet_Gen> in library <work> with parameters.
+	AssertBurstSize = "00000000000000000000000000101100"
+	BackwardBurst = "101"
+	CarSelectBurst = "010"
+	CarSelectBurstSize = "00000000000000000000000000101100"
+	DeAssertBurstSize = "00000000000000000000000000010110"
+	ForwardBurst = "110"
+	GapBurstSize = "00000000000000000000000000101000"
+	GapInterval = "000"
+	LeftBurst = "100"
+	Pulse_Counter_Width = "00000000000000000000000000001000"
+	RightBurst = "011"
+	StartBurst = "001"
+	StartBurstSize = "00000000000000000000000001011000"
+
+Analyzing hierarchy for module <Packet_Gen> in library <work> with parameters.
+	AssertBurstSize = "00000000000000000000000000101111"
+	BackwardBurst = "101"
+	CarSelectBurst = "010"
+	CarSelectBurstSize = "00000000000000000000000000101111"
+	DeAssertBurstSize = "00000000000000000000000000010110"
+	ForwardBurst = "110"
+	GapBurstSize = "00000000000000000000000000011001"
+	GapInterval = "000"
+	LeftBurst = "100"
+	Pulse_Counter_Width = "00000000000000000000000000001000"
+	RightBurst = "011"
+	StartBurst = "001"
+	StartBurstSize = "00000000000000000000000010111111"
+
+Analyzing hierarchy for module <PulseGen> in library <work> with parameters.
+	Counter_Max = "00000000000000000000001001110001"
+	Counter_Width = "00000000000000000000000000001010"
+
+Analyzing hierarchy for module <Packet_Gen> in library <work> with parameters.
+	AssertBurstSize = "00000000000000000000000000101100"
+	BackwardBurst = "101"
+	CarSelectBurst = "010"
+	CarSelectBurstSize = "00000000000000000000000000010110"
+	DeAssertBurstSize = "00000000000000000000000000010110"
+	ForwardBurst = "110"
+	GapBurstSize = "00000000000000000000000000101000"
+	GapInterval = "000"
+	LeftBurst = "100"
+	Pulse_Counter_Width = "00000000000000000000000000001000"
+	RightBurst = "011"
+	StartBurst = "001"
+	StartBurstSize = "00000000000000000000000001011000"
+
+Analyzing hierarchy for module <Generic_Counter> in library <work> with parameters.
+	COUNTER_MAX = "00000000000000000000001100011111"
+	COUNTER_WIDTH = "00000000000000000000000000001010"
+
+Analyzing hierarchy for module <Generic_Counter> in library <work> with parameters.
+	COUNTER_MAX = "00000000000000000000001000001000"
+	COUNTER_WIDTH = "00000000000000000000000000001010"
+
+Analyzing hierarchy for module <Counter> in library <work> with parameters.
+	Counter_Max = "00000000000000000000001010110110"
+	Counter_Width = "00000000000000000000000000001010"
+
+Analyzing hierarchy for module <Counter> in library <work> with parameters.
+	Counter_Max = "00000000000000000000001010011011"
+	Counter_Width = "00000000000000000000000000001010"
+
+Analyzing hierarchy for module <Counter> in library <work> with parameters.
+	Counter_Max = "00000000000000000000001001110001"
+	Counter_Width = "00000000000000000000000000001010"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <Processor_Top>.
+Module <Processor_Top> is correct for synthesis.
+ 
+Analyzing module <Processor> in library <work>.
+	CHOOSE_OPP = 8'b00000000
+	DE_REFERENCE_0 = 8'b01110010
+	DE_REFERENCE_A = 8'b01110000
+	DE_REFERENCE_B = 8'b01110001
+	DO_MATHS_OPP_0 = 8'b00110010
+	DO_MATHS_OPP_SAVE_IN_A = 8'b00110000
+	DO_MATHS_OPP_SAVE_IN_B = 8'b00110001
+	FUNCTION_CALL = 8'b01100000
+	GET_THREAD_START_ADDR_0 = 8'b11110001
+	GET_THREAD_START_ADDR_1 = 8'b11110010
+	GET_THREAD_START_ADDR_2 = 8'b11110011
+	GOTO = 8'b01010000
+	GOTO_0 = 8'b01010001
+	GOTO_1 = 8'b01010010
+	GOTO_IDLE = 8'b01010100
+	IDLE = 8'b11110000
+	IF_A_EQUALITY_B_GOTO = 8'b01000000
+	IF_A_EQUALITY_B_GOTO_0 = 8'b01000001
+	IF_A_EQUALITY_B_GOTO_1 = 8'b01000010
+	LOAD_IMMEDIATE_TO_A = 8'b00010101
+	LOAD_IMMEDIATE_TO_A_0 = 8'b00010110
+	LOAD_IMMEDIATE_TO_B = 8'b00010111
+	LOAD_IMMEDIATE_TO_B_0 = 8'b00011000
+	NO_OP = 8'b10000100
+	READ_FROM_MEM_0 = 8'b00010010
+	READ_FROM_MEM_1 = 8'b00010011
+	READ_FROM_MEM_2 = 8'b00010100
+	READ_FROM_MEM_TO_A = 8'b00010000
+	READ_FROM_MEM_TO_B = 8'b00010001
+	RETURN = 8'b01100001
+	WRITE_TO_MEM_0 = 8'b00100010
+	WRITE_TO_MEM_FROM_A = 8'b00100000
+	WRITE_TO_MEM_FROM_B = 8'b00100001
+Module <Processor> is correct for synthesis.
+ 
+Analyzing module <ALU> in library <work>.
+Module <ALU> is correct for synthesis.
+ 
+Analyzing module <RAM> in library <work>.
+	RAMAddrWidth = 32'sb00000000000000000000000000000111
+	RAMBaseAddr = 32'sb00000000000000000000000000000000
+INFO:Xst:2546 - "RAM.v" line 46: reading initialization file "RAM.txt".
+Module <RAM> is correct for synthesis.
+ 
+Analyzing module <ROM> in library <work>.
+	ROMAddrWidth = 32'sb00000000000000000000000000001000
+INFO:Xst:2546 - "ROM.v" line 35: reading initialization file "VGA_Mouse_Test.txt".
+Module <ROM> is correct for synthesis.
+ 
+Analyzing module <IO_Bus_SevenSeg> in library <work>.
+	AddrWidth = 32'sb00000000000000000000000000000001
+	BaseAddr = 8'b11010000
+INFO:Xst:2546 - "IO_Bus_SevenSeg.v" line 75: reading initialization file "SevenSeg.txt".
+INFO:Xst:1433 - Contents of array <Mem> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+INFO:Xst:1433 - Contents of array <Mem> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+Module <IO_Bus_SevenSeg> is correct for synthesis.
+ 
+Analyzing module <SevenSegmentDisplay> in library <work>.
+Module <SevenSegmentDisplay> is correct for synthesis.
+ 
+Analyzing module <IO_Bus_LEDs> in library <work>.
+	BaseAddr = 8'b11000000
+Module <IO_Bus_LEDs> is correct for synthesis.
+ 
+Analyzing module <Timer> in library <work>.
+	InitialInterruptEnable = 1'b1
+	InitialInterruptRate = 32'sb00000000000000000000000001100100
+	TimerBaseAddr = 8'b11110000
+Module <Timer> is correct for synthesis.
+ 
+Analyzing module <IO_Bus_Mouse> in library <work>.
+	AddrWidth = 32'sb00000000000000000000000000000010
+	BaseAddr = 8'b10100000
+INFO:Xst:2546 - "IO_Bus_Mouse.v" line 91: reading initialization file "Mouse.txt".
+Module <IO_Bus_Mouse> is correct for synthesis.
+ 
+Analyzing module <MouseTransceiver> in library <work>.
+	MouseLimitX = 8'b10100000
+	MouseLimitY = 8'b01111000
+Module <MouseTransceiver> is correct for synthesis.
+ 
+Analyzing module <MouseTransmitter> in library <work>.
+Module <MouseTransmitter> is correct for synthesis.
+ 
+Analyzing module <MouseReceiver> in library <work>.
+Module <MouseReceiver> is correct for synthesis.
+ 
+Analyzing module <MouseMasterSM> in library <work>.
+Module <MouseMasterSM> is correct for synthesis.
+ 
+Analyzing module <CarSelect_MainFSM> in library <work>.
+	BLUE = 4'b0010
+	BaseAddr = 8'b10010000
+	GREEN = 4'b0100
+	RED = 4'b1000
+	YELLOW = 4'b0001
+Module <CarSelect_MainFSM> is correct for synthesis.
+ 
+Analyzing module <Counter.1> in library <work>.
+	Counter_Max = 32'sb00000000010011000100101101000000
+	Counter_Width = 32'sb00000000000000000000000000010111
+Module <Counter.1> is correct for synthesis.
+ 
+Analyzing module <IR_Transmitter_SM.1> in library <work>.
+	AssertBurstSize = 32'sb00000000000000000000000000110000
+	BackwardLeft = 4'b0110
+	BackwardRight = 4'b0101
+	Backwards = 4'b0100
+	CarSelectBurstSize = 32'sb00000000000000000000000000011000
+	Counter_Max = 32'sb00000000000000000000001010110110
+	Counter_Width = 32'sb00000000000000000000000000001010
+	DeAssertBurstSize = 32'sb00000000000000000000000000011000
+	ForwardLeft = 4'b1010
+	ForwardRight = 4'b1001
+	Forwards = 4'b1000
+	Gap = 32'sb00000000000000000000000000011000
+	IDLE = 4'b0000
+	Left = 4'b0010
+	Pulse_Counter_Width = 32'sb00000000000000000000000000001000
+	Right = 4'b0001
+	StartBurstSize = 32'sb00000000000000000000000011000000
+Module <IR_Transmitter_SM.1> is correct for synthesis.
+ 
+Analyzing module <PulseGen.1> in library <work>.
+	Counter_Max = 32'sb00000000000000000000001010110110
+	Counter_Width = 32'sb00000000000000000000000000001010
+Module <PulseGen.1> is correct for synthesis.
+ 
+Analyzing module <Counter.2> in library <work>.
+	Counter_Max = 32'sb00000000000000000000001010110110
+	Counter_Width = 32'sb00000000000000000000000000001010
+Module <Counter.2> is correct for synthesis.
+ 
+Analyzing module <Packet_Gen.1> in library <work>.
+	AssertBurstSize = 32'sb00000000000000000000000000110000
+	BackwardBurst = 3'b101
+	CarSelectBurst = 3'b010
+	CarSelectBurstSize = 32'sb00000000000000000000000000011000
+	DeAssertBurstSize = 32'sb00000000000000000000000000011000
+	ForwardBurst = 3'b110
+	GapBurstSize = 32'sb00000000000000000000000000011000
+	GapInterval = 3'b000
+	LeftBurst = 3'b100
+	Pulse_Counter_Width = 32'sb00000000000000000000000000001000
+	RightBurst = 3'b011
+	StartBurst = 3'b001
+	StartBurstSize = 32'sb00000000000000000000000011000000
+Module <Packet_Gen.1> is correct for synthesis.
+ 
+Analyzing module <IR_Transmitter_SM.2> in library <work>.
+	AssertBurstSize = 32'sb00000000000000000000000000101100
+	BackwardLeft = 4'b0110
+	BackwardRight = 4'b0101
+	Backwards = 4'b0100
+	CarSelectBurstSize = 32'sb00000000000000000000000000101100
+	Counter_Max = 32'sb00000000000000000000001010011011
+	Counter_Width = 32'sb00000000000000000000000000001010
+	DeAssertBurstSize = 32'sb00000000000000000000000000010110
+	ForwardLeft = 4'b1010
+	ForwardRight = 4'b1001
+	Forwards = 4'b1000
+	Gap = 32'sb00000000000000000000000000101000
+	IDLE = 4'b0000
+	Left = 4'b0010
+	Pulse_Counter_Width = 32'sb00000000000000000000000000001000
+	Right = 4'b0001
+	StartBurstSize = 32'sb00000000000000000000000001011000
+Module <IR_Transmitter_SM.2> is correct for synthesis.
+ 
+Analyzing module <PulseGen.2> in library <work>.
+	Counter_Max = 32'sb00000000000000000000001010011011
+	Counter_Width = 32'sb00000000000000000000000000001010
+Module <PulseGen.2> is correct for synthesis.
+ 
+Analyzing module <Counter.3> in library <work>.
+	Counter_Max = 32'sb00000000000000000000001010011011
+	Counter_Width = 32'sb00000000000000000000000000001010
+Module <Counter.3> is correct for synthesis.
+ 
+Analyzing module <Packet_Gen.2> in library <work>.
+	AssertBurstSize = 32'sb00000000000000000000000000101100
+	BackwardBurst = 3'b101
+	CarSelectBurst = 3'b010
+	CarSelectBurstSize = 32'sb00000000000000000000000000101100
+	DeAssertBurstSize = 32'sb00000000000000000000000000010110
+	ForwardBurst = 3'b110
+	GapBurstSize = 32'sb00000000000000000000000000101000
+	GapInterval = 3'b000
+	LeftBurst = 3'b100
+	Pulse_Counter_Width = 32'sb00000000000000000000000000001000
+	RightBurst = 3'b011
+	StartBurst = 3'b001
+	StartBurstSize = 32'sb00000000000000000000000001011000
+Module <Packet_Gen.2> is correct for synthesis.
+ 
+Analyzing module <IR_Transmitter_SM.3> in library <work>.
+	AssertBurstSize = 32'sb00000000000000000000000000101111
+	BackwardLeft = 4'b0110
+	BackwardRight = 4'b0101
+	Backwards = 4'b0100
+	CarSelectBurstSize = 32'sb00000000000000000000000000101111
+	Counter_Max = 32'sb00000000000000000000001010110110
+	Counter_Width = 32'sb00000000000000000000000000001010
+	DeAssertBurstSize = 32'sb00000000000000000000000000010110
+	ForwardLeft = 4'b1010
+	ForwardRight = 4'b1001
+	Forwards = 4'b1000
+	Gap = 32'sb00000000000000000000000000011001
+	IDLE = 4'b0000
+	Left = 4'b0010
+	Pulse_Counter_Width = 32'sb00000000000000000000000000001000
+	Right = 4'b0001
+	StartBurstSize = 32'sb00000000000000000000000010111111
+Module <IR_Transmitter_SM.3> is correct for synthesis.
+ 
+Analyzing module <Packet_Gen.3> in library <work>.
+	AssertBurstSize = 32'sb00000000000000000000000000101111
+	BackwardBurst = 3'b101
+	CarSelectBurst = 3'b010
+	CarSelectBurstSize = 32'sb00000000000000000000000000101111
+	DeAssertBurstSize = 32'sb00000000000000000000000000010110
+	ForwardBurst = 3'b110
+	GapBurstSize = 32'sb00000000000000000000000000011001
+	GapInterval = 3'b000
+	LeftBurst = 3'b100
+	Pulse_Counter_Width = 32'sb00000000000000000000000000001000
+	RightBurst = 3'b011
+	StartBurst = 3'b001
+	StartBurstSize = 32'sb00000000000000000000000010111111
+Module <Packet_Gen.3> is correct for synthesis.
+ 
+Analyzing module <IR_Transmitter_SM.4> in library <work>.
+	AssertBurstSize = 32'sb00000000000000000000000000101100
+	BackwardLeft = 4'b0110
+	BackwardRight = 4'b0101
+	Backwards = 4'b0100
+	CarSelectBurstSize = 32'sb00000000000000000000000000010110
+	Counter_Max = 32'sb00000000000000000000001001110001
+	Counter_Width = 32'sb00000000000000000000000000001010
+	DeAssertBurstSize = 32'sb00000000000000000000000000010110
+	ForwardLeft = 4'b1010
+	ForwardRight = 4'b1001
+	Forwards = 4'b1000
+	Gap = 32'sb00000000000000000000000000101000
+	IDLE = 4'b0000
+	Left = 4'b0010
+	Pulse_Counter_Width = 32'sb00000000000000000000000000001000
+	Right = 4'b0001
+	StartBurstSize = 32'sb00000000000000000000000001011000
+Module <IR_Transmitter_SM.4> is correct for synthesis.
+ 
+Analyzing module <PulseGen.3> in library <work>.
+	Counter_Max = 32'sb00000000000000000000001001110001
+	Counter_Width = 32'sb00000000000000000000000000001010
+Module <PulseGen.3> is correct for synthesis.
+ 
+Analyzing module <Counter.4> in library <work>.
+	Counter_Max = 32'sb00000000000000000000001001110001
+	Counter_Width = 32'sb00000000000000000000000000001010
+Module <Counter.4> is correct for synthesis.
+ 
+Analyzing module <Packet_Gen.4> in library <work>.
+	AssertBurstSize = 32'sb00000000000000000000000000101100
+	BackwardBurst = 3'b101
+	CarSelectBurst = 3'b010
+	CarSelectBurstSize = 32'sb00000000000000000000000000010110
+	DeAssertBurstSize = 32'sb00000000000000000000000000010110
+	ForwardBurst = 3'b110
+	GapBurstSize = 32'sb00000000000000000000000000101000
+	GapInterval = 3'b000
+	LeftBurst = 3'b100
+	Pulse_Counter_Width = 32'sb00000000000000000000000000001000
+	RightBurst = 3'b011
+	StartBurst = 3'b001
+	StartBurstSize = 32'sb00000000000000000000000001011000
+Module <Packet_Gen.4> is correct for synthesis.
+ 
+Analyzing module <VGABus> in library <work>.
+WARNING:Xst:2319 - "VGABus.v" line 0: Signal CONFIG_COLOURS in initial block is partially initialized. The initialization will be ignored.
+WARNING:Xst:2319 - "VGABus.v" line 0: Signal CONFIG_COLOURS in initial block is partially initialized. The initialization will be ignored.
+Module <VGABus> is correct for synthesis.
+ 
+Analyzing module <Frame_Buffer> in library <work>.
+Module <Frame_Buffer> is correct for synthesis.
+ 
+Analyzing module <VGA_Sig_Gen> in library <work>.
+	HTDisp = 32'sb00000000000000000000001010000000
+	HTpw = 32'sb00000000000000000000000001100000
+	HTs = 32'sb00000000000000000000001100100000
+	Hbp = 32'sb00000000000000000000000000110000
+	Hfp = 32'sb00000000000000000000000000010000
+	HorzTimeToBackPorchEnd = 32'sb00000000000000000000000010010000
+	HorzTimeToDisplayTimeEnd = 32'sb00000000000000000000001100010000
+	HorzTimeToFrontPorchEnd = 32'sb00000000000000000000001100100000
+	VTDisp = 32'sb00000000000000000000000111100000
+	VTpw = 32'sb00000000000000000000000000000010
+	VTs = 32'sb00000000000000000000001000001001
+	Vbp = 32'sb00000000000000000000000000011101
+	VertTimeToBackPorchEnd = 32'sb00000000000000000000000000011111
+	VertTimeToDisplayTimeEnd = 32'sb00000000000000000000000111111111
+	VertTimeToFrontPorchEnd = 32'sb00000000000000000000001000001001
+	Vfp = 32'sb00000000000000000000000000001010
+Module <VGA_Sig_Gen> is correct for synthesis.
+ 
+Analyzing module <Generic_Counter.1> in library <work>.
+	COUNTER_MAX = 32'sb00000000000000000000001100011111
+	COUNTER_WIDTH = 32'sb00000000000000000000000000001010
+Module <Generic_Counter.1> is correct for synthesis.
+ 
+Analyzing module <Generic_Counter.2> in library <work>.
+	COUNTER_MAX = 32'sb00000000000000000000001000001000
+	COUNTER_WIDTH = 32'sb00000000000000000000000000001010
+Module <Generic_Counter.2> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <RAM>.
+    Related source file is "RAM.v".
+    Found 128x8-bit single-port RAM <Mram_Mem> for signal <Mem>.
+    Found 8-bit tristate buffer for signal <BUS_DATA>.
+    Found 8-bit comparator less for signal <CS$cmp_lt0000> created at line 51.
+    Found 8-bit register for signal <Out>.
+    Found 1-bit register for signal <RAMBusWE>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   9 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   8 Tristate(s).
+Unit <RAM> synthesized.
+
+
+Synthesizing Unit <ROM>.
+    Related source file is "ROM.v".
+WARNING:Xst:1781 - Signal <ROM> is used but never assigned. Tied to default value.
+    Found 256x8-bit ROM for signal <$varindex0000> created at line 39.
+    Found 8-bit register for signal <DATA>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   8 D-type flip-flop(s).
+Unit <ROM> synthesized.
+
+
+Synthesizing Unit <IO_Bus_LEDs>.
+    Related source file is "IO_Bus_LEDs.v".
+    Register <Out> equivalent to <LEDs> has been removed
+    Found 8-bit tristate buffer for signal <BUS_DATA>.
+    Found 8-bit register for signal <LEDs>.
+    Found 1-bit register for signal <IOBusWE>.
+    Found 8-bit register for signal <Mem>.
+    Summary:
+	inferred  17 D-type flip-flop(s).
+	inferred   8 Tristate(s).
+Unit <IO_Bus_LEDs> synthesized.
+
+
+Synthesizing Unit <Timer>.
+    Related source file is "Timer.v".
+    Found 8-bit tristate buffer for signal <BUS_DATA>.
+    Found 32-bit up counter for signal <DownCounter>.
+    Found 1-bit register for signal <Interrupt>.
+    Found 1-bit register for signal <InterruptEnable>.
+    Found 8-bit register for signal <InterruptRate>.
+    Found 32-bit register for signal <LastTime>.
+    Found 32-bit comparator equal for signal <LastTime$cmp_eq0000> created at line 118.
+    Found 1-bit register for signal <TargetReached>.
+    Found 32-bit adder for signal <TargetReached$add0000> created at line 118.
+    Found 32-bit comparator not equal for signal <TargetReached$cmp_ne0000> created at line 118.
+    Found 32-bit up counter for signal <Timer>.
+    Found 1-bit register for signal <TransmitTimerValue>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred  44 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred   8 Tristate(s).
+Unit <Timer> synthesized.
+
+
+Synthesizing Unit <ALU>.
+    Related source file is "ALU.v".
+WARNING:Xst:643 - "ALU.v" line 46: The result of a 8x8-bit multiplication is partially used. Only the 8 least significant bits are used. If you are doing this on purpose, you may safely ignore this warning. Otherwise, make sure you are not losing information, leading to unexpected circuit behavior.
+    Found 8-bit register for signal <Out>.
+    Found 8-bit addsub for signal <Out$addsub0000>.
+    Found 8-bit comparator equal for signal <Out$cmp_eq0005> created at line 63.
+    Found 8-bit comparator greater for signal <Out$cmp_gt0000> created at line 65.
+    Found 8-bit comparator less for signal <Out$cmp_lt0000> created at line 67.
+    Found 8x8-bit multiplier for signal <Out$mult0001> created at line 46.
+    Found 8-bit 16-to-1 multiplexer for signal <Out$mux0000> created at line 39.
+    Found 8-bit xor2 for signal <Out$xor0000> created at line 73.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Multiplier(s).
+	inferred   3 Comparator(s).
+	inferred   8 Multiplexer(s).
+Unit <ALU> synthesized.
+
+
+Synthesizing Unit <SevenSegmentDisplay>.
+    Related source file is "SevenSegmentDisplay.v".
+WARNING:Xst:653 - Signal <setdp> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+INFO:Xst:1799 - State 100 is never reached in FSM <digit>.
+    Found finite state machine <FSM_0> for signal <digit>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 8                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 4                                              |
+    | Clock              | CLK                       (rising_edge)        |
+    | Power Up State     | 000                                            |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 16x8-bit ROM for signal <$old_cathode_4>.
+    Found 20-bit register for signal <counter>.
+    Found 20-bit adder for signal <counter$share0000>.
+    Found 4-bit register for signal <data>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 ROM(s).
+	inferred  24 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <SevenSegmentDisplay> synthesized.
+
+
+Synthesizing Unit <MouseTransmitter>.
+    Related source file is "MouseTransmitter.v".
+    Found finite state machine <FSM_1> for signal <Curr_State>.
+    -----------------------------------------------------------------------
+    | States             | 11                                             |
+    | Transitions        | 26                                             |
+    | Inputs             | 6                                              |
+    | Outputs            | 8                                              |
+    | Clock              | CLK                       (rising_edge)        |
+    | Reset              | RESET                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <ClkMouseInDly>.
+    Found 1-bit register for signal <Curr_ByteSent>.
+    Found 8-bit register for signal <Curr_ByteToSend>.
+    Found 1-bit register for signal <Curr_MouseClkOutWE>.
+    Found 1-bit register for signal <Curr_MouseDataOut>.
+    Found 1-bit register for signal <Curr_MouseDataOutWE>.
+    Found 16-bit register for signal <Curr_SendCounter>.
+    Found 1-bit xor8 for signal <Next_MouseDataOut$xor0000>.
+    Found 16-bit adder for signal <Next_SendCounter$share0000> created at line 92.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  29 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Multiplexer(s).
+	inferred   1 Xor(s).
+Unit <MouseTransmitter> synthesized.
+
+
+Synthesizing Unit <MouseReceiver>.
+    Related source file is "MouseReceiver.v".
+    Found finite state machine <FSM_2> for signal <Curr_State>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 16                                             |
+    | Inputs             | 6                                              |
+    | Outputs            | 5                                              |
+    | Clock              | CLK                       (rising_edge)        |
+    | Reset              | RESET                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <ClkMouseInDly>.
+    Found 4-bit register for signal <Curr_BitCounter>.
+    Found 1-bit register for signal <Curr_ByteReceived>.
+    Found 8-bit register for signal <Curr_MSCodeShiftReg>.
+    Found 2-bit register for signal <Curr_MSCodeStatus>.
+    Found 16-bit register for signal <Curr_TimeoutCounter>.
+    Found 4-bit adder for signal <Next_BitCounter$addsub0000> created at line 114.
+    Found 1-bit xor8 for signal <Next_MSCodeStatus_0$xor0000>.
+    Found 1-bit xor2 for signal <Next_MSCodeStatus_0$xor0001> created at line 127.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  32 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   1 Xor(s).
+Unit <MouseReceiver> synthesized.
+
+
+Synthesizing Unit <MouseMasterSM>.
+    Related source file is "MouseMasterSM.v".
+    Found finite state machine <FSM_3> for signal <Curr_State>.
+    -----------------------------------------------------------------------
+    | States             | 13                                             |
+    | Transitions        | 34                                             |
+    | Inputs             | 7                                              |
+    | Outputs            | 15                                             |
+    | Clock              | CLK                       (rising_edge)        |
+    | Reset              | RESET                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0000                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit register for signal <Curr_ByteToSend>.
+    Found 24-bit register for signal <Curr_Counter>.
+    Found 8-bit register for signal <Curr_Dx>.
+    Found 8-bit register for signal <Curr_Dy>.
+    Found 1-bit register for signal <Curr_ReadEnable>.
+    Found 1-bit register for signal <Curr_SendByte>.
+    Found 1-bit register for signal <Curr_SendInterrupt>.
+    Found 8-bit register for signal <Curr_Status>.
+    Found 24-bit adder for signal <Next_Counter$addsub0000> created at line 129.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  59 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <MouseMasterSM> synthesized.
+
+
+Synthesizing Unit <Counter_1>.
+    Related source file is "Counter.v".
+    Found 23-bit register for signal <Counter>.
+    Found 23-bit adder for signal <Counter$addsub0000> created at line 39.
+    Found 1-bit register for signal <TriggerOut>.
+    Summary:
+	inferred  24 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <Counter_1> synthesized.
+
+
+Synthesizing Unit <Packet_Gen_1>.
+    Related source file is "Packet_Gen.v".
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_previous_state> of Case statement line 182 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_previous_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Using one-hot encoding for signal <packet_state>.
+    Using one-hot encoding for signal <packet_previous_state>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_previous_state> of Case statement line 182 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_previous_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found 1-bit register for signal <IR_Transmit>.
+    Found 8-bit up counter for signal <j>.
+    Found 1-bit register for signal <Packet_Finished_Flag>.
+    Found 7-bit register for signal <packet_previous_state>.
+    Found 7-bit register for signal <packet_state>.
+    Found 9-bit comparator less for signal <packet_state$cmp_lt0000> created at line 87.
+    Found 1-bit register for signal <Pulse_CNT_RST>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <Packet_Gen_1> synthesized.
+
+
+Synthesizing Unit <Counter_2>.
+    Related source file is "Counter.v".
+    Found 10-bit register for signal <Counter>.
+    Found 10-bit adder for signal <Counter$addsub0000> created at line 39.
+    Found 1-bit register for signal <TriggerOut>.
+    Summary:
+	inferred  11 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <Counter_2> synthesized.
+
+
+Synthesizing Unit <Packet_Gen_2>.
+    Related source file is "Packet_Gen.v".
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_previous_state> of Case statement line 182 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_previous_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Using one-hot encoding for signal <packet_state>.
+    Using one-hot encoding for signal <packet_previous_state>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_previous_state> of Case statement line 182 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_previous_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found 1-bit register for signal <IR_Transmit>.
+    Found 8-bit up counter for signal <j>.
+    Found 1-bit register for signal <Packet_Finished_Flag>.
+    Found 7-bit register for signal <packet_previous_state>.
+    Found 7-bit register for signal <packet_state>.
+    Found 8-bit comparator less for signal <packet_state$cmp_lt0000> created at line 87.
+    Found 1-bit register for signal <Pulse_CNT_RST>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <Packet_Gen_2> synthesized.
+
+
+Synthesizing Unit <Counter_3>.
+    Related source file is "Counter.v".
+    Found 10-bit register for signal <Counter>.
+    Found 10-bit adder for signal <Counter$addsub0000> created at line 39.
+    Found 1-bit register for signal <TriggerOut>.
+    Summary:
+	inferred  11 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <Counter_3> synthesized.
+
+
+Synthesizing Unit <Packet_Gen_3>.
+    Related source file is "Packet_Gen.v".
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_previous_state> of Case statement line 182 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_previous_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Using one-hot encoding for signal <packet_state>.
+    Using one-hot encoding for signal <packet_previous_state>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_previous_state> of Case statement line 182 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_previous_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found 1-bit register for signal <IR_Transmit>.
+    Found 8-bit up counter for signal <j>.
+    Found 1-bit register for signal <Packet_Finished_Flag>.
+    Found 7-bit register for signal <packet_previous_state>.
+    Found 7-bit register for signal <packet_state>.
+    Found 9-bit comparator less for signal <packet_state$cmp_lt0000> created at line 87.
+    Found 1-bit register for signal <Pulse_CNT_RST>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <Packet_Gen_3> synthesized.
+
+
+Synthesizing Unit <Packet_Gen_4>.
+    Related source file is "Packet_Gen.v".
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_previous_state> of Case statement line 182 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_previous_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Using one-hot encoding for signal <packet_state>.
+    Using one-hot encoding for signal <packet_previous_state>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_previous_state> of Case statement line 182 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_previous_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <packet_state> of Case statement line 85 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <packet_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found 1-bit register for signal <IR_Transmit>.
+    Found 8-bit up counter for signal <j>.
+    Found 1-bit register for signal <Packet_Finished_Flag>.
+    Found 7-bit register for signal <packet_previous_state>.
+    Found 7-bit register for signal <packet_state>.
+    Found 8-bit comparator less for signal <packet_state$cmp_lt0000> created at line 87.
+    Found 1-bit register for signal <Pulse_CNT_RST>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+Unit <Packet_Gen_4> synthesized.
+
+
+Synthesizing Unit <Counter_4>.
+    Related source file is "Counter.v".
+    Found 10-bit register for signal <Counter>.
+    Found 10-bit adder for signal <Counter$addsub0000> created at line 39.
+    Found 1-bit register for signal <TriggerOut>.
+    Summary:
+	inferred  11 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <Counter_4> synthesized.
+
+
+Synthesizing Unit <Frame_Buffer>.
+    Related source file is "Frame_Buffer.v".
+    Found 32768x1-bit dual-port RAM <Mram_Mem> for signal <Mem>.
+    Found 1-bit register for signal <B_DATA>.
+    Found 1-bit register for signal <A_DATA_OUT>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   2 D-type flip-flop(s).
+Unit <Frame_Buffer> synthesized.
+
+
+Synthesizing Unit <Generic_Counter_1>.
+    Related source file is "Generic_Counter.v".
+    Found 10-bit up counter for signal <Counter>.
+    Found 1-bit register for signal <TriggerOut>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <Generic_Counter_1> synthesized.
+
+
+Synthesizing Unit <Generic_Counter_2>.
+    Related source file is "Generic_Counter.v".
+    Found 10-bit up counter for signal <Counter>.
+    Found 1-bit register for signal <TriggerOut>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <Generic_Counter_2> synthesized.
+
+
+Synthesizing Unit <Processor>.
+    Related source file is "Processor.v".
+INFO:Xst:1799 - State 01010100 is never reached in FSM <CurrState>.
+    Found finite state machine <FSM_4> for signal <CurrState>.
+    -----------------------------------------------------------------------
+    | States             | 32                                             |
+    | Transitions        | 51                                             |
+    | Inputs             | 19                                             |
+    | Outputs            | 27                                             |
+    | Clock              | CLK                       (rising_edge)        |
+    | Reset              | RESET                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00000000                                       |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 8-bit tristate buffer for signal <BUS_DATA>.
+    Found 8-bit adder for signal <ActualAddress>.
+    Found 8-bit register for signal <CurrBusAddr>.
+    Found 8-bit register for signal <CurrBusDataOut>.
+    Found 1-bit register for signal <CurrBusDataOutWE>.
+    Found 1-bit register for signal <CurrMouseInterruptAck>.
+    Found 8-bit register for signal <CurrProgContext>.
+    Found 8-bit register for signal <CurrProgCounter>.
+    Found 2-bit register for signal <CurrProgCounterOffset>.
+    Found 8-bit register for signal <CurrRegA>.
+    Found 8-bit register for signal <CurrRegB>.
+    Found 1-bit register for signal <CurrRegSelect>.
+    Found 1-bit register for signal <CurrTimerInterruptAck>.
+    Found 8-bit adder for signal <NextProgContext$add0000> created at line 493.
+    Found 8-bit adder for signal <NextProgCounter$addsub0000>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred  54 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred   8 Tristate(s).
+Unit <Processor> synthesized.
+
+
+Synthesizing Unit <IO_Bus_SevenSeg>.
+    Related source file is "IO_Bus_SevenSeg.v".
+    Found 8-bit tristate buffer for signal <BUS_DATA>.
+    Found 8-bit comparator greatequal for signal <CS$cmp_ge0000> created at line 79.
+    Found 8-bit comparator less for signal <CS$cmp_lt0000> created at line 79.
+    Found 1-bit register for signal <IOBusWE>.
+    Found 16-bit register for signal <Mem>.
+    Found 8-bit register for signal <Out>.
+    Found 16-bit register for signal <Seven_Seg>.
+    Summary:
+	inferred  41 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred   8 Tristate(s).
+Unit <IO_Bus_SevenSeg> synthesized.
+
+
+Synthesizing Unit <MouseTransceiver>.
+    Related source file is "MouseTransceiver.v".
+    Found 4-bit register for signal <MouseStatus>.
+    Found 1-bit tristate buffer for signal <DATA_MOUSE>.
+    Found 8-bit register for signal <MouseX>.
+    Found 8-bit register for signal <MouseY>.
+    Found 1-bit tristate buffer for signal <CLK_MOUSE>.
+    Found 1-bit register for signal <ClkMouseIn>.
+    Found 8-bit register for signal <MouseClkFilter>.
+    Found 9-bit adder for signal <MouseNewX>.
+    Found 9-bit adder for signal <MouseNewY>.
+    Found 10-bit comparator greater for signal <MouseX$cmp_gt0000> created at line 240.
+    Found 10-bit comparator less for signal <MouseX$cmp_lt0000> created at line 238.
+    Found 10-bit comparator greater for signal <MouseY$cmp_gt0000> created at line 252.
+    Found 10-bit comparator less for signal <MouseY$cmp_lt0000> created at line 250.
+    Summary:
+	inferred  29 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   4 Comparator(s).
+	inferred   2 Tristate(s).
+Unit <MouseTransceiver> synthesized.
+
+
+Synthesizing Unit <PulseGen_1>.
+    Related source file is "PulseGen.v".
+    Found 1-bit register for signal <Pulse_Str>.
+    Found 1-bit register for signal <Pulse_Trig>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <PulseGen_1> synthesized.
+
+
+Synthesizing Unit <PulseGen_2>.
+    Related source file is "PulseGen.v".
+    Found 1-bit register for signal <Pulse_Str>.
+    Found 1-bit register for signal <Pulse_Trig>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <PulseGen_2> synthesized.
+
+
+Synthesizing Unit <PulseGen_3>.
+    Related source file is "PulseGen.v".
+    Found 1-bit register for signal <Pulse_Str>.
+    Found 1-bit register for signal <Pulse_Trig>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <PulseGen_3> synthesized.
+
+
+Synthesizing Unit <VGA_Sig_Gen>.
+    Related source file is "VGA_Sig_Gen.v".
+WARNING:Xst:646 - Signal <VCounter<9>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <VCounter<1:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <HCounter<1:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit register for signal <VGA_HS>.
+    Found 1-bit register for signal <VGA_VS>.
+    Found 8-bit register for signal <colour>.
+    Found 16-bit register for signal <cval>.
+    Found 10-bit comparator greater for signal <cval$cmp_gt0000> created at line 143.
+    Found 10-bit comparator greater for signal <cval$cmp_gt0001> created at line 143.
+    Found 10-bit comparator less for signal <cval$cmp_lt0000> created at line 143.
+    Found 11-bit comparator less for signal <cval$cmp_lt0001> created at line 143.
+    Found 10-bit register for signal <HCounter>.
+    Found 10-bit subtractor for signal <HCounter$sub0000> created at line 145.
+    Found 10-bit register for signal <VCounter>.
+    Found 10-bit subtractor for signal <VCounter$sub0000> created at line 146.
+    Found 1-bit register for signal <VGA_CLK>.
+    Found 10-bit comparator less for signal <VGA_HS$cmp_lt0000> created at line 126.
+    Found 10-bit comparator less for signal <VGA_VS$cmp_lt0000> created at line 133.
+    Summary:
+	inferred  47 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   6 Comparator(s).
+Unit <VGA_Sig_Gen> synthesized.
+
+
+Synthesizing Unit <IO_Bus_Mouse>.
+    Related source file is "IO_Bus_Mouse.v".
+    Found 8-bit tristate buffer for signal <BUS_DATA>.
+    Found 8-bit comparator greatequal for signal <CS$cmp_ge0000> created at line 95.
+    Found 8-bit comparator less for signal <CS$cmp_lt0000> created at line 95.
+    Found 1-bit register for signal <Interrupt>.
+    Found 1-bit register for signal <IOBusWE>.
+    Found 32-bit register for signal <Mem>.
+    Found 8-bit register for signal <Out>.
+    Summary:
+	inferred  42 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred   8 Multiplexer(s).
+	inferred   8 Tristate(s).
+Unit <IO_Bus_Mouse> synthesized.
+
+
+Synthesizing Unit <VGABus>.
+    Related source file is "VGABus.v".
+WARNING:Xst:646 - Signal <test> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <CURRENT_BUFFER_WE> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <CURRENT_BUFFER_DATA> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 15-bit register for signal <BUFFER_ADDR>.
+    Found 1-bit register for signal <BUFFER_DATA>.
+    Found 1-bit register for signal <BUFFER_WE>.
+    Found 16-bit register for signal <CONFIG_COLOURS>.
+    Found 15-bit register for signal <CURR_ADDR>.
+    Found 1-bit register for signal <ERASE>.
+    Found 15-bit register for signal <ERASE_ADDR>.
+    Found 15-bit register for signal <LAST_ADDR>.
+    Summary:
+	inferred  79 D-type flip-flop(s).
+Unit <VGABus> synthesized.
+
+
+Synthesizing Unit <IR_Transmitter_SM_1>.
+    Related source file is "IR_Transmitter_SM.v".
+    Found 16x4-bit ROM for signal <command_reg_next_state$mux0000> created at line 87.
+    Found 4-bit register for signal <command_reg_next_state>.
+    Found 4-bit register for signal <command_reg_state>.
+    Found 4-bit register for signal <i>.
+    Found 4-bit adder for signal <i$addsub0000> created at line 57.
+    Found 4-bit comparator less for signal <i$cmp_lt0000> created at line 56.
+    Found 4-bit comparator less for signal <i$cmp_lt0001> created at line 55.
+    Found 1-bit register for signal <Packet_Sequence_Finished_Flag>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred  13 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+Unit <IR_Transmitter_SM_1> synthesized.
+
+
+Synthesizing Unit <IR_Transmitter_SM_2>.
+    Related source file is "IR_Transmitter_SM.v".
+    Found 16x4-bit ROM for signal <command_reg_next_state$mux0000> created at line 87.
+    Found 4-bit register for signal <command_reg_next_state>.
+    Found 4-bit register for signal <command_reg_state>.
+    Found 4-bit register for signal <i>.
+    Found 4-bit adder for signal <i$addsub0000> created at line 57.
+    Found 4-bit comparator less for signal <i$cmp_lt0000> created at line 56.
+    Found 4-bit comparator less for signal <i$cmp_lt0001> created at line 55.
+    Found 1-bit register for signal <Packet_Sequence_Finished_Flag>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred  13 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+Unit <IR_Transmitter_SM_2> synthesized.
+
+
+Synthesizing Unit <IR_Transmitter_SM_3>.
+    Related source file is "IR_Transmitter_SM.v".
+    Found 16x4-bit ROM for signal <command_reg_next_state$mux0000> created at line 87.
+    Found 4-bit register for signal <command_reg_next_state>.
+    Found 4-bit register for signal <command_reg_state>.
+    Found 4-bit register for signal <i>.
+    Found 4-bit adder for signal <i$addsub0000> created at line 57.
+    Found 4-bit comparator less for signal <i$cmp_lt0000> created at line 56.
+    Found 4-bit comparator less for signal <i$cmp_lt0001> created at line 55.
+    Found 1-bit register for signal <Packet_Sequence_Finished_Flag>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred  13 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+Unit <IR_Transmitter_SM_3> synthesized.
+
+
+Synthesizing Unit <IR_Transmitter_SM_4>.
+    Related source file is "IR_Transmitter_SM.v".
+    Found 16x4-bit ROM for signal <command_reg_next_state$mux0000> created at line 87.
+    Found 4-bit register for signal <command_reg_next_state>.
+    Found 4-bit register for signal <command_reg_state>.
+    Found 4-bit register for signal <i>.
+    Found 4-bit adder for signal <i$addsub0000> created at line 57.
+    Found 4-bit comparator less for signal <i$cmp_lt0000> created at line 56.
+    Found 4-bit comparator less for signal <i$cmp_lt0001> created at line 55.
+    Found 1-bit register for signal <Packet_Sequence_Finished_Flag>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred  13 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+Unit <IR_Transmitter_SM_4> synthesized.
+
+
+Synthesizing Unit <CarSelect_MainFSM>.
+    Related source file is "CarSelect_MainFSM.v".
+    Found 1-bit register for signal <IR_LED>.
+    Found 1-bit register for signal <b_pack_gen_EN>.
+    Found 1-bit register for signal <b_pack_strobe>.
+    Found 4-bit register for signal <Car_Sel>.
+    Found 4-bit register for signal <COMMAND>.
+    Found 1-bit register for signal <g_pack_gen_EN>.
+    Found 1-bit register for signal <g_pack_strobe>.
+    Found 1-bit register for signal <IDLE>.
+    Found 1-bit register for signal <r_pack_gen_EN>.
+    Found 1-bit register for signal <r_pack_strobe>.
+    Found 1-bit register for signal <y_pack_gen_EN>.
+    Found 1-bit register for signal <y_pack_strobe>.
+    Summary:
+	inferred  18 D-type flip-flop(s).
+Unit <CarSelect_MainFSM> synthesized.
+
+
+Synthesizing Unit <Processor_Top>.
+    Related source file is "Processor_Top.v".
+Unit <Processor_Top> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 128x8-bit single-port RAM                             : 1
+ 32768x1-bit dual-port RAM                             : 1
+# ROMs                                                 : 6
+ 16x4-bit ROM                                          : 4
+ 16x8-bit ROM                                          : 1
+ 256x8-bit ROM                                         : 1
+# Multipliers                                          : 1
+ 8x8-bit multiplier                                    : 1
+# Adders/Subtractors                                   : 23
+ 10-bit adder                                          : 4
+ 10-bit subtractor                                     : 2
+ 16-bit adder                                          : 2
+ 20-bit adder                                          : 1
+ 23-bit adder                                          : 1
+ 24-bit adder                                          : 1
+ 32-bit adder                                          : 1
+ 4-bit adder                                           : 5
+ 8-bit adder                                           : 3
+ 8-bit addsub                                          : 1
+ 9-bit adder                                           : 2
+# Counters                                             : 8
+ 10-bit up counter                                     : 2
+ 32-bit up counter                                     : 2
+ 8-bit up counter                                      : 4
+# Registers                                            : 214
+ 1-bit register                                        : 143
+ 10-bit register                                       : 6
+ 15-bit register                                       : 2
+ 16-bit register                                       : 3
+ 2-bit register                                        : 2
+ 20-bit register                                       : 1
+ 23-bit register                                       : 1
+ 24-bit register                                       : 1
+ 32-bit register                                       : 1
+ 4-bit register                                        : 17
+ 7-bit register                                        : 8
+ 8-bit register                                        : 29
+# Comparators                                          : 32
+ 10-bit comparator greater                             : 4
+ 10-bit comparator less                                : 5
+ 11-bit comparator less                                : 1
+ 32-bit comparator equal                               : 1
+ 32-bit comparator not equal                           : 1
+ 4-bit comparator less                                 : 8
+ 8-bit comparator equal                                : 1
+ 8-bit comparator greatequal                           : 2
+ 8-bit comparator greater                              : 1
+ 8-bit comparator less                                 : 6
+ 9-bit comparator less                                 : 2
+# Multiplexers                                         : 3
+ 1-bit 8-to-1 multiplexer                              : 1
+ 8-bit 16-to-1 multiplexer                             : 1
+ 8-bit 4-to-1 multiplexer                              : 1
+# Tristates                                            : 8
+ 1-bit tristate buffer                                 : 2
+ 8-bit tristate buffer                                 : 6
+# Xors                                                 : 4
+ 1-bit xor2                                            : 1
+ 1-bit xor8                                            : 2
+ 8-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_4> for best encoding.
+Optimizing FSM <cpu/CurrState/FSM> on signal <CurrState[1:32]> with one-hot encoding.
+----------------------------------------------
+ State    | Encoding
+----------------------------------------------
+ 00000000 | 00000000000000000000000000000001
+ 00010000 | 00000000000000000000000000100000
+ 00010001 | 00000000000000000000000001000000
+ 00010010 | 00000000000100000000000000000000
+ 00010011 | 00000000001000000000000000000000
+ 00010100 | 00000000010000000000000000000000
+ 00010101 | 00000000000001000000000000000000
+ 00010110 | 00000000100000000000000000000000
+ 00010111 | 00000000000010000000000000000000
+ 00011000 | 00000001000000000000000000000000
+ 00100000 | 00000000000000000000000010000000
+ 00100001 | 00000000000000000000000100000000
+ 00100010 | 00000010000000000000000000000000
+ 00110000 | 00000000000000000000001000000000
+ 00110001 | 00000000000000000000010000000000
+ 00110010 | 00000100000000000000000000000000
+ 01000000 | 00000000000000000000100000000000
+ 01000001 | 00001000000000000000000000000000
+ 01000010 | 00010000000000000000000000000000
+ 01010000 | 00000000000000000001000000000000
+ 01010001 | 00100000000000000000000000000000
+ 01010010 | 01000000000000000000000000000000
+ 01010100 | unreached
+ 01100000 | 00000000000000000010000000000000
+ 01100001 | 00000000000000000100000000000000
+ 01110000 | 00000000000000001000000000000000
+ 01110001 | 00000000000000010000000000000000
+ 01110010 | 10000000000000000000000000000000
+ 10000100 | 00000000000000100000000000000000
+ 11110000 | 00000000000000000000000000000100
+ 11110001 | 00000000000000000000000000000010
+ 11110010 | 00000000000000000000000000001000
+ 11110011 | 00000000000000000000000000010000
+----------------------------------------------
+Analyzing FSM <FSM_3> for best encoding.
+Optimizing FSM <MouseBus/mouse/MSM/Curr_State/FSM> on signal <Curr_State[1:13]> with one-hot encoding.
+------------------------
+ State | Encoding
+------------------------
+ 0000  | 0000000000001
+ 0001  | 0000000000010
+ 0010  | 0000000000100
+ 0011  | 0000000001000
+ 0100  | 0000000010000
+ 0101  | 0000000100000
+ 0110  | 0000001000000
+ 0111  | 0000010000000
+ 1000  | 0000100000000
+ 1001  | 0001000000000
+ 1010  | 0010000000000
+ 1011  | 0100000000000
+ 1100  | 1000000000000
+------------------------
+Analyzing FSM <FSM_2> for best encoding.
+Optimizing FSM <MouseBus/mouse/R/Curr_State/FSM> on signal <Curr_State[1:3]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 001   | 001
+ 010   | 011
+ 011   | 010
+ 100   | 110
+-------------------
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <MouseBus/mouse/T/Curr_State/FSM> on signal <Curr_State[1:11]> with one-hot encoding.
+----------------------
+ State | Encoding
+----------------------
+ 0000  | 00000000001
+ 0001  | 00000000010
+ 0010  | 00000000100
+ 0011  | 00000001000
+ 0100  | 00000010000
+ 0101  | 00000100000
+ 0110  | 00001000000
+ 0111  | 00010000000
+ 1000  | 00100000000
+ 1001  | 01000000000
+ 1010  | 10000000000
+----------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <SevenSegBus/SevenSegDisplay/digit/FSM> on signal <digit[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 00
+ 001   | 01
+ 010   | 11
+ 011   | 10
+ 100   | unreached
+-------------------
+WARNING:Xst:1710 - FF/Latch <CurrProgCounterOffset_1> (without init value) has a constant value of 0 in block <cpu>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <HCounter_0> of sequential type is unconnected in block <SignalGenerator>.
+WARNING:Xst:2677 - Node <HCounter_1> of sequential type is unconnected in block <SignalGenerator>.
+WARNING:Xst:2677 - Node <VCounter_0> of sequential type is unconnected in block <SignalGenerator>.
+WARNING:Xst:2677 - Node <VCounter_1> of sequential type is unconnected in block <SignalGenerator>.
+WARNING:Xst:2677 - Node <VCounter_9> of sequential type is unconnected in block <SignalGenerator>.
+WARNING:Xst:2404 -  FFs/Latches <CurrProgCounterOffset<1:1>> (without init value) have a constant value of 0 in block <Processor>.
+
+Synthesizing (advanced) Unit <Frame_Buffer>.
+INFO:Xst:3226 - The RAM <Mram_Mem> will be implemented as a BLOCK RAM, absorbing the following register(s): <A_DATA_OUT> <B_DATA>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32768-word x 1-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <A_CLK>         | rise     |
+    |     weA            | connected to signal <A_WE>          | high     |
+    |     addrA          | connected to signal <A_ADDR>        |          |
+    |     diA            | connected to signal <A_DATA_IN>     |          |
+    |     doA            | connected to signal <A_DATA_OUT>    |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 32768-word x 1-bit                  |          |
+    |     mode           | write-first                         |          |
+    |     clkB           | connected to signal <B_CLK>         | rise     |
+    |     addrB          | connected to signal <B_ADDR>        |          |
+    |     doB            | connected to signal <B_DATA>        |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <Frame_Buffer> synthesized (advanced).
+
+Synthesizing (advanced) Unit <IR_Transmitter_SM_1>.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_command_reg_next_state_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+Unit <IR_Transmitter_SM_1> synthesized (advanced).
+
+Synthesizing (advanced) Unit <IR_Transmitter_SM_2>.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_command_reg_next_state_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+Unit <IR_Transmitter_SM_2> synthesized (advanced).
+
+Synthesizing (advanced) Unit <IR_Transmitter_SM_3>.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_command_reg_next_state_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+Unit <IR_Transmitter_SM_3> synthesized (advanced).
+
+Synthesizing (advanced) Unit <IR_Transmitter_SM_4>.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_command_reg_next_state_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+Unit <IR_Transmitter_SM_4> synthesized (advanced).
+
+Synthesizing (advanced) Unit <Processor>.
+	Found pipelined multiplier on signal <ALU0/Out_mult0001>:
+		- 1 pipeline level(s) found in a register on signal <CurrRegA>.
+		Pushing register(s) into the multiplier macro.
+
+		- 1 pipeline level(s) found in a register on signal <CurrRegB>.
+		Pushing register(s) into the multiplier macro.
+INFO:Xst:2385 - HDL ADVISOR - You can improve the performance of the multiplier ALU0/Mmult_Out_mult0001 by adding 1 register level(s).
+Unit <Processor> synthesized (advanced).
+
+Synthesizing (advanced) Unit <RAM>.
+INFO:Xst:3226 - The RAM <Mram_Mem> will be implemented as a BLOCK RAM, absorbing the following register(s): <Out>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 128-word x 8-bit                    |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <CLK>           | rise     |
+    |     weA            | connected to signal <BUS_WE_0>      | high     |
+    |     addrA          | connected to signal <BUS_ADDR>      |          |
+    |     diA            | connected to signal <BUS_DATA>      |          |
+    |     doA            | connected to signal <Out>           |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <RAM> synthesized (advanced).
+
+Synthesizing (advanced) Unit <ROM>.
+INFO:Xst:3044 - The ROM <Mrom__varindex0000> will be implemented as a read-only BLOCK RAM, absorbing the register: <DATA>.
+INFO:Xst:3225 - The RAM <Mrom__varindex0000> will be implemented as BLOCK RAM
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <CLK>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <ADDR>          |          |
+    |     diA            | connected to internal node          |          |
+    |     doA            | connected to signal <DATA>          |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <ROM> synthesized (advanced).
+
+Synthesizing (advanced) Unit <SevenSegmentDisplay>.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom__old_cathode_4> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+Unit <SevenSegmentDisplay> synthesized (advanced).
+WARNING:Xst:2677 - Node <HCounter_0> of sequential type is unconnected in block <VGA_Sig_Gen>.
+WARNING:Xst:2677 - Node <HCounter_1> of sequential type is unconnected in block <VGA_Sig_Gen>.
+WARNING:Xst:2677 - Node <VCounter_0> of sequential type is unconnected in block <VGA_Sig_Gen>.
+WARNING:Xst:2677 - Node <VCounter_1> of sequential type is unconnected in block <VGA_Sig_Gen>.
+WARNING:Xst:2677 - Node <VCounter_9> of sequential type is unconnected in block <VGA_Sig_Gen>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 3
+ 128x8-bit single-port block RAM                       : 1
+ 256x8-bit single-port block RAM                       : 1
+ 32768x1-bit dual-port block RAM                       : 1
+# ROMs                                                 : 5
+ 16x4-bit ROM                                          : 4
+ 16x8-bit ROM                                          : 1
+# Multipliers                                          : 1
+ 8x8-bit registered multiplier                         : 1
+# Adders/Subtractors                                   : 23
+ 10-bit adder                                          : 4
+ 10-bit subtractor                                     : 2
+ 16-bit adder                                          : 2
+ 20-bit adder                                          : 1
+ 23-bit adder                                          : 1
+ 24-bit adder                                          : 1
+ 32-bit adder                                          : 1
+ 4-bit adder                                           : 5
+ 8-bit adder                                           : 3
+ 8-bit addsub                                          : 1
+ 9-bit adder                                           : 2
+# Counters                                             : 8
+ 10-bit up counter                                     : 2
+ 32-bit up counter                                     : 2
+ 8-bit up counter                                      : 4
+# Registers                                            : 777
+ Flip-Flops                                            : 777
+# Comparators                                          : 32
+ 10-bit comparator greater                             : 4
+ 10-bit comparator less                                : 5
+ 11-bit comparator less                                : 1
+ 32-bit comparator equal                               : 1
+ 32-bit comparator not equal                           : 1
+ 4-bit comparator less                                 : 8
+ 8-bit comparator equal                                : 1
+ 8-bit comparator greatequal                           : 2
+ 8-bit comparator greater                              : 1
+ 8-bit comparator less                                 : 6
+ 9-bit comparator less                                 : 2
+# Multiplexers                                         : 3
+ 1-bit 8-to-1 multiplexer                              : 1
+ 8-bit 16-to-1 multiplexer                             : 1
+ 8-bit 4-to-1 multiplexer                              : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 1
+ 1-bit xor8                                            : 2
+ 8-bit xor2                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2677 - Node <VCounterGen/TriggerOut> of sequential type is unconnected in block <VGA_Sig_Gen>.
+WARNING:Xst:2040 - Unit Processor_Top: 8 multi-source signals are replaced by logic (pull-up yes): BUS_DATA<0>, BUS_DATA<1>, BUS_DATA<2>, BUS_DATA<3>, BUS_DATA<4>, BUS_DATA<5>, BUS_DATA<6>, BUS_DATA<7>.
+WARNING:Xst:2042 - Unit IO_Bus_LEDs: 8 internal tristates are replaced by logic (pull-up yes): BUS_DATA<0>, BUS_DATA<1>, BUS_DATA<2>, BUS_DATA<3>, BUS_DATA<4>, BUS_DATA<5>, BUS_DATA<6>, BUS_DATA<7>.
+WARNING:Xst:2042 - Unit Processor: 8 internal tristates are replaced by logic (pull-up yes): BUS_DATA<0>, BUS_DATA<1>, BUS_DATA<2>, BUS_DATA<3>, BUS_DATA<4>, BUS_DATA<5>, BUS_DATA<6>, BUS_DATA<7>.
+
+Optimizing unit <Processor_Top> ...
+WARNING:Xst:1710 - FF/Latch <MouseBus/mouse/MouseY_7> (without init value) has a constant value of 0 in block <Processor_Top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <MouseBus/mouse/MouseY_7> (without init value) has a constant value of 0 in block <Processor_Top>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <SevenSegmentDisplay> ...
+
+Optimizing unit <MouseTransmitter> ...
+
+Optimizing unit <MouseReceiver> ...
+
+Optimizing unit <MouseMasterSM> ...
+
+Optimizing unit <Counter_1> ...
+
+Optimizing unit <Counter_2> ...
+
+Optimizing unit <Counter_3> ...
+
+Optimizing unit <Counter_4> ...
+
+Optimizing unit <Packet_Gen_1> ...
+
+Optimizing unit <Packet_Gen_2> ...
+
+Optimizing unit <Packet_Gen_3> ...
+
+Optimizing unit <Packet_Gen_4> ...
+
+Optimizing unit <VGA_Sig_Gen> ...
+
+Optimizing unit <VGABus> ...
+
+Optimizing unit <IR_Transmitter_SM_1> ...
+
+Optimizing unit <IR_Transmitter_SM_2> ...
+
+Optimizing unit <IR_Transmitter_SM_3> ...
+
+Optimizing unit <IR_Transmitter_SM_4> ...
+
+Optimizing unit <CarSelect_MainFSM> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+INFO:Xst:2261 - The FF/Latch <MouseBus/mouse/T/ClkMouseInDly> in Unit <Processor_Top> is equivalent to the following FF/Latch, which will be removed : <MouseBus/mouse/R/ClkMouseInDly> 
+Found area constraint ratio of 100 (+ 5) on block Processor_Top, actual ratio is 95.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 891
+ Flip-Flops                                            : 891
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : Processor_Top.ngr
+Top Level Output File Name         : Processor_Top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 35
+
+Cell Usage :
+# BELS                             : 2335
+#      BUF                         : 1
+#      GND                         : 1
+#      INV                         : 33
+#      LUT1                        : 247
+#      LUT2                        : 161
+#      LUT2_D                      : 1
+#      LUT2_L                      : 8
+#      LUT3                        : 398
+#      LUT3_D                      : 9
+#      LUT3_L                      : 9
+#      LUT4                        : 606
+#      LUT4_D                      : 50
+#      LUT4_L                      : 49
+#      MUXCY                       : 359
+#      MUXF5                       : 73
+#      MUXF6                       : 1
+#      VCC                         : 1
+#      XORCY                       : 328
+# FlipFlops/Latches                : 891
+#      FD                          : 97
+#      FDC                         : 64
+#      FDCE                        : 120
+#      FDE                         : 129
+#      FDP                         : 4
+#      FDPE                        : 12
+#      FDR                         : 266
+#      FDRE                        : 121
+#      FDRS                        : 42
+#      FDRSE                       : 6
+#      FDS                         : 19
+#      FDSE                        : 11
+# RAMS                             : 4
+#      RAMB16_S1_S1                : 2
+#      RAMB16_S9                   : 2
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 34
+#      IBUF                        : 1
+#      IOBUF                       : 2
+#      OBUF                        : 31
+# MULTs                            : 1
+#      MULT18X18SIO                : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s100ecp132-5 
+
+ Number of Slices:                      881  out of    960    91%  
+ Number of Slice Flip Flops:            891  out of   1920    46%  
+ Number of 4 input LUTs:               1571  out of   1920    81%  
+ Number of IOs:                          35
+ Number of bonded IOBs:                  35  out of     83    42%  
+ Number of BRAMs:                         4  out of      4   100%  
+ Number of MULT18X18SIOs:                 1  out of      4    25%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+----------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)      | Load  |
+-----------------------------------+----------------------------+-------+
+CLK                                | BUFGP                      | 895   |
+VGAIOBus/SignalGenerator/VGA_CLK   | NONE(VGAIOBus/inst_LPM_FF1)| 3     |
+-----------------------------------+----------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+---------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------+-------+
+Control Signal                                                                                                 | Buffer(FF name)                                                            | Load  |
+---------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------+-------+
+RESET                                                                                                          | IBUF                                                                       | 107   |
+RESET_IBUF_1(RESET_IBUF_1:O)                                                                                   | NONE(VGAIOBus/SignalGenerator/HCounterGen/Counter_0)                       | 21    |
+CarSelect_MainFSM_0/BLUE_CAR/PulseGenerator/_or0000(CarSelect_MainFSM_0/BLUE_CAR/PulseGenerator/_or00001:O)    | NONE(CarSelect_MainFSM_0/BLUE_CAR/PulseGenerator/Clock_Counter/Counter_0)  | 10    |
+CarSelect_MainFSM_0/GREEN_CAR/PulseGenerator/_or0000(CarSelect_MainFSM_0/GREEN_CAR/PulseGenerator/_or00001:O)  | NONE(CarSelect_MainFSM_0/GREEN_CAR/PulseGenerator/Clock_Counter/Counter_0) | 10    |
+CarSelect_MainFSM_0/RED_CAR/PulseGenerator/_or0000(CarSelect_MainFSM_0/RED_CAR/PulseGenerator/_or00001:O)      | NONE(CarSelect_MainFSM_0/RED_CAR/PulseGenerator/Clock_Counter/Counter_0)   | 10    |
+CarSelect_MainFSM_0/YELLOW_CAR/PulseGenerator/_or0000(CarSelect_MainFSM_0/YELLOW_CAR/PulseGenerator/_or00001:O)| NONE(CarSelect_MainFSM_0/YELLOW_CAR/PulseGenerator/Clock_Counter/Counter_0)| 10    |
+CarSelect_MainFSM_0/BLUE_CAR/Pack_Gen/Pulse_CNT_RST(CarSelect_MainFSM_0/BLUE_CAR/Pack_Gen/Pulse_CNT_RST:Q)     | NONE(CarSelect_MainFSM_0/BLUE_CAR/Pack_Gen/j_0)                            | 8     |
+CarSelect_MainFSM_0/GREEN_CAR/Pack_Gen/Pulse_CNT_RST(CarSelect_MainFSM_0/GREEN_CAR/Pack_Gen/Pulse_CNT_RST:Q)   | NONE(CarSelect_MainFSM_0/GREEN_CAR/Pack_Gen/j_0)                           | 8     |
+CarSelect_MainFSM_0/RED_CAR/Pack_Gen/Pulse_CNT_RST(CarSelect_MainFSM_0/RED_CAR/Pack_Gen/Pulse_CNT_RST:Q)       | NONE(CarSelect_MainFSM_0/RED_CAR/Pack_Gen/j_0)                             | 8     |
+CarSelect_MainFSM_0/YELLOW_CAR/Pack_Gen/Pulse_CNT_RST(CarSelect_MainFSM_0/YELLOW_CAR/Pack_Gen/Pulse_CNT_RST:Q) | NONE(CarSelect_MainFSM_0/YELLOW_CAR/Pack_Gen/j_0)                          | 8     |
+---------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 10.353ns (Maximum Frequency: 96.588MHz)
+   Minimum input arrival time before clock: 6.492ns
+   Maximum output required time after clock: 5.640ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK'
+  Clock period: 10.353ns (frequency: 96.588MHz)
+  Total number of paths / destination ports: 64728 / 1531
+-------------------------------------------------------------------------
+Delay:               10.353ns (Levels of Logic = 12)
+  Source:            rom/Mrom__varindex0000 (RAM)
+  Destination:       cpu/ALU0/Out_6 (FF)
+  Source Clock:      CLK rising
+  Destination Clock: CLK rising
+
+  Data Path: rom/Mrom__varindex0000 to cpu/ALU0/Out_6
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16_S9:CLK->DO6   33   2.436   1.142  rom/Mrom__varindex0000 (ROM_DATA<6>)
+     LUT4_D:I1->O          7   0.612   0.632  cpu/ALU0/Out_or00011 (cpu/ALU0/Out_or0001)
+     LUT3:I2->O            1   0.612   0.387  cpu/ALU0/Out_mux0001<1>1 (cpu/ALU0/Out_mux0001<1>)
+     LUT3:I2->O            1   0.612   0.000  cpu/ALU0/Maddsub_Out_addsub0000_lut<1> (cpu/ALU0/Maddsub_Out_addsub0000_lut<1>)
+     MUXCY:S->O            1   0.404   0.000  cpu/ALU0/Maddsub_Out_addsub0000_cy<1> (cpu/ALU0/Maddsub_Out_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.052   0.000  cpu/ALU0/Maddsub_Out_addsub0000_cy<2> (cpu/ALU0/Maddsub_Out_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.052   0.000  cpu/ALU0/Maddsub_Out_addsub0000_cy<3> (cpu/ALU0/Maddsub_Out_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.052   0.000  cpu/ALU0/Maddsub_Out_addsub0000_cy<4> (cpu/ALU0/Maddsub_Out_addsub0000_cy<4>)
+     MUXCY:CI->O           1   0.052   0.000  cpu/ALU0/Maddsub_Out_addsub0000_cy<5> (cpu/ALU0/Maddsub_Out_addsub0000_cy<5>)
+     XORCY:CI->O           3   0.699   0.481  cpu/ALU0/Maddsub_Out_addsub0000_xor<6> (cpu/ALU0/Out_addsub0000<6>)
+     LUT3:I2->O            1   0.612   0.000  cpu/ALU0/Mmux_Out_mux0000_76 (cpu/ALU0/Mmux_Out_mux0000_76)
+     MUXF5:I0->O           1   0.278   0.360  cpu/ALU0/Mmux_Out_mux0000_5_f5_5 (cpu/ALU0/Mmux_Out_mux0000_5_f56)
+     LUT4:I3->O            1   0.612   0.000  cpu/ROM_DATA<7>637 (cpu/ALU0/Out_mux0000<6>)
+     FDR:D                     0.268          cpu/ALU0/Out_6
+    ----------------------------------------
+    Total                     10.353ns (7.351ns logic, 3.002ns route)
+                                       (71.0% logic, 29.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
+  Total number of paths / destination ports: 646 / 502
+-------------------------------------------------------------------------
+Offset:              6.492ns (Levels of Logic = 3)
+  Source:            RESET (PAD)
+  Destination:       timer1/DownCounter_0 (FF)
+  Destination Clock: CLK rising
+
+  Data Path: RESET to timer1/DownCounter_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           252   1.106   1.132  RESET_IBUF (RESET_IBUF)
+     BUF:I->O            253   0.612   1.162  RESET_IBUF_1 (RESET_IBUF_1)
+     LUT3:I2->O           32   0.612   1.073  timer1/DownCounter_or0000167 (timer1/DownCounter_or0000)
+     FDR:R                     0.795          timer1/DownCounter_0
+    ----------------------------------------
+    Total                      6.492ns (3.125ns logic, 3.367ns route)
+                                       (48.1% logic, 51.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
+  Total number of paths / destination ports: 58 / 32
+-------------------------------------------------------------------------
+Offset:              5.640ns (Levels of Logic = 2)
+  Source:            SevenSegBus/SevenSegDisplay/digit_FSM_FFd2 (FF)
+  Destination:       AN0 (PAD)
+  Source Clock:      CLK rising
+
+  Data Path: SevenSegBus/SevenSegDisplay/digit_FSM_FFd2 to AN0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              13   0.514   0.988  SevenSegBus/SevenSegDisplay/digit_FSM_FFd2 (SevenSegBus/SevenSegDisplay/digit_FSM_FFd2)
+     LUT2:I0->O            1   0.612   0.357  SevenSegBus/SevenSegDisplay/anode<0>1 (AN0_OBUF)
+     OBUF:I->O                 3.169          AN0_OBUF (AN0)
+    ----------------------------------------
+    Total                      5.640ns (4.295ns logic, 1.345ns route)
+                                       (76.2% logic, 23.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 26.00 secs
+Total CPU time to Xst completion: 26.41 secs
+ 
+--> 
+
+Total memory usage is 317364 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   29 (   0 filtered)
+Number of infos    :   45 (   0 filtered)
+

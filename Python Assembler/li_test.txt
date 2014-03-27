@@ -1,0 +1,11 @@
+Processor_Init
+li A 1
+
+Mouse_ISR
+idle
+
+Timer_ISR
+idle
+
+Mouse_Clicked_Timer
+idle
