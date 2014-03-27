@@ -34,6 +34,7 @@ module MouseTransceiver(
 	output reg [3:0] 	MouseStatus,		// needed to add reg status to do non-blocking assign
 	output reg [7:0] 	MouseX,
 	output reg [7:0] 	MouseY,
+	output reg [7:0]	MouseZ,
 	output 				SendInterrupt
 	/*
 	output wire			AN0, AN1, AN2, AN3,
@@ -45,6 +46,7 @@ module MouseTransceiver(
 	// X, Y Limits of Mouse Position e.g. VGA Screen with 160 x 120 resolution
 	parameter [7:0] MouseLimitX = 160;
 	parameter [7:0] MouseLimitY = 120;
+	parameter [7:0] MouseLimitZ = 255;
 	
 	/////////////////////////////////////////////////////////////////////
 	//TriState Signals
@@ -94,7 +96,7 @@ module MouseTransceiver(
 	//Instantiate the Transmitter module
 	wire 			SendByteToMouse;
 	wire 			ByteSentToMouse;
-	wire [7:0] 	ByteToSendToMouse;
+	wire [7:0] 		ByteToSendToMouse;
 	MouseTransmitter T(
 					//Standard Inputs
 					.RESET (RESET),
@@ -116,8 +118,8 @@ module MouseTransceiver(
 	///////////////////////////////////////////////////////
 	//Instantiate the Receiver module
 	wire 					ReadEnable;
-	wire [7:0] 			ByteRead;
-	wire [1:0] 			ByteErrorCode;
+	wire [7:0] 				ByteRead;
+	wire [1:0] 				ByteErrorCode;
 	wire 					ByteReady;
 	MouseReceiver R(
 							//Standard Inputs
@@ -139,6 +141,7 @@ module MouseTransceiver(
 	wire [7:0] 				MouseStatusRaw;
 	wire [7:0] 				MouseDxRaw;
 	wire [7:0] 				MouseDyRaw;
+	wire [7:0]				MouseDzRaw;
 	MouseMasterSM MSM(
 								//Standard Inputs
 								.RESET(RESET),
@@ -156,6 +159,7 @@ module MouseTransceiver(
 								.MOUSE_STATUS(MouseStatusRaw),
 								.MOUSE_DX(MouseDxRaw),
 								.MOUSE_DY(MouseDyRaw),
+								.MOUSE_DZ(MouseDzRaw),
 								.SEND_INTERRUPT(SendInterrupt)
 	);
 	/*
@@ -188,8 +192,10 @@ module MouseTransceiver(
 	//location of the mouse.
 	wire signed [8:0] MouseDx;
 	wire signed [8:0] MouseDy;
+	wire signed [8:0] MouseDz;
 	wire signed [8:0] MouseNewX;
 	wire signed [8:0] MouseNewY;
+	wire signed [8:0] MouseNewZ;
 	
 	//DX and DY are modified to take account of overflow and direction
 	assign MouseDx = (MouseStatusRaw[6]) ? (MouseStatusRaw[4] ? {MouseStatusRaw[4],8'h00} : {MouseStatusRaw[4],8'hFF} ) : {MouseStatusRaw[4],MouseDxRaw[7:0]};
@@ -217,8 +223,12 @@ module MouseTransceiver(
 	
 	*/
 	// calculate new mouse position
+	assign MouseDz = {MouseDzRaw[7],MouseDzRaw[7:0]};
+	
+	
 	assign MouseNewX = {1'b0,MouseX} + MouseDx;
 	assign MouseNewY = {1'b0,MouseY} + MouseDy;
+	assign MouseNewZ = {1'b0,MouseZ} + MouseDz;
 
 	always@(posedge CLK)
 		begin
@@ -227,6 +237,7 @@ module MouseTransceiver(
 					MouseStatus 	<= 0;
 					MouseX 			<= MouseLimitX/2;
 					MouseY 			<= MouseLimitY/2;
+					MouseZ 			<= MouseLimitZ/2;
 				end 
 			else if (SendInterrupt) 
 				begin
@@ -254,7 +265,14 @@ module MouseTransceiver(
 					else
 						MouseY 		<= MouseNewY[7:0];
 						
-				
+					//Z is modified based on DZ with limits on max and min
+					//Z wraps around, as this is a scroll wheel
+					if(MouseNewZ < 0)
+						MouseY 		<= MouseLimitZ;
+					else if(MouseNewZ > MouseLimitZ)
+						MouseZ 		<= 0;
+					else
+						MouseZ 		<= MouseNewZ[7:0];				
 				end
 		end
 

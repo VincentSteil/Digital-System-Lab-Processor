@@ -21,14 +21,14 @@
 module IO_Bus_Mouse(
     	//standard signals
 		input 			CLK,
-		input				RESET,
+		input			RESET,
 		//BUS signals
-		inout  [7:0]   BUS_DATA,
+		inout  [7:0]   	BUS_DATA,
 		input  [7:0] 	BUS_ADDR,
 		input  			BUS_WE,			// This signal goes high when the CPU wants to write to the IO device
 		// PS2 serial connections
-		inout				CLK_MOUSE,
-		inout				DATA_MOUSE,
+		inout			CLK_MOUSE,
+		inout			DATA_MOUSE,
 		// interrupt signals
 		output 			BUS_INTERRUPT_RAISE,
 		input 			BUS_INTERRUPT_ACK
@@ -37,6 +37,7 @@ module IO_Bus_Mouse(
 	wire	[3:0]		MouseStatus;
 	wire	[7:0]		MouseX;
 	wire	[7:0]		MouseY;
+	wire	[7:0]		MouseZ;
 
 
 	wire SendInterrupt;
@@ -52,6 +53,7 @@ module IO_Bus_Mouse(
 		.MouseStatus(MouseStatus),	
 		.MouseX(MouseX),
 		.MouseY(MouseY),
+		.MouseZ(MouseZ),
 		.SendInterrupt(SendInterrupt)
 	);
 
@@ -72,8 +74,8 @@ module IO_Bus_Mouse(
 	assign BUS_INTERRUPT_RAISE = Interrupt; 
 
 
-	parameter BaseAddr 	= 8'hA0;
-	parameter AddrWidth  = 2; 		// 4 x 8-bits memory
+	parameter BaseAddr		= 8'hA0;
+	parameter AddrWidth  	= 2; 		// 4 x 8-bits memory
 	
 	//Tristate
 	wire 	[7:0] 		BufferedBusData;
@@ -82,7 +84,7 @@ module IO_Bus_Mouse(
 	
 	//Only place data on the bus if the processor is NOT writing, and it is addressing this memory
 	assign BUS_DATA  			= (IOBusWE) ? Out : 8'hZZ;
-	assign BufferedBusData 	= BUS_DATA;
+	assign BufferedBusData 		= BUS_DATA;
 	
 	//Memory
 	reg [7:0] Mem [(2**AddrWidth)-1:0];
@@ -102,7 +104,8 @@ module IO_Bus_Mouse(
 			// Mouse status is only 4 bits long -> concat with 4 0 bits to get the full byte
 			Mem[0]	<= {4'b0,MouseStatus};
 			Mem[1]	<= MouseX;
-			Mem[2]	<=	MouseY;
+			Mem[2]	<= MouseY;
+			Mem[2]	<= MouseZ;
 			
 			if (CS)
 				begin
