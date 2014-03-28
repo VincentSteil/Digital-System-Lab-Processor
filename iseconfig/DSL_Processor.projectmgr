@@ -9,12 +9,11 @@
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/Processor_Top C:|Users|eskimu|Documents|GitHub|Digital-System-Lab-Processor|Processor_Top.v/CarSelect_MainFSM_0 - CarSelect_MainFSM/BLUE_CAR - IR_Transmitter_SM</ClosedNode>
          <ClosedNode>/Processor_Top C:|Users|eskimu|Documents|GitHub|Digital-System-Lab-Processor|Processor_Top.v/CarSelect_MainFSM_0 - CarSelect_MainFSM/GREEN_CAR - IR_Transmitter_SM</ClosedNode>
-         <ClosedNode>/Processor_Top C:|Users|eskimu|Documents|GitHub|Digital-System-Lab-Processor|Processor_Top.v/CarSelect_MainFSM_0 - CarSelect_MainFSM/RED_CAR - IR_Transmitter_SM</ClosedNode>
+         <ClosedNode>/Processor_Top C:|Users|eskimu|Documents|GitHub|Digital-System-Lab-Processor|Processor_Top.v/CarSelect_MainFSM_0 - CarSelect_MainFSM/RED_CAR - IR_Transmitter_SM/PulseGenerator - PulseGen</ClosedNode>
          <ClosedNode>/Processor_Top C:|Users|eskimu|Documents|GitHub|Digital-System-Lab-Processor|Processor_Top.v/CarSelect_MainFSM_0 - CarSelect_MainFSM/YELLOW_CAR - IR_Transmitter_SM</ClosedNode>
          <ClosedNode>/Processor_Top C:|Users|eskimu|Documents|GitHub|Digital-System-Lab-Processor|Processor_Top.v/MouseBus - IO_Bus_Mouse</ClosedNode>
          <ClosedNode>/Processor_Top C:|Users|eskimu|Documents|GitHub|Digital-System-Lab-Processor|Processor_Top.v/SevenSegBus - IO_Bus_SevenSeg</ClosedNode>
          <ClosedNode>/Processor_Top C:|Users|eskimu|Documents|GitHub|Digital-System-Lab-Processor|Processor_Top.v/VGAIOBus - VGABus</ClosedNode>
-         <ClosedNode>/Processor_Top C:|Users|eskimu|Documents|GitHub|Digital-System-Lab-Processor|Processor_Top.v/cpu - Processor</ClosedNode>
          <ClosedNode>/Processor_Top D:|DSL4|Digital-System-Lab-Processor-PS2|Processor_Top.v/CarSelect_MainFSM_0 - CarSelect_MainFSM</ClosedNode>
          <ClosedNode>/Processor_Top D:|DSL4|Digital-System-Lab-Processor-PS2|Processor_Top.v/CarSelect_MainFSM_0 - CarSelect_MainFSM/BLUE_CAR - IR_Transmitter_SM</ClosedNode>
          <ClosedNode>/Processor_Top D:|DSL4|Digital-System-Lab-Processor-PS2|Processor_Top.v/CarSelect_MainFSM_0 - CarSelect_MainFSM/GREEN_CAR - IR_Transmitter_SM</ClosedNode>
@@ -56,7 +55,9 @@
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
-      <SelectedItems/>
+      <SelectedItems>
+         <SelectedItem>ALU.v</SelectedItem>
+      </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000027d000000040101000100000000000000000000000064ffffffff0000008100000000000000040000008f00000001000000000000004a00000001000000000000006600000001000000000000013e0000000100000000</ViewHeaderState>
@@ -85,13 +86,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000c9000000010000000100000000000000000000000064ffffffff000000810000000000000001000000c90000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem></CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
@@ -145,12 +146,12 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000c9000000010000000100000000000000000000000064ffffffff000000810000000000000001000000c90000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
 </Project>
